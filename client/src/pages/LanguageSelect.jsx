@@ -18,10 +18,7 @@ export default function LanguageSelect() {
     <div style={{ minHeight: '100vh', background: '#000', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: 24 }}>
       <div style={{ width: '100%', maxWidth: 420 }}>
         <div style={{ textAlign: 'center', marginBottom: 40 }}>
-          <div style={{ width: 80, height: 80, borderRadius: 22, background: 'linear-gradient(135deg,#00FF88,#00cc6a)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 18px', boxShadow: '0 0 40px rgba(0,255,136,0.5)' }}>
-            <span style={{ fontSize: 40, fontWeight: 900, color: '#000' }}>N</span>
-          </div>
-          <h1 style={{ fontSize: 30, fontWeight: 900, letterSpacing: 2, marginBottom: 6 }}>NIKAT</h1>
+          <img src="/nikatlogo.png" alt="NIKAT" style={{ width: 130, height: 130, objectFit: 'contain', margin: '0 auto 8px', display: 'block' }} />
           <p style={{ color: '#888', fontSize: 15 }}>Choose your language / भाषा चुनें</p>
         </div>
 

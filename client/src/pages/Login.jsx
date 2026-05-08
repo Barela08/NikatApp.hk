@@ -47,10 +47,7 @@ export default function Login() {
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: 24, background: '#000' }}>
       <div style={{ width: '100%', maxWidth: 400 }}>
         <div style={{ textAlign: 'center', marginBottom: 40 }}>
-          <div style={{ width: 72, height: 72, borderRadius: 22, background: 'linear-gradient(135deg,#00FF88,#00cc6a)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px', boxShadow: '0 0 30px rgba(0,255,136,0.4)' }}>
-            <span style={{ fontSize: 36, fontWeight: 900, color: '#000' }}>N</span>
-          </div>
-          <h1 style={{ fontSize: 28, fontWeight: 900, letterSpacing: 2 }}>NIKAT</h1>
+          <img src="/nikatlogo.png" alt="NIKAT" style={{ width: 120, height: 120, objectFit: 'contain', margin: '0 auto 8px', display: 'block' }} />
           <p style={{ color: '#888', marginTop: 6, fontSize: 14 }}>
             {step === 'phone' ? 'Har dukaan, har service – ek jagah' : 'OTP sent to your number'}
           </p>

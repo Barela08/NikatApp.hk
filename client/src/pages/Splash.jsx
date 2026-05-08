@@ -21,11 +21,10 @@ export default function Splash() {
 
   return (
     <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: '#000', gap: 16 }}>
-      <div style={{ width: 90, height: 90, borderRadius: 24, background: 'linear-gradient(135deg,#00FF88,#00cc6a)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 0 40px rgba(0,255,136,0.5)', animation: 'pulse 1.5s infinite' }}>
-        <span style={{ fontSize: 44, fontWeight: 900, color: '#000' }}>N</span>
+      <div style={{ animation: 'pulse 1.5s infinite' }}>
+        <img src="/nikatlogo.png" alt="NIKAT" style={{ width: 160, height: 160, objectFit: 'contain' }} />
       </div>
-      <div style={{ textAlign: 'center' }}>
-        <h1 style={{ fontSize: 32, fontWeight: 900, letterSpacing: 3 }}>NIKAT</h1>
+      <div style={{ textAlign: 'center', marginTop: -8 }}>
         <p style={{ color: '#888', fontSize: 14, marginTop: 4 }}>Har dukaan, har service – ek jagah</p>
       </div>
       <div style={{ position: 'absolute', bottom: 40, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
