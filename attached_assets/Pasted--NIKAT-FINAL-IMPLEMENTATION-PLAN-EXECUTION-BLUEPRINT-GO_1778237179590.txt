@@ -1,0 +1,514 @@
+# 🚀 NIKAT – FINAL IMPLEMENTATION PLAN (EXECUTION BLUEPRINT)
+
+---
+
+# ⚠️ GOLDEN RULE
+
+DO NOT build everything together.
+
+Follow this order strictly:
+
+👉 Foundation → Core → Monetization → Security → Scale
+
+---
+
+# 🧱 PHASE 0: ENVIRONMENT + PROJECT SETUP (BLOCKER PHASE)
+
+---
+
+## 🎯 Goal:
+
+App MUST run without crash
+
+---
+
+## Tasks:
+
+* Fix Flutter setup
+* Fix Android Gradle (8+)
+* Add Firebase project
+* Add:
+
+  * google-services.json
+  * GoogleService-Info.plist
+* Enable:
+
+  * Auth
+  * Firestore
+  * FCM
+
+---
+
+## Run:
+
+flutter clean
+flutter pub get
+flutter run
+
+---
+
+## ✅ Success:
+
+* No white screen
+* App opens
+
+---
+
+# 🔐 PHASE 1: AUTH SYSTEM
+
+---
+
+## 🎯 Goal:
+
+OTP login fully working
+
+---
+
+## Tasks:
+
+* Phone input UI
+* OTP send/verify
+* Firebase Auth integration
+* Session persistence
+
+---
+
+## ✅ Success:
+
+* Login works
+* Auto-login works
+
+---
+
+# 📝 PHASE 2: USER + PROVIDER REGISTRATION
+
+---
+
+## USER:
+
+* Name + City → save in Firestore
+
+---
+
+## PROVIDER:
+
+Step 1: Basic details
+Step 2: Aadhaar verification (mock first)
+Step 3: Save provider data
+
+---
+
+## ✅ Success:
+
+* Data stored correctly
+* Provider flow works
+
+---
+
+# 🪪 PHASE 3: AADHAAR VERIFICATION SYSTEM
+
+---
+
+## 🎯 Goal:
+
+KYC working
+
+---
+
+## Step 1 (DEV MODE):
+
+* Mock verification (always success)
+
+---
+
+## Step 2 (PROD):
+
+* Integrate KYC API:
+
+  * Surepass / Karza / Signzy
+
+---
+
+## Flow:
+
+App → Cloud Function → API → Response
+
+---
+
+## ✅ Success:
+
+* verified / failed status working
+
+---
+
+# 💰 PHASE 4: PAYMENT SYSTEM
+
+---
+
+## 🎯 Goal:
+
+Payment unlock logic working
+
+---
+
+## Step 1:
+
+* UPI deep link
+
+---
+
+## Step 2 (upgrade):
+
+* Razorpay integration
+
+---
+
+## Backend:
+
+* Verify payment via Cloud Function
+* Update:
+
+  * isActive (provider)
+  * isSubscribed (user)
+
+---
+
+## ✅ Success:
+
+* Payment success → DB updated
+
+---
+
+# 🏪 PHASE 5: PROVIDER ACTIVATION LOGIC
+
+---
+
+## RULE:
+
+IF:
+
+* KYC verified
+* Payment success
+
+↓
+
+isActive = true
+
+↓
+
+Shop visible
+
+---
+
+## ✅ Success:
+
+* Non-paid → hidden
+* Paid → visible
+
+---
+
+# 🏠 PHASE 6: HOME + CATEGORY SYSTEM
+
+---
+
+## Tasks:
+
+* Category grid
+* Search bar
+* Nearby shops
+
+---
+
+## Backend:
+
+* Firestore query:
+
+  * category filter
+  * location
+
+---
+
+## ✅ Success:
+
+* Shops load correctly
+
+---
+
+# 🏪 PHASE 7: SHOP LIST + DETAIL
+
+---
+
+## Tasks:
+
+* Shop cards
+* Shop detail screen
+
+---
+
+## IMPORTANT:
+
+* DO NOT expose phone
+
+---
+
+## ✅ Success:
+
+* UI matches PRD
+* Data loads
+
+---
+
+# 🔒 PHASE 8: LOCK SYSTEM (CRITICAL)
+
+---
+
+## RULE:
+
+IF user.isSubscribed == false
+
+↓
+
+* Hide phone
+* Disable call/WhatsApp
+
+---
+
+## Backend:
+
+Use Cloud Function:
+
+getContact(providerId, userId)
+
+---
+
+## ✅ Success:
+
+* Free users blocked
+* Paid users unlocked
+
+---
+
+# 💳 PHASE 9: USER SUBSCRIPTION SYSTEM
+
+---
+
+## Tasks:
+
+* Plans UI
+* Payment integration
+* Subscription DB update
+
+---
+
+## Logic:
+
+payment success →
+isSubscribed = true
+
+---
+
+## ✅ Success:
+
+* Unlock works
+
+---
+
+# 📦 PHASE 10: ORDER SYSTEM
+
+---
+
+## Tasks:
+
+* Service select
+* Address input
+* Save order
+
+---
+
+## ✅ Success:
+
+* Orders stored
+
+---
+
+# 🚚 PHASE 11: LIVE TRACKING
+
+---
+
+## Tasks:
+
+* Order status updates
+* Timeline
+
+---
+
+## Backend:
+
+* Firestore real-time listeners
+
+---
+
+## ✅ Success:
+
+* Live updates working
+
+---
+
+# 🔔 PHASE 12: NOTIFICATIONS
+
+---
+
+## Tasks:
+
+* FCM setup
+* Token save
+* Send notifications
+
+---
+
+## ✅ Success:
+
+* Notifications received
+
+---
+
+# 📊 PHASE 13: ANALYTICS
+
+---
+
+## Tasks:
+
+* Track clicks
+* Track conversions
+
+---
+
+## Tool:
+
+* Firebase Analytics
+
+---
+
+## ✅ Success:
+
+* Data visible
+
+---
+
+# 📶 PHASE 14: OFFLINE SUPPORT
+
+---
+
+## Tasks:
+
+* Cache data
+* Retry system
+
+---
+
+## ✅ Success:
+
+* App works in low network
+
+---
+
+# 🔐 PHASE 15: SECURITY HARDENING
+
+---
+
+## Tasks:
+
+* Firestore rules
+* Role-based access
+* Hide sensitive data
+
+---
+
+## MUST:
+
+* No phone in public data
+* No Aadhaar raw storage
+
+---
+
+## ✅ Success:
+
+* No data leaks
+
+---
+
+# ⚡ PHASE 16: PERFORMANCE OPTIMIZATION
+
+---
+
+## Tasks:
+
+* Lazy loading
+* Image compression
+* Reduce rebuilds
+
+---
+
+## ✅ Success:
+
+* Smooth UI
+
+---
+
+# 🧪 PHASE 17: FULL TESTING
+
+---
+
+Test:
+
+* Auth
+* Payment
+* KYC
+* Lock system
+* Orders
+
+---
+
+Fix ALL bugs
+
+---
+
+# 📱 PHASE 18: BUILD APK
+
+---
+
+Run:
+
+flutter clean
+flutter pub get
+flutter build apk --release
+
+---
+
+# 🔁 FINAL RULE (CRITICAL)
+
+---
+
+IF ANY ERROR:
+
+* Fix root cause
+* Rebuild
+* Retest
+
+---
+
+DO NOT STOP
+
+---
+
+# ✅ FINAL SUCCESS
+
+* No crashes
+* All features working
+* Secure backend
+* APK generated
+* Ready for Play Store
+
+---
+
+END IMPLEMENTATION PLAN

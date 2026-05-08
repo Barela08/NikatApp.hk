@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Star, MapPin, Phone, MessageCircle, Lock, CheckCircle } from 'lucide-react';
+import { ArrowLeft, Star, MapPin, Phone, MessageCircle, Lock, CheckCircle, Navigation } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import api from '../utils/api';
 import toast from 'react-hot-toast';
@@ -8,7 +8,7 @@ import toast from 'react-hot-toast';
 export default function ProviderDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { user, refreshUser } = useAuth();
+  const { user } = useAuth();
   const [provider, setProvider] = useState(null);
   const [loading, setLoading] = useState(true);
   const [viewData, setViewData] = useState(null);
@@ -36,11 +36,10 @@ export default function ProviderDetail() {
       setViewData(data);
       if (data.remaining_free_views !== undefined && data.remaining_free_views >= 0) {
         if (data.remaining_free_views === 0) toast('Last free view used!', { icon: '⚠️' });
+        else if (data.remaining_free_views <= 2) toast(`${data.remaining_free_views} free views remaining`, { icon: '👀' });
       }
     } catch (err) {
-      if (err.requires_subscription) {
-        setViewError(err);
-      }
+      if (err.requires_subscription) setViewError(err);
     }
   };
 
@@ -54,22 +53,31 @@ export default function ProviderDetail() {
     } catch (err) { toast.error(err.message); } finally { setBookingLoading(false); }
   };
 
-  if (loading) return <div style={{ padding: 16 }}><div className="skeleton" style={{ height: 200, borderRadius: 16 }} /></div>;
+  if (loading) return (
+    <div style={{ padding: 16 }}>
+      <div className="skeleton" style={{ height: 200, borderRadius: 16, marginBottom: 12 }} />
+      <div className="skeleton" style={{ height: 80, borderRadius: 16, marginBottom: 12 }} />
+      <div className="skeleton" style={{ height: 120, borderRadius: 16 }} />
+    </div>
+  );
 
   if (viewError) return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: 24, textAlign: 'center' }}>
-      <div style={{ fontSize: 48, marginBottom: 16 }}>🔒</div>
-      <h2 style={{ marginBottom: 8 }}>Subscription Required</h2>
-      <p style={{ color: '#888', marginBottom: 8 }}>You've used all {viewError.limit} free views.</p>
-      <p style={{ color: '#888', marginBottom: 24, fontSize: 13 }}>Subscribe to unlock unlimited access to all service providers.</p>
-      <button className="btn-primary" onClick={() => navigate('/subscribe')}>View Plans</button>
-      <button className="btn-secondary" style={{ marginTop: 10 }} onClick={() => navigate(-1)}>Go Back</button>
+      <div style={{ width: 90, height: 90, borderRadius: '50%', background: 'rgba(0,255,136,0.1)', border: '2px solid rgba(0,255,136,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px', fontSize: 40 }}>🔒</div>
+      <h2 style={{ marginBottom: 8, fontSize: 22 }}>Subscription Required</h2>
+      <p style={{ color: '#888', marginBottom: 6, lineHeight: 1.6 }}>You've used all {viewError.limit} free views.</p>
+      <p style={{ color: '#555', marginBottom: 28, fontSize: 13 }}>Subscribe to unlock unlimited access to all service providers near you.</p>
+      <div style={{ display: 'flex', gap: 10, width: '100%', maxWidth: 320 }}>
+        <button className="btn-secondary" style={{ flex: 1 }} onClick={() => navigate(-1)}>Back</button>
+        <button className="btn-primary" style={{ flex: 2 }} onClick={() => navigate('/subscribe')}>View Plans</button>
+      </div>
     </div>
   );
 
   if (!provider) return null;
 
   const contactUnlocked = viewData?.success && !viewError;
+  const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${provider.latitude},${provider.longitude}`;
 
   return (
     <div style={{ paddingBottom: 80 }}>
@@ -97,38 +105,78 @@ export default function ProviderDetail() {
                 <div style={{ display: 'flex', alignItems: 'center', gap: 3 }}>
                   <Star size={13} fill="#FFD700" color="#FFD700" />
                   <span style={{ fontWeight: 700 }}>{parseFloat(provider.rating || 0).toFixed(1)}</span>
-                  <span style={{ color: '#888', fontSize: 12 }}>({provider.review_count || 0} reviews)</span>
+                  <span style={{ color: '#888', fontSize: 12 }}>({provider.review_count || 0})</span>
                 </div>
-                <span style={{ color: provider.is_online ? '#00FF88' : '#888', fontSize: 12 }}>● {provider.is_online ? 'Open Now' : 'Closed'}</span>
+                <span style={{ color: provider.is_online ? '#00FF88' : '#555', fontSize: 12 }}>● {provider.is_online ? 'Open Now' : 'Closed'}</span>
               </div>
             </div>
           </div>
 
           {provider.description && <p style={{ color: '#ccc', fontSize: 14, lineHeight: 1.6, marginBottom: 12 }}>{provider.description}</p>}
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: provider.city ? 8 : 0 }}>
-            <MapPin size={13} color="#00FF88" />
-            <span style={{ color: '#888', fontSize: 13 }}>{provider.address}</span>
-          </div>
+          {provider.address && (
+            <div style={{ display: 'flex', alignItems: 'flex-start', gap: 6, marginBottom: 14 }}>
+              <MapPin size={13} color="#00FF88" style={{ marginTop: 2, flexShrink: 0 }} />
+              <span style={{ color: '#888', fontSize: 13 }}>{provider.address}</span>
+            </div>
+          )}
 
-          <div style={{ borderTop: '1px solid #222', marginTop: 14, paddingTop: 14 }}>
-            <p style={{ color: '#888', fontSize: 12, marginBottom: 10 }}>Contact</p>
+          <div style={{ borderTop: '1px solid #222', paddingTop: 14 }}>
             {contactUnlocked ? (
-              <div style={{ display: 'flex', gap: 10 }}>
-                <a href={`tel:${provider.phone}`} style={{ flex: 1 }}>
-                  <button className="btn-secondary btn-sm" style={{ width: '100%', gap: 6 }}><Phone size={15} color="#00FF88" />Call</button>
-                </a>
-                {provider.whatsapp && (
-                  <a href={`https://wa.me/${provider.whatsapp?.replace(/\D/g, '')}`} target="_blank" rel="noreferrer" style={{ flex: 1 }}>
-                    <button className="btn-secondary btn-sm" style={{ width: '100%', gap: 6 }}><MessageCircle size={15} color="#25D366" />WhatsApp</button>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+                <p style={{ color: '#888', fontSize: 12, marginBottom: 2 }}>Contact</p>
+                <div style={{ display: 'flex', gap: 8 }}>
+                  <a href={`tel:${provider.phone}`} style={{ flex: 1 }}>
+                    <button className="btn-secondary btn-sm" style={{ width: '100%', gap: 6, height: 44 }}>
+                      <Phone size={15} color="#00FF88" /> Call
+                    </button>
                   </a>
-                )}
+                  {provider.whatsapp ? (
+                    <a href={`https://wa.me/${provider.whatsapp?.replace(/\D/g, '')}`} target="_blank" rel="noreferrer" style={{ flex: 1 }}>
+                      <button className="btn-secondary btn-sm" style={{ width: '100%', gap: 6, height: 44, borderColor: '#25D36666' }}>
+                        <MessageCircle size={15} color="#25D366" /> WhatsApp
+                      </button>
+                    </a>
+                  ) : (
+                    <a href={`https://wa.me/${provider.phone?.replace(/\D/g, '')}`} target="_blank" rel="noreferrer" style={{ flex: 1 }}>
+                      <button className="btn-secondary btn-sm" style={{ width: '100%', gap: 6, height: 44, borderColor: '#25D36666' }}>
+                        <MessageCircle size={15} color="#25D366" /> WhatsApp
+                      </button>
+                    </a>
+                  )}
+                  <a href={mapsUrl} target="_blank" rel="noreferrer">
+                    <button className="btn-secondary btn-sm" style={{ gap: 6, height: 44, padding: '0 14px' }}>
+                      <Navigation size={15} color="#4A90E2" />
+                    </button>
+                  </a>
+                </div>
               </div>
             ) : (
-              <div className="lock-overlay">
-                <Lock size={16} color="#888" />
-                <span>XXXXXXX</span>
-                <span style={{ marginLeft: 'auto', color: '#555', fontSize: 11 }}>Subscribe to unlock</span>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+                <p style={{ color: '#888', fontSize: 12 }}>Contact</p>
+                <div style={{ padding: '14px 16px', background: 'rgba(255,255,255,0.03)', borderRadius: 12, border: '1px dashed #333', display: 'flex', alignItems: 'center', gap: 12 }}>
+                  <Lock size={18} color="#555" />
+                  <div style={{ flex: 1 }}>
+                    <p style={{ color: '#555', fontSize: 15, letterSpacing: 4, fontWeight: 700 }}>XXXXXXX</p>
+                    <p style={{ color: '#444', fontSize: 11, marginTop: 2 }}>Subscribe to see number</p>
+                  </div>
+                </div>
+                <div style={{ display: 'flex', gap: 8 }}>
+                  <button className="btn-secondary btn-sm" style={{ flex: 1, height: 44, gap: 6, opacity: 0.4 }} disabled>
+                    <Phone size={15} /> Call
+                  </button>
+                  <button className="btn-secondary btn-sm" style={{ flex: 1, height: 44, gap: 6, opacity: 0.4 }} disabled>
+                    <MessageCircle size={15} color="#25D366" /> WhatsApp
+                  </button>
+                  <a href={mapsUrl} target="_blank" rel="noreferrer">
+                    <button className="btn-secondary btn-sm" style={{ gap: 6, height: 44, padding: '0 14px' }}>
+                      <Navigation size={15} color="#4A90E2" />
+                    </button>
+                  </a>
+                </div>
+                <button className="btn-primary" onClick={() => navigate('/subscribe')} style={{ gap: 8 }}>
+                  <Lock size={16} /> Unlock to Contact
+                </button>
               </div>
             )}
           </div>
@@ -156,7 +204,7 @@ export default function ProviderDetail() {
         )}
 
         {provider.reviews?.length > 0 && (
-          <div>
+          <div style={{ marginBottom: 12 }}>
             <h3 className="section-title">Reviews</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
               {provider.reviews.map(r => (
@@ -172,7 +220,9 @@ export default function ProviderDetail() {
           </div>
         )}
 
-        <button className="btn-primary" style={{ marginTop: 16 }} onClick={() => setShowBooking(true)}>Book Service</button>
+        {provider.services?.length > 0 && (
+          <button className="btn-primary" onClick={() => setShowBooking(true)}>Book Service</button>
+        )}
       </div>
 
       {showBooking && (

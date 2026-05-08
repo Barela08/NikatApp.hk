@@ -1,0 +1,340 @@
+# 🚀 NIKAT – FRONTEND GUIDELINES (PRODUCTION READY)
+
+---
+
+# 🎯 1. CORE FRONTEND PRINCIPLES
+
+* UI MUST be simple (no clutter)
+* Max 3–5 actions per screen
+* One-hand usage possible
+* Fast loading (low internet)
+* Icons > text
+* Large clickable areas (min 48px)
+
+---
+
+# 🎨 2. DESIGN SYSTEM
+
+---
+
+## COLORS
+
+* Background: #000000 (Pure Black)
+* Primary: #00FF88 (Neon Green)
+* Text: #FFFFFF (White)
+* Secondary: Grey (#888888)
+
+---
+
+## BUTTON STYLE
+
+* Rounded (12–16px radius)
+* Glow effect (neon green shadow)
+* Height: 48px minimum
+* Full-width for primary actions
+
+---
+
+## TYPOGRAPHY
+
+* Font size:
+
+  * Title: 18–22
+  * Body: 14–16
+* Bold headings
+* Avoid long text
+
+---
+
+# 🧭 3. NAVIGATION STRUCTURE
+
+---
+
+## FLOW:
+
+Splash
+→ Language
+→ Role
+→ Login
+→ Home
+→ Category
+→ Shop
+→ Action
+
+---
+
+## RULES:
+
+* No deep navigation (>3 levels)
+* Back button always visible
+* Avoid complex menus
+
+---
+
+# 📱 4. SCREEN-WISE UI GUIDELINES
+
+---
+
+## 🌐 LANGUAGE SCREEN
+
+* Full screen buttons
+* Flags + language name
+* Center aligned
+* 3–6 options max
+
+---
+
+## 👤 ROLE SCREEN
+
+* 2 BIG cards:
+
+  * User
+  * Provider
+
+---
+
+## 🔐 LOGIN SCREEN
+
+* Phone input (large)
+* “Get OTP” button
+* OTP auto focus
+
+---
+
+## 🏠 HOME SCREEN
+
+---
+
+### Layout:
+
+* Top: App name + Add Shop button
+* Middle: Category grid (2 columns)
+* Bottom: Nearby shops
+
+---
+
+### CATEGORY CARD:
+
+* Icon (big)
+* Label below
+* Tap area large
+
+---
+
+## 🏪 SHOP LIST
+
+---
+
+### CARD DESIGN:
+
+Each card must include:
+
+* Shop Name (bold)
+* Rating ⭐
+* Distance
+* Premium badge
+
+---
+
+### ACTION BUTTONS:
+
+* Call 📞
+* WhatsApp 💬
+
+---
+
+## 🔒 LOCK STATE UI (CRITICAL)
+
+---
+
+IF user NOT subscribed:
+
+* Phone = XXXXXXX
+* Show 🔒 icon
+* Buttons disabled
+
+---
+
+### SHOW:
+
+“Unlock to Contact”
+
+↓
+
+Clickable button → Subscription screen
+
+---
+
+## 📄 SHOP DETAIL SCREEN
+
+---
+
+### STRUCTURE:
+
+* Shop name (top)
+* Rating
+* Buttons:
+
+  * Call
+  * WhatsApp
+  * Directions
+
+---
+
+# ⚡ 5. LOADING SYSTEM (VERY IMPORTANT)
+
+---
+
+## SKELETON LOADING
+
+* Grey placeholder cards
+* Shimmer animation
+* No blank screen EVER
+
+---
+
+## NETWORK SLOW:
+
+* Show top progress bar
+* Optional: “Loading…”
+
+---
+
+# ❌ NEVER DO:
+
+* White screen
+* Spinner only loading
+
+---
+
+# 📶 6. OFFLINE UI
+
+---
+
+IF no internet:
+
+* Show message:
+  “Internet check kare”
+* Show retry button
+
+---
+
+# ⚠️ 7. ERROR UI
+
+---
+
+No data:
+“Koi shop available nahi hai”
+
+Payment fail:
+“Payment failed, try again”
+
+---
+
+# 💳 8. SUBSCRIPTION UI
+
+---
+
+## DESIGN:
+
+* Card layout
+* Price + duration
+* Highlight best plan
+
+---
+
+## BUTTON:
+
+“Buy Now”
+
+---
+
+# 🏪 9. PROVIDER UI
+
+---
+
+* Simple form
+* Step-by-step
+* No long forms
+
+---
+
+## FLOW:
+
+Details → Aadhaar → Payment
+
+---
+
+# 👁️ 10. ILLITERATE MODE (CRITICAL)
+
+---
+
+* Use icons everywhere
+* Avoid text-heavy screens
+* Use colors to guide actions
+
+Example:
+🔧 Electrician
+🚰 Tanker
+
+---
+
+# ⚡ 11. PERFORMANCE RULES
+
+---
+
+* Use lazy loading
+* Optimize images
+* Avoid heavy animations
+* Use const widgets (Flutter)
+
+---
+
+# 🔐 12. SECURITY UI RULES
+
+---
+
+* NEVER show phone number directly
+* Fetch only after subscription
+* Mask sensitive data
+
+---
+
+# 🧪 13. TESTING CHECKLIST
+
+---
+
+Every screen must:
+
+* Load fast
+* Work offline fallback
+* Handle errors
+* Work on small screens
+
+---
+
+# 🚫 14. COMMON MISTAKES (AVOID)
+
+---
+
+* Too many buttons ❌
+* Small clickable area ❌
+* Text-heavy UI ❌
+* No loading state ❌
+* Direct data exposure ❌
+
+---
+
+# 🎯 FINAL GOAL
+
+Frontend must feel:
+
+* Simple
+* Fast
+* Trustworthy
+* Easy for rural users
+* Clean and modern
+
+---
+
+END FRONTEND GUIDELINES

@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { User, MapPin, Bell, Shield, LogOut, Crown, ChevronRight, RefreshCw } from 'lucide-react';
+import { User, MapPin, Bell, Shield, LogOut, Crown, ChevronRight, Globe } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { useLocation } from '../context/LocationContext';
+import { useLanguage } from '../context/LanguageContext';
 import toast from 'react-hot-toast';
 
 export default function Profile() {
   const { user, logout, refreshUser } = useAuth();
   const { location, detectLocation, locationLoading } = useLocation();
+  const { language, LANGUAGES } = useLanguage();
   const navigate = useNavigate();
   const [refreshing, setRefreshing] = useState(false);
+  const currentLang = LANGUAGES.find(l => l.code === language) || LANGUAGES[0];
 
   const handleLogout = () => { logout(); navigate('/login'); };
 
@@ -18,6 +21,7 @@ export default function Profile() {
   const items = [
     { icon: Crown, label: 'My Subscription', sub: user?.has_subscription ? `Active until ${new Date(user.subscription_end).toLocaleDateString()}` : 'No active plan', action: () => navigate('/subscribe'), color: '#00FF88' },
     { icon: MapPin, label: 'Update Location', sub: location?.city || 'Not set', action: handleRefreshLocation },
+    { icon: Globe, label: 'Language', sub: `${currentLang?.flag} ${currentLang?.nativeName || 'English'}`, action: () => navigate('/language') },
     ...(user?.role === 'provider' || user?.role === 'admin' ? [{ icon: User, label: 'My Store', sub: user?.shop_name || 'Manage your store', action: () => navigate('/provider-dashboard') }] : []),
     ...(user?.role === 'admin' ? [{ icon: Shield, label: 'Admin Panel', sub: 'Manage users & subscriptions', action: () => navigate('/admin'), color: '#FF6B6B' }] : []),
   ];

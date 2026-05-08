@@ -83,7 +83,7 @@ router.post('/:id/view', verifyToken, async (req, res) => {
 });
 
 router.post('/', verifyToken, requireProvider, async (req, res) => {
-  const { shop_name, description, category_id, address, latitude, longitude, city, phone, whatsapp } = req.body;
+  const { shop_name, description, category_id, address, latitude, longitude, city, phone, whatsapp, kyc_status } = req.body;
   try {
     const hasSub = await pool.query(
       `SELECT id FROM subscriptions WHERE user_id=$1 AND status IN ('active','trial') AND end_date > NOW()`, [req.user.id]
@@ -95,10 +95,12 @@ router.post('/', verifyToken, requireProvider, async (req, res) => {
     if (existing.rows.length > 0) {
       return res.status(400).json({ success: false, message: 'You already have a store' });
     }
+    const kycVerified = kyc_status === 'verified';
     const result = await pool.query(
-      `INSERT INTO providers (user_id, shop_name, description, category_id, address, latitude, longitude, city, phone, whatsapp)
-       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10) RETURNING *`,
-      [req.user.id, shop_name, description, category_id, address, latitude, longitude, city, phone, whatsapp]
+      `INSERT INTO providers (user_id, shop_name, description, category_id, address, latitude, longitude, city, phone, whatsapp, kyc_status, is_verified)
+       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12) RETURNING *`,
+      [req.user.id, shop_name, description, category_id, address, latitude, longitude, city, phone, whatsapp,
+       kyc_status || 'pending', kycVerified]
     );
     res.json({ success: true, provider: result.rows[0] });
   } catch (err) {

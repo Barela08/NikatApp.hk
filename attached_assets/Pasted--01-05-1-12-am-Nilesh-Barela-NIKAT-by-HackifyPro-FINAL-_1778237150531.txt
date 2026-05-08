@@ -1,0 +1,1927 @@
+[01/05, 1:12 am] Nilesh Barela: # 🚀 NIKAT (by HackifyPro) – FINAL PRD (UPDATED WITH AADHAAR VERIFICATION)
+
+---
+
+# 🧠 1. PRODUCT OVERVIEW
+
+App Name: NIKAT
+Tagline: “Har dukaan, har service – ek jagah”
+
+A hyperlocal platform connecting users with nearby shops & services.
+
+📌 Based on full system shown in PDF (Intro + Solution + Flow) 
+
+---
+
+# 🎯 2. CORE GOAL
+
+* Simple UI
+* Fast performance
+* Illiterate-friendly
+* Secure & trusted platform
+* Fraud-free provider onboarding
+
+---
+
+# 🧭 3. APP FLOW (FINAL)
+
+App Open
+→ Language Select
+→ Role Select
+→ OTP Login
+→ Registration
+→ Home
+→ Category
+→ Shop Listing
+→ Shop Detail
+→ Contact / Order
+
+---
+
+# 🌐 4. LANGUAGE SYSTEM
+
+* Multi-language (All India)
+* UI translated only
+* Names NOT translated
+
+📌 PDF page 4
+
+---
+
+# 👁️ 5. ILLITERATE UI
+
+* Big icons
+* Minimal text
+* Easy navigation
+
+📌 PDF page 5
+
+---
+
+# 🔐 6. AUTH SYSTEM
+
+* Phone OTP login (Firebase)
+* Secure session
+
+📌 PDF page 7
+
+---
+
+# 📝 7. REGISTRATION SYSTEM
+
+---
+
+## 👤 USER
+
+* Name
+* City
+
+---
+
+## 🏪 PROVIDER (UPDATED – KYC REQUIRED)
+
+Fields:
+
+* Name
+* Category
+* Location
+* Shop Details
+
+---
+
+# 🪪 8. AADHAAR VERIFICATION SYSTEM (NEW – CRITICAL)
+
+---
+
+## WHY:
+
+* Prevent fraud
+* Avoid fake listings
+* Build trust
+
+---
+
+## FLOW:
+
+Provider Registration
+↓
+Upload Aadhaar Card (Front + Back OR number-based verification)
+↓
+Enter Aadhaar Number
+↓
+OTP Verification (via Aadhaar API / KYC service)
+
+---
+
+## VALIDATION:
+
+IF Aadhaar verified:
+
+→ provider.isVerified = true
+
+ELSE:
+
+→ Reject registration
+
+---
+
+## IMPORTANT RULES:
+
+* One Aadhaar = One provider account
+* Store only encrypted Aadhaar reference (NOT raw number)
+* Follow privacy rules
+
+---
+
+# 💰 9. PROVIDER ACTIVATION FLOW (UPDATED)
+
+---
+
+NO ADMIN APPROVAL
+
+Provider Flow:
+
+Register
+→ Aadhaar Verified
+→ Payment Done
+→ Shop LIVE instantly
+
+---
+
+## CONDITIONS:
+
+IF Aadhaar NOT verified → ❌ cannot proceed
+IF Payment NOT done → ❌ not visible
+
+---
+
+## FINAL LOGIC:
+
+IF (verified == true AND payment == success)
+
+→ isActive = true
+→ shop visible
+
+---
+
+# 🏠 10. HOME SCREEN
+
+* Categories
+* Search
+* Nearby shops
+
+📌 PDF page 9
+
+---
+
+# 🏪 11. SHOP LISTING
+
+* Name
+* Rating
+* Distance
+* Premium badge
+
+📌 PDF page 10
+
+---
+
+# 📄 12. SHOP DETAIL
+
+* Call
+* WhatsApp
+* Directions
+* Reviews
+
+📌 PDF pages 13–15
+
+---
+
+# 🔒 13. FREEMIUM LOCK SYSTEM
+
+---
+
+## FREE USER:
+
+* Can view shops
+* Cannot see number
+* Cannot call
+
+UI:
+
+* XXXXXXX
+* 🔒 icon
+* “Unlock to Contact”
+
+---
+
+## PAID USER:
+
+* Full access
+
+---
+
+# 💳 14. SUBSCRIPTION SYSTEM
+
+Plans:
+
+₹49 → 1 Month
+₹99 → 2 Months
+₹149 → 4 Months
+₹249 → 6 Months
+₹399 → 12 Months
+
+---
+
+# ⭐ 15. PREMIUM PROVIDERS
+
+* Top listing
+* Highlight
+* Badge
+
+---
+
+# 📦 16. ORDER SYSTEM
+
+* Select service
+* Enter address
+* Payment
+
+📌 PDF page 12
+
+---
+
+# 🚚 17. TRACKING
+
+* Real-time updates
+
+📌 PDF page 16
+
+---
+
+# 🔔 18. NOTIFICATIONS
+
+📌 PDF page 17
+
+---
+
+# 📊 19. ANALYTICS
+
+📌 PDF page 21
+
+---
+
+# 🧯 20. CRASH REPORTING
+
+📌 PDF page 20
+
+---
+
+# 📶 21. OFFLINE SUPPORT
+
+📌 PDF page 22
+
+---
+
+# ⚙️ 22. TECH STACK
+
+Frontend:
+
+* Flutter
+
+Backend:
+
+* Firebase
+
+Database:
+
+* Firestore
+
+---
+
+# 🗄️ 23. DATABASE (UPDATED)
+
+---
+
+## USERS
+
+* id
+* name
+* phone
+* role
+* isSubscribed
+
+---
+
+## PROVIDERS
+
+* id
+* userId
+* shopName
+* category
+* location
+* isVerified (AADHAAR)
+* isActive
+* isPremium
+
+---
+
+## PAYMENTS
+
+* id
+* userId
+* amount
+* status
+
+---
+
+# 🔐 24. SECURITY (VERY IMPORTANT)
+
+---
+
+* Aadhaar data encrypted
+* No raw storage
+* Backend validation only
+* Role-based access
+
+---
+
+# ⚠️ FRAUD PREVENTION
+
+* Aadhaar verification mandatory
+* Duplicate prevention
+* Rate limiting
+
+---
+
+# 🎯 FINAL SUCCESS
+
+* No fake providers
+* Trusted platform
+* Instant onboarding
+* Secure system
+
+---
+
+END PRD
+[01/05, 1:31 am] Nilesh Barela: # 🚀 NIKAT – FINAL APP FLOW (UPDATED WITH AADHAAR + PAYMENT + LOCK SYSTEM)
+
+---
+
+# 🟢 1. APP START FLOW
+
+App Open
+↓
+Splash Screen (Logo + loading)
+
+↓
+
+## 🌐 Language Selection Screen
+
+* Hindi 🇮🇳
+* English 🇬🇧
+* Marathi 🟠
+* More languages
+
+↓
+
+User selects language
+↓
+Language saved (local storage)
+↓
+
+---
+
+# 🟢 2. ROLE SELECTION
+
+Screen shows:
+
+* 👤 User
+* 🏪 Service Provider
+
+↓
+
+User selects role
+↓
+
+Go to Login
+
+---
+
+# 🔐 3. AUTH FLOW (OTP)
+
+Enter phone number
+↓
+Send OTP
+↓
+Enter OTP
+↓
+Verify
+
+---
+
+## LOGIC:
+
+IF existing → Home
+IF new → Registration
+
+---
+
+# 📝 4. REGISTRATION FLOW
+
+---
+
+## 👤 USER
+
+* Name
+* City
+
+↓
+
+Save → Home
+
+---
+
+## 🏪 PROVIDER (UPDATED FLOW)
+
+---
+
+### STEP 1: BASIC DETAILS
+
+* Name
+* Category
+* Location
+* Shop details
+
+↓
+
+Next
+
+---
+
+### STEP 2: AADHAAR VERIFICATION (MANDATORY)
+
+* Enter Aadhaar number
+* OTP verification
+
+↓
+
+IF verified → continue
+IF failed → block
+
+---
+
+### STEP 3: PAYMENT (ACTIVATION)
+
+* Show plans (₹49 – ₹399)
+* Select plan
+* UPI payment
+
+↓
+
+IF payment success:
+
+* isVerified = true
+* isActive = true
+
+↓
+
+Shop goes LIVE instantly
+
+---
+
+### STEP 4: FINAL STATUS
+
+* “Your shop is now live”
+
+---
+
+# 🏠 5. HOME SCREEN
+
+* Search bar
+* Category grid
+* Nearby shops
+
+↓
+
+User clicks category
+
+---
+
+# 🏪 6. SHOP LIST SCREEN
+
+Each shop shows:
+
+* Name
+* Rating ⭐
+* Distance
+* Premium badge
+
+↓
+
+User clicks shop
+
+---
+
+# 📄 7. SHOP DETAIL SCREEN
+
+---
+
+## WHAT USER CAN SEE:
+
+### FREE USER:
+
+* Shop name ✅
+* Rating ✅
+* Category ✅
+
+BUT:
+
+* Phone ❌ (XXXXXXX)
+* Address ❌
+* Call ❌
+* WhatsApp ❌
+
+---
+
+## UI:
+
+* 🔒 Lock icon
+* “Unlock to Contact” button
+
+---
+
+# 🔒 8. LOCK SYSTEM FLOW
+
+User clicks:
+
+* Call
+* WhatsApp
+
+↓
+
+Check subscription
+
+---
+
+## IF NOT SUBSCRIBED:
+
+↓
+
+Show popup:
+
+“Contact unlock karne ke liye plan lein”
+
+↓
+
+Go to Subscription screen
+
+---
+
+## IF SUBSCRIBED:
+
+↓
+
+Show:
+
+* Phone number
+* Address
+* Enable buttons
+
+↓
+
+User can:
+
+* Call
+* WhatsApp
+
+---
+
+# 💳 9. SUBSCRIPTION FLOW (USER SIDE)
+
+---
+
+Plans:
+
+₹49 / ₹99 / ₹149 / ₹249 / ₹399
+
+↓
+
+User selects plan
+↓
+
+UPI payment
+
+↓
+
+IF success:
+
+* isSubscribed = true
+
+↓
+
+Unlock features
+
+---
+
+# 📦 10. ORDER FLOW (OPTIONAL / FUTURE)
+
+* Select service
+* Enter address
+* Confirm
+
+↓
+
+Order saved
+
+---
+
+# 🚚 11. TRACKING FLOW
+
+* Order status updates
+* Real-time Firebase
+
+---
+
+# 🔔 12. NOTIFICATION FLOW
+
+Events:
+
+* Order placed
+* Order accepted
+* Completed
+
+↓
+
+Push notification
+
+↓
+
+Click → open screen
+
+---
+
+# 🏪 13. PROVIDER DASHBOARD
+
+---
+
+Provider sees:
+
+* Orders
+* Earnings
+* Shop status
+
+↓
+
+Update:
+
+* Accept order
+* Complete order
+
+---
+
+# 🧑‍💼 14. ADMIN FLOW (LIMITED ROLE NOW)
+
+---
+
+Admin can:
+
+* Manage users
+* Manage shops
+* View analytics
+* Control plans
+
+---
+
+❌ NO manual approval needed
+
+---
+
+# 📊 15. ANALYTICS FLOW
+
+Track:
+
+* Clicks
+* Category usage
+* Subscription conversion
+
+---
+
+# 📶 16. OFFLINE FLOW
+
+No internet
+↓
+
+Show cached data
+↓
+
+Sync later
+
+---
+
+# 🔐 17. SECURITY FLOW
+
+* Aadhaar verification mandatory
+* Payment required for activation
+* Phone number hidden via backend
+* Role-based access
+
+---
+
+# 🎯 FINAL USER JOURNEY
+
+USER:
+
+Open → Language → Login → Home → Category → Shop → Unlock → Call
+
+---
+
+PROVIDER:
+
+Register → Aadhaar → Pay → LIVE → Receive orders
+
+---
+
+# ✅ SUCCESS CONDITION
+
+* No admin dependency
+* No fake providers
+* Subscription working
+* Lock system working
+* Full flow smooth
+
+---
+
+END FLOW
+[01/05, 1:34 am] Nilesh Barela: # 🚀 NIKAT – FINAL TECH STACK (PRODUCTION + SCALABLE + SECURE)
+
+---
+
+# 🧠 1. ARCHITECTURE OVERVIEW
+
+System Type:
+
+* Mobile App (Primary)
+* Admin Web Panel
+* Shared Backend
+
+Architecture:
+
+* Client → Backend → Database
+
+---
+
+# 📱 2. MOBILE APP (FRONTEND)
+
+Framework:
+
+* Flutter (Dart)
+
+Reason:
+
+* Single codebase (Android + iOS)
+* Fast UI
+* Best for scalable apps
+
+---
+
+UI System:
+
+* Custom UI (Black + Neon Green)
+* Responsive + low-data optimized
+
+---
+
+State Management:
+
+* Riverpod (recommended) OR Provider
+
+---
+
+# 🌐 3. ADMIN PANEL (WEB)
+
+Framework:
+
+* Next.js (React)
+
+Styling:
+
+* Tailwind CSS
+
+State:
+
+* Zustand / Redux
+
+---
+
+Hosting:
+
+* Vercel OR Firebase Hosting
+
+---
+
+# 🔥 4. BACKEND (CORE)
+
+Platform:
+
+* Firebase (Primary Backend)
+
+---
+
+Components:
+
+## 🔐 Firebase Auth
+
+* OTP login (phone-based)
+
+---
+
+## 🗄️ Firestore Database
+
+* NoSQL real-time database
+
+---
+
+## ⚙️ Firebase Cloud Functions
+
+Used for:
+
+* Aadhaar verification logic
+* Payment validation
+* Subscription unlock logic
+* Secure data access (phone reveal)
+
+---
+
+## 🔔 Firebase Cloud Messaging
+
+* Notifications
+
+---
+
+## 🧯 Firebase Crashlytics
+
+* Crash reporting
+
+---
+
+## 📊 Firebase Analytics
+
+* User tracking
+
+---
+
+# 🪪 5. AADHAAR VERIFICATION (IMPORTANT)
+
+You CANNOT do this directly via Firebase.
+
+Use third-party KYC API:
+
+Options:
+
+* Surepass API
+* Karza API
+* Signzy API
+
+---
+
+Flow:
+
+App → Cloud Function → KYC API → Response → Store result
+
+---
+
+# 💳 6. PAYMENT SYSTEM
+
+Phase 1 (Simple):
+
+* UPI Deep Link (no plugin issues)
+
+---
+
+Phase 2 (Scale):
+
+* Razorpay API (recommended)
+
+---
+
+Backend Flow:
+
+App → Cloud Function → Payment verify → Update DB
+
+---
+
+# 🗺️ 7. LOCATION SYSTEM
+
+* Google Maps API
+* Geolocator (Flutter)
+* Geocoding
+
+---
+
+# 💬 8. COMMUNICATION
+
+Call:
+
+* tel: launcher
+
+WhatsApp:
+
+* wa.me deep link
+
+---
+
+# 🔒 9. SECURITY STACK (CRITICAL)
+
+---
+
+## RULES:
+
+* No phone number in frontend
+* Backend-controlled access
+
+---
+
+## FIRESTORE SECURITY:
+
+* Role-based access
+* User can access only their data
+* Provider only their shop
+
+---
+
+## CLOUD FUNCTION CHECK:
+
+IF user.isSubscribed == true
+→ return phone
+
+ELSE
+→ block
+
+---
+
+## DATA PROTECTION:
+
+* Aadhaar NOT stored raw
+* Only token/reference stored
+
+---
+
+# 📶 10. OFFLINE SUPPORT
+
+* SharedPreferences (local cache)
+* Sync on reconnect
+
+---
+
+# ⚡ 11. PERFORMANCE STACK
+
+* Lazy loading
+* Image compression
+* Cached network images
+
+---
+
+# 🧪 12. TESTING
+
+* Flutter unit tests
+* Widget tests
+* Manual device testing
+
+---
+
+# ⚙️ 13. DEVOPS / BUILD
+
+---
+
+## MOBILE:
+
+* Flutter CLI
+
+---
+
+## CI/CD:
+
+* Codemagic (for APK auto build)
+
+---
+
+## BUILD OUTPUT:
+
+* APK
+* AAB (Play Store)
+
+---
+
+# 🗄️ 14. DATABASE (FIRESTORE)
+
+Collections:
+
+* users
+* providers
+* orders
+* payments
+* subscriptions
+
+---
+
+# 📊 15. ANALYTICS
+
+Track:
+
+* Clicks
+* Subscription conversion
+* Category usage
+
+---
+
+# ⚠️ 16. IMPORTANT DECISIONS
+
+---
+
+✔ Flutter (NOT React Native)
+✔ Firebase backend (NO custom backend needed initially)
+✔ Cloud Functions = security layer
+✔ Aadhaar via external API
+✔ Payment via UPI → Razorpay later
+
+---
+
+# 🚀 FINAL STACK SUMMARY
+
+Frontend:
+
+* Flutter
+
+Backend:
+
+* Firebase + Cloud Functions
+
+Database:
+
+* Firestore
+
+External APIs:
+
+* Aadhaar KYC API
+* Google Maps
+* Razorpay
+
+---
+
+# 🎯 SUCCESS CONDITION
+
+* Fast app
+* Secure data
+* Scalable backend
+* No direct sensitive exposure
+* Ready for production
+
+---
+
+END TECH STACK
+[01/05, 1:43 am] Nilesh Barela: # 🚀 NIKAT – FRONTEND GUIDELINES (PRODUCTION READY)
+
+---
+
+# 🎯 1. CORE FRONTEND PRINCIPLES
+
+* UI MUST be simple (no clutter)
+* Max 3–5 actions per screen
+* One-hand usage possible
+* Fast loading (low internet)
+* Icons > text
+* Large clickable areas (min 48px)
+
+---
+
+# 🎨 2. DESIGN SYSTEM
+
+---
+
+## COLORS
+
+* Background: #000000 (Pure Black)
+* Primary: #00FF88 (Neon Green)
+* Text: #FFFFFF (White)
+* Secondary: Grey (#888888)
+
+---
+
+## BUTTON STYLE
+
+* Rounded (12–16px radius)
+* Glow effect (neon green shadow)
+* Height: 48px minimum
+* Full-width for primary actions
+
+---
+
+## TYPOGRAPHY
+
+* Font size:
+
+  * Title: 18–22
+  * Body: 14–16
+* Bold headings
+* Avoid long text
+
+---
+
+# 🧭 3. NAVIGATION STRUCTURE
+
+---
+
+## FLOW:
+
+Splash
+→ Language
+→ Role
+→ Login
+→ Home
+→ Category
+→ Shop
+→ Action
+
+---
+
+## RULES:
+
+* No deep navigation (>3 levels)
+* Back button always visible
+* Avoid complex menus
+
+---
+
+# 📱 4. SCREEN-WISE UI GUIDELINES
+
+---
+
+## 🌐 LANGUAGE SCREEN
+
+* Full screen buttons
+* Flags + language name
+* Center aligned
+* 3–6 options max
+
+---
+
+## 👤 ROLE SCREEN
+
+* 2 BIG cards:
+
+  * User
+  * Provider
+
+---
+
+## 🔐 LOGIN SCREEN
+
+* Phone input (large)
+* “Get OTP” button
+* OTP auto focus
+
+---
+
+## 🏠 HOME SCREEN
+
+---
+
+### Layout:
+
+* Top: App name + Add Shop button
+* Middle: Category grid (2 columns)
+* Bottom: Nearby shops
+
+---
+
+### CATEGORY CARD:
+
+* Icon (big)
+* Label below
+* Tap area large
+
+---
+
+## 🏪 SHOP LIST
+
+---
+
+### CARD DESIGN:
+
+Each card must include:
+
+* Shop Name (bold)
+* Rating ⭐
+* Distance
+* Premium badge
+
+---
+
+### ACTION BUTTONS:
+
+* Call 📞
+* WhatsApp 💬
+
+---
+
+## 🔒 LOCK STATE UI (CRITICAL)
+
+---
+
+IF user NOT subscribed:
+
+* Phone = XXXXXXX
+* Show 🔒 icon
+* Buttons disabled
+
+---
+
+### SHOW:
+
+“Unlock to Contact”
+
+↓
+
+Clickable button → Subscription screen
+
+---
+
+## 📄 SHOP DETAIL SCREEN
+
+---
+
+### STRUCTURE:
+
+* Shop name (top)
+* Rating
+* Buttons:
+
+  * Call
+  * WhatsApp
+  * Directions
+
+---
+
+# ⚡ 5. LOADING SYSTEM (VERY IMPORTANT)
+
+---
+
+## SKELETON LOADING
+
+* Grey placeholder cards
+* Shimmer animation
+* No blank screen EVER
+
+---
+
+## NETWORK SLOW:
+
+* Show top progress bar
+* Optional: “Loading…”
+
+---
+
+# ❌ NEVER DO:
+
+* White screen
+* Spinner only loading
+
+---
+
+# 📶 6. OFFLINE UI
+
+---
+
+IF no internet:
+
+* Show message:
+  “Internet check kare”
+* Show retry button
+
+---
+
+# ⚠️ 7. ERROR UI
+
+---
+
+No data:
+“Koi shop available nahi hai”
+
+Payment fail:
+“Payment failed, try again”
+
+---
+
+# 💳 8. SUBSCRIPTION UI
+
+---
+
+## DESIGN:
+
+* Card layout
+* Price + duration
+* Highlight best plan
+
+---
+
+## BUTTON:
+
+“Buy Now”
+
+---
+
+# 🏪 9. PROVIDER UI
+
+---
+
+* Simple form
+* Step-by-step
+* No long forms
+
+---
+
+## FLOW:
+
+Details → Aadhaar → Payment
+
+---
+
+# 👁️ 10. ILLITERATE MODE (CRITICAL)
+
+---
+
+* Use icons everywhere
+* Avoid text-heavy screens
+* Use colors to guide actions
+
+Example:
+🔧 Electrician
+🚰 Tanker
+
+---
+
+# ⚡ 11. PERFORMANCE RULES
+
+---
+
+* Use lazy loading
+* Optimize images
+* Avoid heavy animations
+* Use const widgets (Flutter)
+
+---
+
+# 🔐 12. SECURITY UI RULES
+
+---
+
+* NEVER show phone number directly
+* Fetch only after subscription
+* Mask sensitive data
+
+---
+
+# 🧪 13. TESTING CHECKLIST
+
+---
+
+Every screen must:
+
+* Load fast
+* Work offline fallback
+* Handle errors
+* Work on small screens
+
+---
+
+# 🚫 14. COMMON MISTAKES (AVOID)
+
+---
+
+* Too many buttons ❌
+* Small clickable area ❌
+* Text-heavy UI ❌
+* No loading state ❌
+* Direct data exposure ❌
+
+---
+
+# 🎯 FINAL GOAL
+
+Frontend must feel:
+
+* Simple
+* Fast
+* Trustworthy
+* Easy for rural users
+* Clean and modern
+
+---
+
+END FRONTEND GUIDELINES
+[01/05, 1:45 am] Nilesh Barela: # 🚀 NIKAT – BACKEND SCHEMA (FINAL PRODUCTION – FIRESTORE)
+
+---
+
+# 🧠 DATABASE TYPE
+
+* Cloud Firestore (NoSQL)
+* Real-time + scalable
+
+---
+
+# 📁 1. USERS COLLECTION
+
+users/{userId}
+
+{
+"id": "uid",
+"name": "Rahul",
+"phone": "+91XXXXXXXXXX",
+"city": "Indore",
+"language": "hi",
+"role": "user",
+"isSubscribed": false,
+"subscriptionExpiry": null,
+"createdAt": timestamp,
+"lastLogin": timestamp
+}
+
+---
+
+# 📁 2. PROVIDERS COLLECTION (CORE)
+
+providers/{providerId}
+
+{
+"id": "providerId",
+"userId": "uid",
+"name": "Rahul",
+"shopName": "Rahul Electricals",
+"category": "electrician",
+
+"location": {
+"lat": 22.7196,
+"lng": 75.8577
+},
+
+"address": "Full address",
+"rating": 4.5,
+"totalReviews": 10,
+
+"isVerified": true,        // Aadhaar verified
+"kycStatus": "verified",   // pending / verified / failed
+
+"isActive": true,          // payment + verified
+"isPremium": false,
+
+"plan": "basic",
+"planExpiry": timestamp,
+
+"createdAt": timestamp
+}
+
+---
+
+# 📁 3. KYC / AADHAAR COLLECTION (SECURE)
+
+kyc/{providerId}
+
+{
+"providerId": "providerId",
+"aadhaarRefId": "encrypted_token",
+"verificationStatus": "verified",
+"verifiedAt": timestamp
+}
+
+⚠️ IMPORTANT:
+
+* NEVER store raw Aadhaar number
+* Store only encrypted reference/token
+
+---
+
+# 📁 4. SERVICES (SUBCOLLECTION)
+
+providers/{providerId}/services/{serviceId}
+
+{
+"id": "serviceId",
+"name": "Fan Repair",
+"price": 200,
+"duration": "1 hour"
+}
+
+---
+
+# 📁 5. SHOPS PUBLIC VIEW (OPTIONAL OPTIMIZATION)
+
+public_shops/{providerId}
+
+{
+"shopName": "Rahul Electricals",
+"category": "electrician",
+"location": {...},
+"rating": 4.5,
+"isPremium": true
+}
+
+👉 No sensitive data (NO phone)
+
+---
+
+# 📁 6. CONTACT ACCESS (LOCK SYSTEM CORE)
+
+providers_private/{providerId}
+
+{
+"phone": "+91XXXXXXXXXX",
+"address": "Full address"
+}
+
+⚠️ ACCESS RULE:
+
+* Only return if user.isSubscribed == true
+
+---
+
+# 📁 7. ORDERS COLLECTION
+
+orders/{orderId}
+
+{
+"id": "orderId",
+"userId": "uid",
+"providerId": "providerId",
+
+"serviceName": "Fan Repair",
+"price": 200,
+
+"address": "User address",
+"location": {...},
+
+"status": "pending",
+"paymentType": "UPI",
+"paymentStatus": "paid",
+
+"createdAt": timestamp,
+"updatedAt": timestamp
+}
+
+---
+
+# 📁 8. ORDER TRACKING (REAL-TIME)
+
+orders/{orderId}/timeline/{eventId}
+
+{
+"status": "on_the_way",
+"timestamp": timestamp
+}
+
+---
+
+# 📁 9. PAYMENTS COLLECTION
+
+payments/{paymentId}
+
+{
+"id": "paymentId",
+"userId": "uid",
+"providerId": "providerId",
+
+"type": "subscription",  // user / provider
+"amount": 99,
+
+"plan": "2_month",
+"status": "success",
+
+"transactionId": "upi_ref",
+"createdAt": timestamp
+}
+
+---
+
+# 📁 10. SUBSCRIPTIONS COLLECTION
+
+subscriptions/{userId}
+
+{
+"userId": "uid",
+"plan": "premium",
+"startDate": timestamp,
+"expiryDate": timestamp,
+"status": "active"
+}
+
+---
+
+# 📁 11. REVIEWS COLLECTION
+
+reviews/{reviewId}
+
+{
+"userId": "uid",
+"providerId": "providerId",
+"rating": 5,
+"comment": "Good service",
+"createdAt": timestamp
+}
+
+---
+
+# 📁 12. NOTIFICATIONS
+
+notifications/{id}
+
+{
+"userId": "uid",
+"title": "Order Accepted",
+"message": "Your order is accepted",
+"isRead": false,
+"createdAt": timestamp
+}
+
+---
+
+# 📁 13. ANALYTICS EVENTS
+
+analytics/{eventId}
+
+{
+"userId": "uid",
+"event": "click_call",
+"screen": "shop_detail",
+"timestamp": timestamp
+}
+
+---
+
+# 📁 14. ADMIN COLLECTION
+
+admins/{adminId}
+
+{
+"email": "[admin@gmail.com](mailto:admin@gmail.com)",
+"role": "super_admin"
+}
+
+---
+
+# 🔐 SECURITY LOGIC (CRITICAL)
+
+---
+
+## 🔒 PHONE NUMBER PROTECTION
+
+NEVER store phone in public collection
+
+Only in:
+providers_private
+
+---
+
+## ACCESS RULE:
+
+IF user.isSubscribed == true
+→ allow read
+
+ELSE
+→ deny
+
+---
+
+# 🔐 PROVIDER ACTIVATION LOGIC
+
+---
+
+IF:
+
+* kycStatus == verified
+  AND
+* payment.status == success
+
+→ isActive = true
+
+ELSE
+→ hidden
+
+---
+
+# ⚡ INDEXING (IMPORTANT)
+
+---
+
+Create indexes:
+
+providers:
+
+* category + location
+* isPremium + rating
+
+orders:
+
+* userId + createdAt
+* providerId + status
+
+---
+
+# 📍 REAL-TIME DESIGN
+
+* orders → live updates
+* provider status → live
+* tracking → subcollection
+
+---
+
+# ⚠️ CRITICAL RULES
+
+---
+
+* No raw Aadhaar storage ❌
+* No phone in frontend ❌
+* Max 2-level nesting
+* All sensitive access via backend
+
+---
+
+# 🚀 FINAL STRUCTURE
+
+users/
+providers/
+providers/{id}/services/
+providers_private/
+public_shops/
+kyc/
+orders/
+orders/{id}/timeline/
+payments/
+subscriptions/
+reviews/
+notifications/
+analytics/
+admins/
+
+---
+
+# ✅ SUCCESS CONDITION
+
+* Secure data
+* No leaks
+* Fast queries
+* Scalable
+* Supports your business model
+
+---
+
+END BACKEND SCHEMA
+[01/05, 1:47 am] Nilesh Barela: # 🚀 NIKAT – FINAL IMPLEMENTATION PLAN (EXECUTION BLUEPRINT)
+
+---
+
+# ⚠️ GOLDEN RULE
+
+DO NOT build everything together.
+
+Follow this order strictly:
+
+👉 Foundation → Core → Monetization → Security → Scale
+
+---
+
+# 🧱 PHASE 0: ENVIRONMENT + PROJECT SETUP (BLOCKER PHASE)
+
+---
+
+## 🎯 Goal:
+
+App MUST run without crash
+
+---
+
+## Tasks:
+
+* Fix Flutter setup
+* Fix Android Gradle (8+)
+* Add Firebase project
+* Add:
+
+  * google-services.json
+  * GoogleService-Info.plist
+* Enable:
+
+  * Auth
+  * Firestore
+  * FCM
+
+---
+
+## Run:
+
+flutter clean
+flutter pub get
+flutter run
+
+---
+
+## ✅ Success:
+
+* No white screen
+* App opens
+
+---
+
+# 🔐 PHASE 1: AUTH SYSTEM
+
+---
+
+## 🎯 Goal:
+
+OTP login fully working
+
+---
+
+## Tasks:
+
+* Phone input UI
+* OTP send/verify
+* Firebase Auth integration
+* Session persistence
+
+---
+
+## ✅ Success:
+
+* Login works
+* Auto-login works
+
+---
+
+# 📝 PHASE 2: USER + PROVIDER REGISTRATION
+
+---
+
+## USER:
+
+* Name + City → save in Firestore
+
+---
+
+## PROVIDER:
+
+Step 1: Basic details
+Step 2: Aadhaar verification (mock first)
+Step 3: Save provider data
+
+---
+
+## ✅ Success:
+
+* Data stored correctly
+* Provider flow works
+
+---
+
+# 🪪 PHASE 3: AADHAAR VERIFICATION SYSTEM
+
+---
+
+## 🎯 Goal:
+
+KYC working
+
+---
+
+## Step 1 (DEV MODE):
+
+* Mock verification (always success)
+
+---
+
+## Step 2 (PROD):
+
+* Integrate KYC API:
+
+  * Surepass / Karza / Signzy
+
+---
+
+## Flow:
+
+App → Cloud Function → API → Response
+
+---
+
+## ✅ Success:
+
+* verified / failed status working
+
+---
+
+# 💰 PHASE 4: PAYMENT SYSTEM
+
+---
+
+## 🎯 Goal:
+
+Payment unlock logic

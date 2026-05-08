@@ -1,0 +1,356 @@
+# 🚀 NIKAT – BACKEND SCHEMA (FINAL PRODUCTION – FIRESTORE)
+
+---
+
+# 🧠 DATABASE TYPE
+
+* Cloud Firestore (NoSQL)
+* Real-time + scalable
+
+---
+
+# 📁 1. USERS COLLECTION
+
+users/{userId}
+
+{
+"id": "uid",
+"name": "Rahul",
+"phone": "+91XXXXXXXXXX",
+"city": "Indore",
+"language": "hi",
+"role": "user",
+"isSubscribed": false,
+"subscriptionExpiry": null,
+"createdAt": timestamp,
+"lastLogin": timestamp
+}
+
+---
+
+# 📁 2. PROVIDERS COLLECTION (CORE)
+
+providers/{providerId}
+
+{
+"id": "providerId",
+"userId": "uid",
+"name": "Rahul",
+"shopName": "Rahul Electricals",
+"category": "electrician",
+
+"location": {
+"lat": 22.7196,
+"lng": 75.8577
+},
+
+"address": "Full address",
+"rating": 4.5,
+"totalReviews": 10,
+
+"isVerified": true,        // Aadhaar verified
+"kycStatus": "verified",   // pending / verified / failed
+
+"isActive": true,          // payment + verified
+"isPremium": false,
+
+"plan": "basic",
+"planExpiry": timestamp,
+
+"createdAt": timestamp
+}
+
+---
+
+# 📁 3. KYC / AADHAAR COLLECTION (SECURE)
+
+kyc/{providerId}
+
+{
+"providerId": "providerId",
+"aadhaarRefId": "encrypted_token",
+"verificationStatus": "verified",
+"verifiedAt": timestamp
+}
+
+⚠️ IMPORTANT:
+
+* NEVER store raw Aadhaar number
+* Store only encrypted reference/token
+
+---
+
+# 📁 4. SERVICES (SUBCOLLECTION)
+
+providers/{providerId}/services/{serviceId}
+
+{
+"id": "serviceId",
+"name": "Fan Repair",
+"price": 200,
+"duration": "1 hour"
+}
+
+---
+
+# 📁 5. SHOPS PUBLIC VIEW (OPTIONAL OPTIMIZATION)
+
+public_shops/{providerId}
+
+{
+"shopName": "Rahul Electricals",
+"category": "electrician",
+"location": {...},
+"rating": 4.5,
+"isPremium": true
+}
+
+👉 No sensitive data (NO phone)
+
+---
+
+# 📁 6. CONTACT ACCESS (LOCK SYSTEM CORE)
+
+providers_private/{providerId}
+
+{
+"phone": "+91XXXXXXXXXX",
+"address": "Full address"
+}
+
+⚠️ ACCESS RULE:
+
+* Only return if user.isSubscribed == true
+
+---
+
+# 📁 7. ORDERS COLLECTION
+
+orders/{orderId}
+
+{
+"id": "orderId",
+"userId": "uid",
+"providerId": "providerId",
+
+"serviceName": "Fan Repair",
+"price": 200,
+
+"address": "User address",
+"location": {...},
+
+"status": "pending",
+"paymentType": "UPI",
+"paymentStatus": "paid",
+
+"createdAt": timestamp,
+"updatedAt": timestamp
+}
+
+---
+
+# 📁 8. ORDER TRACKING (REAL-TIME)
+
+orders/{orderId}/timeline/{eventId}
+
+{
+"status": "on_the_way",
+"timestamp": timestamp
+}
+
+---
+
+# 📁 9. PAYMENTS COLLECTION
+
+payments/{paymentId}
+
+{
+"id": "paymentId",
+"userId": "uid",
+"providerId": "providerId",
+
+"type": "subscription",  // user / provider
+"amount": 99,
+
+"plan": "2_month",
+"status": "success",
+
+"transactionId": "upi_ref",
+"createdAt": timestamp
+}
+
+---
+
+# 📁 10. SUBSCRIPTIONS COLLECTION
+
+subscriptions/{userId}
+
+{
+"userId": "uid",
+"plan": "premium",
+"startDate": timestamp,
+"expiryDate": timestamp,
+"status": "active"
+}
+
+---
+
+# 📁 11. REVIEWS COLLECTION
+
+reviews/{reviewId}
+
+{
+"userId": "uid",
+"providerId": "providerId",
+"rating": 5,
+"comment": "Good service",
+"createdAt": timestamp
+}
+
+---
+
+# 📁 12. NOTIFICATIONS
+
+notifications/{id}
+
+{
+"userId": "uid",
+"title": "Order Accepted",
+"message": "Your order is accepted",
+"isRead": false,
+"createdAt": timestamp
+}
+
+---
+
+# 📁 13. ANALYTICS EVENTS
+
+analytics/{eventId}
+
+{
+"userId": "uid",
+"event": "click_call",
+"screen": "shop_detail",
+"timestamp": timestamp
+}
+
+---
+
+# 📁 14. ADMIN COLLECTION
+
+admins/{adminId}
+
+{
+"email": "[admin@gmail.com](mailto:admin@gmail.com)",
+"role": "super_admin"
+}
+
+---
+
+# 🔐 SECURITY LOGIC (CRITICAL)
+
+---
+
+## 🔒 PHONE NUMBER PROTECTION
+
+NEVER store phone in public collection
+
+Only in:
+providers_private
+
+---
+
+## ACCESS RULE:
+
+IF user.isSubscribed == true
+→ allow read
+
+ELSE
+→ deny
+
+---
+
+# 🔐 PROVIDER ACTIVATION LOGIC
+
+---
+
+IF:
+
+* kycStatus == verified
+  AND
+* payment.status == success
+
+→ isActive = true
+
+ELSE
+→ hidden
+
+---
+
+# ⚡ INDEXING (IMPORTANT)
+
+---
+
+Create indexes:
+
+providers:
+
+* category + location
+* isPremium + rating
+
+orders:
+
+* userId + createdAt
+* providerId + status
+
+---
+
+# 📍 REAL-TIME DESIGN
+
+* orders → live updates
+* provider status → live
+* tracking → subcollection
+
+---
+
+# ⚠️ CRITICAL RULES
+
+---
+
+* No raw Aadhaar storage ❌
+* No phone in frontend ❌
+* Max 2-level nesting
+* All sensitive access via backend
+
+---
+
+# 🚀 FINAL STRUCTURE
+
+users/
+providers/
+providers/{id}/services/
+providers_private/
+public_shops/
+kyc/
+orders/
+orders/{id}/timeline/
+payments/
+subscriptions/
+reviews/
+notifications/
+analytics/
+admins/
+
+---
+
+# ✅ SUCCESS CONDITION
+
+* Secure data
+* No leaks
+* Fast queries
+* Scalable
+* Supports your business model
+
+---
+
+END BACKEND SCHEMA

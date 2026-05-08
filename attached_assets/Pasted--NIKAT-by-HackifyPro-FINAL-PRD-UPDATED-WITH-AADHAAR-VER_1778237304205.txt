@@ -1,0 +1,365 @@
+# 🚀 NIKAT (by HackifyPro) – FINAL PRD (UPDATED WITH AADHAAR VERIFICATION)
+
+---
+
+# 🧠 1. PRODUCT OVERVIEW
+
+App Name: NIKAT
+Tagline: “Har dukaan, har service – ek jagah”
+
+A hyperlocal platform connecting users with nearby shops & services.
+
+📌 Based on full system shown in PDF (Intro + Solution + Flow) 
+
+---
+
+# 🎯 2. CORE GOAL
+
+* Simple UI
+* Fast performance
+* Illiterate-friendly
+* Secure & trusted platform
+* Fraud-free provider onboarding
+
+---
+
+# 🧭 3. APP FLOW (FINAL)
+
+App Open
+→ Language Select
+→ Role Select
+→ OTP Login
+→ Registration
+→ Home
+→ Category
+→ Shop Listing
+→ Shop Detail
+→ Contact / Order
+
+---
+
+# 🌐 4. LANGUAGE SYSTEM
+
+* Multi-language (All India)
+* UI translated only
+* Names NOT translated
+
+📌 PDF page 4
+
+---
+
+# 👁️ 5. ILLITERATE UI
+
+* Big icons
+* Minimal text
+* Easy navigation
+
+📌 PDF page 5
+
+---
+
+# 🔐 6. AUTH SYSTEM
+
+* Phone OTP login (Firebase)
+* Secure session
+
+📌 PDF page 7
+
+---
+
+# 📝 7. REGISTRATION SYSTEM
+
+---
+
+## 👤 USER
+
+* Name
+* City
+
+---
+
+## 🏪 PROVIDER (UPDATED – KYC REQUIRED)
+
+Fields:
+
+* Name
+* Category
+* Location
+* Shop Details
+
+---
+
+# 🪪 8. AADHAAR VERIFICATION SYSTEM (NEW – CRITICAL)
+
+---
+
+## WHY:
+
+* Prevent fraud
+* Avoid fake listings
+* Build trust
+
+---
+
+## FLOW:
+
+Provider Registration
+↓
+Upload Aadhaar Card (Front + Back OR number-based verification)
+↓
+Enter Aadhaar Number
+↓
+OTP Verification (via Aadhaar API / KYC service)
+
+---
+
+## VALIDATION:
+
+IF Aadhaar verified:
+
+→ provider.isVerified = true
+
+ELSE:
+
+→ Reject registration
+
+---
+
+## IMPORTANT RULES:
+
+* One Aadhaar = One provider account
+* Store only encrypted Aadhaar reference (NOT raw number)
+* Follow privacy rules
+
+---
+
+# 💰 9. PROVIDER ACTIVATION FLOW (UPDATED)
+
+---
+
+NO ADMIN APPROVAL
+
+Provider Flow:
+
+Register
+→ Aadhaar Verified
+→ Payment Done
+→ Shop LIVE instantly
+
+---
+
+## CONDITIONS:
+
+IF Aadhaar NOT verified → ❌ cannot proceed
+IF Payment NOT done → ❌ not visible
+
+---
+
+## FINAL LOGIC:
+
+IF (verified == true AND payment == success)
+
+→ isActive = true
+→ shop visible
+
+---
+
+# 🏠 10. HOME SCREEN
+
+* Categories
+* Search
+* Nearby shops
+
+📌 PDF page 9
+
+---
+
+# 🏪 11. SHOP LISTING
+
+* Name
+* Rating
+* Distance
+* Premium badge
+
+📌 PDF page 10
+
+---
+
+# 📄 12. SHOP DETAIL
+
+* Call
+* WhatsApp
+* Directions
+* Reviews
+
+📌 PDF pages 13–15
+
+---
+
+# 🔒 13. FREEMIUM LOCK SYSTEM
+
+---
+
+## FREE USER:
+
+* Can view shops
+* Cannot see number
+* Cannot call
+
+UI:
+
+* XXXXXXX
+* 🔒 icon
+* “Unlock to Contact”
+
+---
+
+## PAID USER:
+
+* Full access
+
+---
+
+# 💳 14. SUBSCRIPTION SYSTEM
+
+Plans:
+
+₹49 → 1 Month
+₹99 → 2 Months
+₹149 → 4 Months
+₹249 → 6 Months
+₹399 → 12 Months
+
+---
+
+# ⭐ 15. PREMIUM PROVIDERS
+
+* Top listing
+* Highlight
+* Badge
+
+---
+
+# 📦 16. ORDER SYSTEM
+
+* Select service
+* Enter address
+* Payment
+
+📌 PDF page 12
+
+---
+
+# 🚚 17. TRACKING
+
+* Real-time updates
+
+📌 PDF page 16
+
+---
+
+# 🔔 18. NOTIFICATIONS
+
+📌 PDF page 17
+
+---
+
+# 📊 19. ANALYTICS
+
+📌 PDF page 21
+
+---
+
+# 🧯 20. CRASH REPORTING
+
+📌 PDF page 20
+
+---
+
+# 📶 21. OFFLINE SUPPORT
+
+📌 PDF page 22
+
+---
+
+# ⚙️ 22. TECH STACK
+
+Frontend:
+
+* Flutter
+
+Backend:
+
+* Firebase
+
+Database:
+
+* Firestore
+
+---
+
+# 🗄️ 23. DATABASE (UPDATED)
+
+---
+
+## USERS
+
+* id
+* name
+* phone
+* role
+* isSubscribed
+
+---
+
+## PROVIDERS
+
+* id
+* userId
+* shopName
+* category
+* location
+* isVerified (AADHAAR)
+* isActive
+* isPremium
+
+---
+
+## PAYMENTS
+
+* id
+* userId
+* amount
+* status
+
+---
+
+# 🔐 24. SECURITY (VERY IMPORTANT)
+
+---
+
+* Aadhaar data encrypted
+* No raw storage
+* Backend validation only
+* Role-based access
+
+---
+
+# ⚠️ FRAUD PREVENTION
+
+* Aadhaar verification mandatory
+* Duplicate prevention
+* Rate limiting
+
+---
+
+# 🎯 FINAL SUCCESS
+
+* No fake providers
+* Trusted platform
+* Instant onboarding
+* Secure system
+
+---
+
+END PRD

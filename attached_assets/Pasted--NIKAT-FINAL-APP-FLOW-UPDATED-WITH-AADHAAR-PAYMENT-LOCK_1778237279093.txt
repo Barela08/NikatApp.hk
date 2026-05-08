@@ -1,0 +1,389 @@
+# 🚀 NIKAT – FINAL APP FLOW (UPDATED WITH AADHAAR + PAYMENT + LOCK SYSTEM)
+
+---
+
+# 🟢 1. APP START FLOW
+
+App Open
+↓
+Splash Screen (Logo + loading)
+
+↓
+
+## 🌐 Language Selection Screen
+
+* Hindi 🇮🇳
+* English 🇬🇧
+* Marathi 🟠
+* More languages
+
+↓
+
+User selects language
+↓
+Language saved (local storage)
+↓
+
+---
+
+# 🟢 2. ROLE SELECTION
+
+Screen shows:
+
+* 👤 User
+* 🏪 Service Provider
+
+↓
+
+User selects role
+↓
+
+Go to Login
+
+---
+
+# 🔐 3. AUTH FLOW (OTP)
+
+Enter phone number
+↓
+Send OTP
+↓
+Enter OTP
+↓
+Verify
+
+---
+
+## LOGIC:
+
+IF existing → Home
+IF new → Registration
+
+---
+
+# 📝 4. REGISTRATION FLOW
+
+---
+
+## 👤 USER
+
+* Name
+* City
+
+↓
+
+Save → Home
+
+---
+
+## 🏪 PROVIDER (UPDATED FLOW)
+
+---
+
+### STEP 1: BASIC DETAILS
+
+* Name
+* Category
+* Location
+* Shop details
+
+↓
+
+Next
+
+---
+
+### STEP 2: AADHAAR VERIFICATION (MANDATORY)
+
+* Enter Aadhaar number
+* OTP verification
+
+↓
+
+IF verified → continue
+IF failed → block
+
+---
+
+### STEP 3: PAYMENT (ACTIVATION)
+
+* Show plans (₹49 – ₹399)
+* Select plan
+* UPI payment
+
+↓
+
+IF payment success:
+
+* isVerified = true
+* isActive = true
+
+↓
+
+Shop goes LIVE instantly
+
+---
+
+### STEP 4: FINAL STATUS
+
+* “Your shop is now live”
+
+---
+
+# 🏠 5. HOME SCREEN
+
+* Search bar
+* Category grid
+* Nearby shops
+
+↓
+
+User clicks category
+
+---
+
+# 🏪 6. SHOP LIST SCREEN
+
+Each shop shows:
+
+* Name
+* Rating ⭐
+* Distance
+* Premium badge
+
+↓
+
+User clicks shop
+
+---
+
+# 📄 7. SHOP DETAIL SCREEN
+
+---
+
+## WHAT USER CAN SEE:
+
+### FREE USER:
+
+* Shop name ✅
+* Rating ✅
+* Category ✅
+
+BUT:
+
+* Phone ❌ (XXXXXXX)
+* Address ❌
+* Call ❌
+* WhatsApp ❌
+
+---
+
+## UI:
+
+* 🔒 Lock icon
+* “Unlock to Contact” button
+
+---
+
+# 🔒 8. LOCK SYSTEM FLOW
+
+User clicks:
+
+* Call
+* WhatsApp
+
+↓
+
+Check subscription
+
+---
+
+## IF NOT SUBSCRIBED:
+
+↓
+
+Show popup:
+
+“Contact unlock karne ke liye plan lein”
+
+↓
+
+Go to Subscription screen
+
+---
+
+## IF SUBSCRIBED:
+
+↓
+
+Show:
+
+* Phone number
+* Address
+* Enable buttons
+
+↓
+
+User can:
+
+* Call
+* WhatsApp
+
+---
+
+# 💳 9. SUBSCRIPTION FLOW (USER SIDE)
+
+---
+
+Plans:
+
+₹49 / ₹99 / ₹149 / ₹249 / ₹399
+
+↓
+
+User selects plan
+↓
+
+UPI payment
+
+↓
+
+IF success:
+
+* isSubscribed = true
+
+↓
+
+Unlock features
+
+---
+
+# 📦 10. ORDER FLOW (OPTIONAL / FUTURE)
+
+* Select service
+* Enter address
+* Confirm
+
+↓
+
+Order saved
+
+---
+
+# 🚚 11. TRACKING FLOW
+
+* Order status updates
+* Real-time Firebase
+
+---
+
+# 🔔 12. NOTIFICATION FLOW
+
+Events:
+
+* Order placed
+* Order accepted
+* Completed
+
+↓
+
+Push notification
+
+↓
+
+Click → open screen
+
+---
+
+# 🏪 13. PROVIDER DASHBOARD
+
+---
+
+Provider sees:
+
+* Orders
+* Earnings
+* Shop status
+
+↓
+
+Update:
+
+* Accept order
+* Complete order
+
+---
+
+# 🧑‍💼 14. ADMIN FLOW (LIMITED ROLE NOW)
+
+---
+
+Admin can:
+
+* Manage users
+* Manage shops
+* View analytics
+* Control plans
+
+---
+
+❌ NO manual approval needed
+
+---
+
+# 📊 15. ANALYTICS FLOW
+
+Track:
+
+* Clicks
+* Category usage
+* Subscription conversion
+
+---
+
+# 📶 16. OFFLINE FLOW
+
+No internet
+↓
+
+Show cached data
+↓
+
+Sync later
+
+---
+
+# 🔐 17. SECURITY FLOW
+
+* Aadhaar verification mandatory
+* Payment required for activation
+* Phone number hidden via backend
+* Role-based access
+
+---
+
+# 🎯 FINAL USER JOURNEY
+
+USER:
+
+Open → Language → Login → Home → Category → Shop → Unlock → Call
+
+---
+
+PROVIDER:
+
+Register → Aadhaar → Pay → LIVE → Receive orders
+
+---
+
+# ✅ SUCCESS CONDITION
+
+* No admin dependency
+* No fake providers
+* Subscription working
+* Lock system working
+* Full flow smooth
+
+---
+
+END FLOW

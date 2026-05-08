@@ -1,0 +1,327 @@
+# 🚀 NIKAT – FINAL TECH STACK (PRODUCTION + SCALABLE + SECURE)
+
+---
+
+# 🧠 1. ARCHITECTURE OVERVIEW
+
+System Type:
+
+* Mobile App (Primary)
+* Admin Web Panel
+* Shared Backend
+
+Architecture:
+
+* Client → Backend → Database
+
+---
+
+# 📱 2. MOBILE APP (FRONTEND)
+
+Framework:
+
+* Flutter (Dart)
+
+Reason:
+
+* Single codebase (Android + iOS)
+* Fast UI
+* Best for scalable apps
+
+---
+
+UI System:
+
+* Custom UI (Black + Neon Green)
+* Responsive + low-data optimized
+
+---
+
+State Management:
+
+* Riverpod (recommended) OR Provider
+
+---
+
+# 🌐 3. ADMIN PANEL (WEB)
+
+Framework:
+
+* Next.js (React)
+
+Styling:
+
+* Tailwind CSS
+
+State:
+
+* Zustand / Redux
+
+---
+
+Hosting:
+
+* Vercel OR Firebase Hosting
+
+---
+
+# 🔥 4. BACKEND (CORE)
+
+Platform:
+
+* Firebase (Primary Backend)
+
+---
+
+Components:
+
+## 🔐 Firebase Auth
+
+* OTP login (phone-based)
+
+---
+
+## 🗄️ Firestore Database
+
+* NoSQL real-time database
+
+---
+
+## ⚙️ Firebase Cloud Functions
+
+Used for:
+
+* Aadhaar verification logic
+* Payment validation
+* Subscription unlock logic
+* Secure data access (phone reveal)
+
+---
+
+## 🔔 Firebase Cloud Messaging
+
+* Notifications
+
+---
+
+## 🧯 Firebase Crashlytics
+
+* Crash reporting
+
+---
+
+## 📊 Firebase Analytics
+
+* User tracking
+
+---
+
+# 🪪 5. AADHAAR VERIFICATION (IMPORTANT)
+
+You CANNOT do this directly via Firebase.
+
+Use third-party KYC API:
+
+Options:
+
+* Surepass API
+* Karza API
+* Signzy API
+
+---
+
+Flow:
+
+App → Cloud Function → KYC API → Response → Store result
+
+---
+
+# 💳 6. PAYMENT SYSTEM
+
+Phase 1 (Simple):
+
+* UPI Deep Link (no plugin issues)
+
+---
+
+Phase 2 (Scale):
+
+* Razorpay API (recommended)
+
+---
+
+Backend Flow:
+
+App → Cloud Function → Payment verify → Update DB
+
+---
+
+# 🗺️ 7. LOCATION SYSTEM
+
+* Google Maps API
+* Geolocator (Flutter)
+* Geocoding
+
+---
+
+# 💬 8. COMMUNICATION
+
+Call:
+
+* tel: launcher
+
+WhatsApp:
+
+* wa.me deep link
+
+---
+
+# 🔒 9. SECURITY STACK (CRITICAL)
+
+---
+
+## RULES:
+
+* No phone number in frontend
+* Backend-controlled access
+
+---
+
+## FIRESTORE SECURITY:
+
+* Role-based access
+* User can access only their data
+* Provider only their shop
+
+---
+
+## CLOUD FUNCTION CHECK:
+
+IF user.isSubscribed == true
+→ return phone
+
+ELSE
+→ block
+
+---
+
+## DATA PROTECTION:
+
+* Aadhaar NOT stored raw
+* Only token/reference stored
+
+---
+
+# 📶 10. OFFLINE SUPPORT
+
+* SharedPreferences (local cache)
+* Sync on reconnect
+
+---
+
+# ⚡ 11. PERFORMANCE STACK
+
+* Lazy loading
+* Image compression
+* Cached network images
+
+---
+
+# 🧪 12. TESTING
+
+* Flutter unit tests
+* Widget tests
+* Manual device testing
+
+---
+
+# ⚙️ 13. DEVOPS / BUILD
+
+---
+
+## MOBILE:
+
+* Flutter CLI
+
+---
+
+## CI/CD:
+
+* Codemagic (for APK auto build)
+
+---
+
+## BUILD OUTPUT:
+
+* APK
+* AAB (Play Store)
+
+---
+
+# 🗄️ 14. DATABASE (FIRESTORE)
+
+Collections:
+
+* users
+* providers
+* orders
+* payments
+* subscriptions
+
+---
+
+# 📊 15. ANALYTICS
+
+Track:
+
+* Clicks
+* Subscription conversion
+* Category usage
+
+---
+
+# ⚠️ 16. IMPORTANT DECISIONS
+
+---
+
+✔ Flutter (NOT React Native)
+✔ Firebase backend (NO custom backend needed initially)
+✔ Cloud Functions = security layer
+✔ Aadhaar via external API
+✔ Payment via UPI → Razorpay later
+
+---
+
+# 🚀 FINAL STACK SUMMARY
+
+Frontend:
+
+* Flutter
+
+Backend:
+
+* Firebase + Cloud Functions
+
+Database:
+
+* Firestore
+
+External APIs:
+
+* Aadhaar KYC API
+* Google Maps
+* Razorpay
+
+---
+
+# 🎯 SUCCESS CONDITION
+
+* Fast app
+* Secure data
+* Scalable backend
+* No direct sensitive exposure
+* Ready for production
+
+---
+
+END TECH STACK
