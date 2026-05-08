@@ -1,0 +1,31 @@
+I0425 11:18:23.759111   17656 load.go:31] Reloading schema and connectors...
+I0425 11:18:23.786666   17656 control.go:100] [projects/emulator/locations/emulator/services/nikat 5dd1] UpdateResources(): done
+Main schema: sources: schema\schema.gql [1992B] 
+Connector "example": sources: example\mutations.gql [1243B] example\queries.gql [1801B] 
+I0425 11:18:23.801513   17656 codegen.go:101] [connector "example" dartSdk] Generating sources into "C:\\Users\\hp\\Downloads\\Nikatapp\\lib\\dataconnect_generated"
+I0425 11:18:23.812671   17656 collector.go:107] schema extensions wrote into "C:\\Users\\hp\\Downloads\\Nikatapp\\dataconnect\\.dataconnect\\schema"
+Generated sources: prelude.gql [82799B] main\input.gql [28927B] main\relation.gql [14318B] main\query.gql [5099B] main\mutation.gql [13679B] main\implicit.gql [1261B] 
+I0425 11:18:23.824847   17656 collector.go:107] connector "example" dartSdk wrote into "C:\\Users\\hp\\Downloads\\Nikatapp\\lib\\dataconnect_generated"
+Generated sources: list_user_reviews.dart [5172B] search_movie.dart [4743B] README.md [11557B] .guides/usage.md [1181B] .guides/config.json [236B] create_movie.dart [3598B] upsert_user.dart [3044B] add_review.dart [3874B] delete_review.dart [3463B] list_movies.dart [2718B] get_movie_by_id.dart [8364B] generated.dart [2456B] .guides/setup.md [756B] list_users.dart [2236B] 
+I0425 11:18:23.824847   17656 load.go:109] Finished reloading
+I0425 11:18:23.826910   17656 dev.go:104] Listening on address (HTTP + gRPC): 127.0.0.1:9399
+I0425 11:18:23.827856   17656 dev.go:104] Listening on address (HTTP + gRPC): [::1]:9399
+I0425 11:18:30.127585   17656 migrate.go:24] Running migration SQL:
+Step 1: CREATE EXTENSION IF NOT EXISTS "uuid-ossp"
+Step 2: CREATE TABLE "public"."movie" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "genre" text NULL, "image_url" text NOT NULL, "title" text NOT NULL, PRIMARY KEY ("id"))
+Step 3: CREATE TABLE "public"."user" ("id" text NOT NULL, "username" character varying(50) NOT NULL, PRIMARY KEY ("id"))
+Step 4: CREATE TABLE "public"."Reviews" ("movie_id" uuid NOT NULL, "user_id" text NOT NULL, "rating" integer NULL, "review_date" date NOT NULL, "review_text" text NULL, PRIMARY KEY ("movie_id", "user_id"), CONSTRAINT "Reviews_movie_id_fkey" FOREIGN KEY ("movie_id") REFERENCES "public"."movie" ("id") ON DELETE CASCADE, CONSTRAINT "Reviews_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "public"."user" ("id") ON DELETE CASCADE)
+Step 5: CREATE INDEX "Reviews_movieId_idx" ON "public"."Reviews" ("movie_id")
+Step 6: CREATE INDEX "Reviews_userId_idx" ON "public"."Reviews" ("user_id")
+Step 7: CREATE TABLE "public"."movie_metadata" ("id" uuid NOT NULL DEFAULT uuid_generate_v4(), "movie_id" uuid NOT NULL, "description" text NULL, "rating" double precision NULL, "release_year" integer NULL, PRIMARY KEY ("id"), CONSTRAINT "movie_metadata_movie_id_fkey" FOREIGN KEY ("movie_id") REFERENCES "public"."movie" ("id") ON DELETE CASCADE)
+Step 8: CREATE INDEX "movie_metadata_movieId_idx" ON "public"."movie_metadata" ("movie_id")
+Step 9: CREATE UNIQUE INDEX "movie_metadata_movieId_uidx" ON "public"."movie_metadata" ("movie_id")
+I0425 11:18:30.475772   17656 control.go:100] [projects/emulator/locations/emulator/services/nikat d8f6] UpdateResources(): done
+Main schema: sources: schema\schema.gql [1992B] 
+Connector "example": sources: example\mutations.gql [1243B] example\queries.gql [1801B] 
+I0425 11:18:30.484998   17656 configure_emulator.go:21] ConfigureEmulator successed
+Request: service_id:  "nikat"
+connection_string:  "postgres://127.0.0.1:5432/fdcdb?sslmode=disable"
+database:  "fdcdb"
+
+Response: 
