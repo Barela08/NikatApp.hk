@@ -27,7 +27,7 @@ outputType = "webview"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "node server/src/index.js & cd client && npm run dev"
+args = "cd server && node src/index.js & cd client && npm run dev"
 waitForPort = 5000
 
 [[ports]]
