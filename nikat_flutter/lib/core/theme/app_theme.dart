@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../constants/app_colors.dart';
 
 class AppTheme {
@@ -20,15 +21,14 @@ class AppTheme {
           onError: Colors.white,
         ),
         scaffoldBackgroundColor: AppColors.background,
-        fontFamily: 'Inter',
-        textTheme: _textTheme,
+        fontFamily: GoogleFonts.inter().fontFamily,
+        textTheme: GoogleFonts.interTextTheme(_textTheme),
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.transparent,
           elevation: 0,
           scrolledUnderElevation: 0,
           centerTitle: false,
           titleTextStyle: TextStyle(
-            fontFamily: 'Inter',
             fontSize: 20,
             fontWeight: FontWeight.w700,
             color: AppColors.onSurface,
@@ -42,7 +42,6 @@ class AppTheme {
             minimumSize: const Size(double.infinity, 52),
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
             textStyle: const TextStyle(
-              fontFamily: 'Inter',
               fontSize: 16,
               fontWeight: FontWeight.w700,
             ),
@@ -56,7 +55,6 @@ class AppTheme {
             minimumSize: const Size(double.infinity, 52),
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
             textStyle: const TextStyle(
-              fontFamily: 'Inter',
               fontSize: 16,
               fontWeight: FontWeight.w600,
             ),
@@ -66,7 +64,6 @@ class AppTheme {
           style: TextButton.styleFrom(
             foregroundColor: AppColors.primary,
             textStyle: const TextStyle(
-              fontFamily: 'Inter',
               fontSize: 14,
               fontWeight: FontWeight.w600,
             ),
@@ -120,7 +117,7 @@ class AppTheme {
         ),
         snackBarTheme: SnackBarThemeData(
           backgroundColor: AppColors.surfaceVariant,
-          contentTextStyle: const TextStyle(color: AppColors.onSurface, fontFamily: 'Inter'),
+          contentTextStyle: const TextStyle(color: AppColors.onSurface),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
           behavior: SnackBarBehavior.floating,
         ),
