@@ -16,6 +16,7 @@ import ProviderDashboard from './pages/ProviderDashboard';
 import AddStore from './pages/AddStore';
 import AdminPanel from './pages/AdminPanel';
 import Subscribe from './pages/Subscribe';
+import BillingHistory from './pages/BillingHistory';
 import Favorites from './pages/Favorites';
 import Layout from './components/Layout';
 
@@ -46,6 +47,7 @@ export default function App() {
                 <Route path="bookings" element={<Bookings />} />
                 <Route path="favorites" element={<Favorites />} />
                 <Route path="subscribe" element={<Subscribe />} />
+                <Route path="billing" element={<BillingHistory />} />
                 <Route path="provider-dashboard" element={<ProtectedRoute roles={['provider','admin']}><ProviderDashboard /></ProtectedRoute>} />
                 <Route path="add-store" element={<ProtectedRoute roles={['provider','admin']}><AddStore /></ProtectedRoute>} />
                 <Route path="admin" element={<ProtectedRoute roles={['admin']}><AdminPanel /></ProtectedRoute>} />
