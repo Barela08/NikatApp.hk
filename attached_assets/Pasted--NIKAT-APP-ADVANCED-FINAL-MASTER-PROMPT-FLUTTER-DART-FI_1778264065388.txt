@@ -1,0 +1,638 @@
+========================
+NIKAT APP – ADVANCED FINAL MASTER PROMPT
+(FLUTTER + DART + FIREBASE + ANDROID + IOS)
+
+Create a FULLY COMPLETE modern production-ready mobile application named “NIKAT” using ONLY Flutter and Dart.
+
+IMPORTANT:
+
+- Generate COMPLETE WORKING SOURCE CODE.
+- Use ONLY Flutter + Dart.
+- Support BOTH Android and iOS.
+- Use Firebase backend completely.
+- Build entire app from scratch.
+- Remove duplicate code.
+- Remove unwanted files.
+- Optimize complete architecture.
+- Generate production-ready implementation.
+- Generate ALL files completely.
+- No placeholder code.
+- Generate scalable clean architecture.
+
+========================
+APP CONCEPT
+
+NIKAT is a multi-service local business discovery platform where users can find:
+
+- Restaurants
+- Stores
+- Hospitals
+- Hotels
+- Pharmacies
+- Salons
+- Services
+- Multi-service Providers
+
+Users can:
+
+- Search nearby businesses
+- View categories
+- Contact providers
+- Manage profiles
+- Receive notifications
+- Access business details
+
+Service Providers can:
+
+- Register their business
+- Add products/services
+- Manage customers
+- Maintain Khata Book
+- Manage orders/services
+- View analytics
+
+========================
+PLATFORMS
+
+Support:
+
+- Android
+- iOS
+
+Generate:
+
+- APK Ready
+- AAB Ready
+- IPA Ready
+
+========================
+TECH STACK
+
+Frontend:
+
+- Flutter Latest Stable
+- Dart
+
+Backend:
+
+- Firebase
+
+Database:
+
+- Cloud Firestore
+
+Authentication:
+
+- Firebase Authentication
+- Google Sign-In
+
+Storage:
+
+- Firebase Storage
+
+Notifications:
+
+- Firebase Cloud Messaging
+
+State Management:
+
+- Riverpod
+
+Architecture:
+
+- Clean Architecture
+
+========================
+STARTING APP FLOW
+
+APP OPEN
+↓
+Language Selection Screen
+↓
+Choose:
+
+1. User
+2. Service Provider
+   ↓
+   Login / Register
+   ↓
+   Dashboard
+
+========================
+LANGUAGE SELECTION SCREEN
+
+IMPORTANT:
+Show LARGE BEAUTIFUL language cards.
+
+Include MOST Indian Languages:
+
+- English
+- Hindi
+- Marathi
+- Gujarati
+- Punjabi
+- Bengali
+- Tamil
+- Telugu
+- Kannada
+- Malayalam
+- Urdu
+- Odia
+- Assamese
+- Sanskrit
+- Konkani
+- Manipuri
+- Nepali
+- Kashmiri
+- Sindhi
+- Bodo
+- Dogri
+- Maithili
+- Santali
+
+Features:
+
+- Big language buttons
+- Country-style language selection UI
+- Attractive animations
+- Save selected language
+- Instant translation
+
+========================
+ROLE SELECTION SCREEN
+
+After language selection show 2 BIG OPTIONS:
+
+1. USER
+2. SERVICE PROVIDER
+
+Use:
+
+- Large animated cards
+- Icons
+- Gradient backgrounds
+- Smooth transitions
+
+========================
+AUTHENTICATION SYSTEM
+
+Add:
+
+- Google Login
+- Email Login
+- Phone Login Ready
+- Register
+- Logout
+- Session Persistence
+
+========================
+USER REGISTER FIELDS
+
+User Registration Form:
+
+- Full Name
+- Mobile Number
+- Email
+- Password
+- Confirm Password
+- City
+- State
+- Profile Image
+- Preferred Language
+
+========================
+SERVICE PROVIDER REGISTER
+
+Service Provider Registration Form:
+
+- Owner Name
+- Business Name
+- Business Category
+- Mobile Number
+- Email
+- Password
+- Business Address
+- City
+- State
+- GST Number (Optional)
+- Business Timing
+- Description
+- Business Logo
+- Service Images
+- Location Map
+- Opening Days
+
+========================
+BUSINESS CATEGORY SYSTEM
+
+Create COMPLETE category system.
+
+Main Categories:
+
+1. Restaurant
+2. Store
+3. Hospital
+4. Pharmacy
+5. Salon
+6. Hotel
+7. Electronics
+8. Grocery
+9. Gym
+10. Services
+11. Multi-Service Provider
+
+========================
+IMPORTANT CATEGORY RULE
+
+If Provider Selects:
+
+- Restaurant → Show ONLY restaurant system
+- Store → Show ONLY store system
+- Hospital → Show ONLY hospital system
+- Pharmacy → Show ONLY pharmacy system
+
+If provider selects:
+“Multi-Service Provider”
+Then allow multiple categories.
+
+========================
+RESTAURANT MODULE
+
+IMPORTANT:
+Restaurant option should be:
+
+- Bigger
+- Highlighted
+- More visible
+- Premium design
+- Attractive homepage section
+
+Restaurant Features:
+
+- Food Menu
+- Categories
+- Offer Banners
+- Ratings
+- Table Booking
+- Food Images
+- Delivery Option
+- Reviews
+
+========================
+STORE MODULE
+
+Store Features:
+
+- Product Listing
+- Categories
+- Offers
+- Cart System
+- Product Images
+- Inventory
+
+========================
+HOSPITAL MODULE
+
+Hospital Features:
+
+- Doctors List
+- Department List
+- Emergency Contact
+- Appointment Booking
+- Timing
+- Location
+
+========================
+PHARMACY MODULE
+
+Pharmacy Features:
+
+- Medicine Categories
+- Search Medicines
+- Order Medicines
+- Upload Prescription
+
+========================
+MULTI-SERVICE PROVIDER
+
+Features:
+
+- Multiple categories
+- Combined dashboard
+- Manage all services together
+
+========================
+KHATA BOOK PROVIDER SYSTEM
+
+IMPORTANT:
+Create separate provider accounting system similar to “Khata Book”.
+
+Features:
+
+- Customer Khata
+- Credit/Debit Entries
+- Daily Transactions
+- Payment History
+- Pending Amount
+- Customer Notes
+- PDF Invoice
+- Expense Tracking
+- Income Tracking
+
+Provider Dashboard:
+
+- Sales
+- Orders
+- Revenue
+- Customers
+- Analytics
+
+========================
+HOME SCREEN
+
+Home screen should contain:
+
+- Search Bar
+- Nearby Services
+- Restaurant Highlight Section
+- Categories Grid
+- Trending Businesses
+- Offers Banner
+- Popular Stores
+- Recommended Services
+
+========================
+UI/UX DESIGN
+
+Design:
+
+- Premium UI
+- Modern Dashboard
+- Glassmorphism
+- Gradient Backgrounds
+- Rounded Cards
+- Smooth Animations
+- Responsive Layouts
+- Large category cards
+
+Fonts:
+
+- Poppins
+- Inter
+
+Animations:
+
+- Lottie
+- Fade transitions
+- Hero animations
+
+========================
+MULTI LANGUAGE SUPPORT
+
+Support all major Indian languages.
+
+Features:
+
+- Dynamic translation
+- Save selected language
+- Instant app translation
+- RTL ready structure
+
+========================
+THEME SYSTEM
+
+Add:
+
+- Dark Mode
+- Light Mode
+
+Features:
+
+- Dynamic switching
+- Persistent storage
+- Smooth transitions
+
+========================
+PROVIDER SYSTEM
+
+Use Riverpod Providers for:
+
+- Authentication
+- User Data
+- Service Provider Data
+- Restaurant Data
+- Store Data
+- Hospital Data
+- Pharmacy Data
+- Khata Book Data
+- Notifications
+- Theme
+- Language
+- Dashboard
+- Connectivity
+- Orders
+- Cart
+- API Calls
+
+========================
+FIREBASE REQUIREMENTS
+
+Use:
+
+- firebase_core
+- firebase_auth
+- cloud_firestore
+- firebase_storage
+- firebase_messaging
+- firebase_crashlytics
+- firebase_analytics
+
+========================
+DATABASE STRUCTURE
+
+Collections:
+
+users/
+providers/
+restaurants/
+stores/
+hospitals/
+pharmacies/
+services/
+khata_book/
+orders/
+notifications/
+
+========================
+REQUIRED FEATURES
+
+Add:
+
+- Google Maps Integration
+- Nearby Search
+- Push Notifications
+- Real-time Updates
+- Offline Support
+- Favorites
+- Reviews & Ratings
+- Search Filters
+- Business Verification
+- Chat Ready Structure
+
+========================
+OFFLINE SUPPORT
+
+Use:
+
+- Hive
+- SharedPreferences
+- Firestore Offline Cache
+
+========================
+PERFORMANCE OPTIMIZATION
+
+Optimize:
+
+- Fast startup
+- Smooth scrolling
+- Reduced Firebase reads
+- Lazy loading
+- Reusable widgets
+- Cached images
+- Lightweight UI
+- No lag
+- No memory leaks
+
+========================
+REMOVE UNWANTED ITEMS
+
+Remove:
+
+- Duplicate code
+- Dead code
+- Unused imports
+- Repeated widgets
+- Extra dependencies
+- Heavy rebuilds
+
+========================
+FOLDER STRUCTURE
+
+lib/
+├── core/
+├── config/
+├── services/
+├── repositories/
+├── providers/
+├── models/
+├── localization/
+├── widgets/
+├── screens/
+├── modules/
+│    ├── restaurant/
+│    ├── store/
+│    ├── hospital/
+│    ├── pharmacy/
+│    ├── khata/
+│    └── multi_service/
+├── routes/
+├── utils/
+└── main.dart
+
+========================
+REQUIRED PACKAGES
+
+Use:
+
+- firebase_core
+- firebase_auth
+- cloud_firestore
+- firebase_storage
+- firebase_messaging
+- google_sign_in
+- flutter_riverpod
+- dio
+- hive
+- shared_preferences
+- cached_network_image
+- flutter_localizations
+- intl
+- lottie
+- flutter_animate
+- google_maps_flutter
+
+========================
+ANDROID + IOS CONFIG
+
+Generate:
+
+- AndroidManifest.xml
+- Info.plist
+- Firebase setup
+- Permissions
+- APK support
+- AAB support
+- IPA support
+
+========================
+FINAL OUTPUT
+
+Generate COMPLETE WORKING SOURCE CODE:
+
+- All Flutter Screens
+- All Dart Files
+- Providers
+- Services
+- Models
+- Firebase Setup
+- Localization System
+- Theme System
+- Navigation
+- Restaurant Module
+- Store Module
+- Hospital Module
+- Pharmacy Module
+- Khata Book Module
+- Multi-Service Module
+- Dashboard
+- Authentication Flow
+- Notifications
+- Offline Support
+- Optimized Architecture
+
+========================
+FINAL GOAL
+
+Build a COMPLETE modern Flutter + Dart application named “NIKAT” for Android and iOS with:
+
+- Firebase Backend
+- Google Login
+- Business Categories
+- Restaurant System
+- Store System
+- Hospital System
+- Pharmacy System
+- Khata Book Provider System
+- Multi-language Support
+- Premium UI/UX
+- Responsive Design
+- Offline Support
+- Push Notifications
+- High Performance
+- Secure Authentication
+- Riverpod State Management
+- Clean Architecture
+
+The app must be:
+
+- Fast
+- Smooth
+- Lightweight
+- Scalable
+- Secure
+- Responsive
+- Production-ready
+- Play Store Ready
+- App Store Ready
+
+Generate COMPLETE WORKING CODE with full architecture and all modules fully implemented.

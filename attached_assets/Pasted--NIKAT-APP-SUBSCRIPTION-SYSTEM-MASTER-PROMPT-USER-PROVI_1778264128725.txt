@@ -1,0 +1,407 @@
+========================
+NIKAT APP – SUBSCRIPTION SYSTEM MASTER PROMPT
+(USER + PROVIDER SEPARATE SUBSCRIPTION)
+
+Create a COMPLETE advanced subscription and membership system for the “NIKAT” Flutter application using Flutter + Dart + Firebase.
+
+IMPORTANT:
+
+- Create separate subscriptions for USERS and SERVICE PROVIDERS.
+- Both subscription systems must be completely different.
+- Generate full working code.
+- Add premium UI.
+- Add Firebase integration.
+- Add payment-ready structure.
+- Add scalable architecture.
+- Add secure subscription validation.
+- Add role-based access control.
+
+========================
+SUBSCRIPTION TYPES
+
+1. USER SUBSCRIPTION
+2. SERVICE PROVIDER SUBSCRIPTION
+
+========================
+USER SUBSCRIPTION SYSTEM
+
+Purpose:
+Normal users can purchase premium membership for extra features.
+
+========================
+USER FREE PLAN
+
+Features:
+
+- Browse businesses
+- Search nearby services
+- View restaurants
+- View stores
+- Basic notifications
+- Limited favorites
+- Limited reviews
+
+Restrictions:
+
+- Limited premium access
+- Limited search filters
+- Ads enabled
+
+========================
+USER PREMIUM PLAN
+
+Features:
+
+- Unlimited favorites
+- Advanced filters
+- Priority search results
+- Ad-free experience
+- Premium offers
+- Exclusive discounts
+- Faster support
+- Unlimited reviews
+- Save multiple addresses
+- Premium notifications
+
+========================
+USER VIP PLAN
+
+Features:
+
+- All Premium features
+- Early access features
+- VIP offers
+- Featured recommendations
+- Premium support
+- Special badges
+- Personalized dashboard
+
+========================
+SERVICE PROVIDER SUBSCRIPTION
+
+Purpose:
+Business owners can subscribe to manage and grow their business.
+
+========================
+PROVIDER FREE PLAN
+
+Features:
+
+- Basic business listing
+- Limited product/service upload
+- Basic dashboard
+- Limited analytics
+
+Restrictions:
+
+- Limited visibility
+- Limited customers
+- Limited uploads
+- Ads shown
+
+========================
+PROVIDER BASIC PLAN
+
+Features:
+
+- Full business profile
+- More uploads
+- Customer management
+- Basic analytics
+- Push notifications
+- Khata Book access
+
+========================
+PROVIDER PRO PLAN
+
+Features:
+
+- Featured business listing
+- Unlimited uploads
+- Advanced analytics
+- Order management
+- Premium dashboard
+- Priority visibility
+- Offer banners
+- Customer insights
+- Staff management
+- Multiple branches support
+
+========================
+PROVIDER ENTERPRISE PLAN
+
+Features:
+
+- All Pro features
+- Multi-business support
+- API access
+- Advanced reports
+- Custom branding
+- Priority support
+- Business verification badge
+- Advanced promotion tools
+
+========================
+SUBSCRIPTION FLOW
+
+User/Provider Login
+↓
+Subscription Page
+↓
+Select Plan
+↓
+Payment Gateway
+↓
+Firebase Verification
+↓
+Activate Subscription
+↓
+Unlock Features
+
+========================
+PAYMENT GATEWAY READY
+
+Create payment-ready architecture for:
+
+- Razorpay
+- Stripe
+- Paytm
+- Google Pay
+- PhonePe
+
+IMPORTANT:
+Generate clean payment integration structure.
+
+========================
+SUBSCRIPTION DATABASE
+
+Firestore Collections:
+
+subscriptions/
+user_subscriptions/
+provider_subscriptions/
+payments/
+transactions/
+
+========================
+USER SUBSCRIPTION FIELDS
+
+{
+userId,
+planName,
+planType,
+startDate,
+expiryDate,
+isActive,
+paymentId,
+amount,
+features,
+createdAt
+}
+
+========================
+PROVIDER SUBSCRIPTION FIELDS
+
+{
+providerId,
+businessName,
+planName,
+planType,
+startDate,
+expiryDate,
+isActive,
+paymentId,
+amount,
+features,
+businessCategory,
+createdAt
+}
+
+========================
+SUBSCRIPTION FEATURES SYSTEM
+
+IMPORTANT:
+Use role-based feature unlock system.
+
+Example:
+If user has Premium:
+
+- Unlock premium filters
+- Remove ads
+- Enable unlimited favorites
+
+If provider has Pro:
+
+- Unlock analytics
+- Unlock featured listing
+- Unlock unlimited uploads
+
+========================
+SUBSCRIPTION UI
+
+Design:
+
+- Premium pricing cards
+- Monthly plans
+- Yearly plans
+- Animated comparison table
+- Highlight recommended plans
+- Gradient premium cards
+- Smooth transitions
+
+Features:
+
+- Plan comparison
+- Benefits section
+- Active plan indicator
+- Upgrade button
+- Renew button
+
+========================
+SUBSCRIPTION PROVIDERS
+
+Create Riverpod providers for:
+
+- User Subscription
+- Provider Subscription
+- Payment State
+- Plan Validation
+- Feature Unlock
+- Subscription Status
+
+========================
+SUBSCRIPTION SECURITY
+
+Add:
+
+- Firebase validation
+- Secure payment verification
+- Token validation
+- Subscription expiry check
+- Auto renew support
+
+========================
+SUBSCRIPTION MODULES
+
+Generate modules for:
+
+- Subscription Screen
+- Payment Screen
+- Active Plan Screen
+- Billing History
+- Upgrade Plan
+- Renew Plan
+- Cancel Plan
+
+========================
+KHATA BOOK PREMIUM FEATURES
+
+Provider Premium Features:
+
+- Unlimited customer entries
+- PDF invoice export
+- Analytics reports
+- Expense tracking
+- Revenue charts
+- Staff access
+
+========================
+RESTAURANT PREMIUM FEATURES
+
+Restaurant Pro Features:
+
+- Featured listing
+- Priority visibility
+- Offer banners
+- Unlimited menu items
+- Customer analytics
+- Table booking management
+
+========================
+STORE PREMIUM FEATURES
+
+Store Pro Features:
+
+- Unlimited products
+- Inventory management
+- Sales analytics
+- Offer banners
+- Priority visibility
+
+========================
+HOSPITAL PREMIUM FEATURES
+
+Hospital Pro Features:
+
+- Doctor management
+- Appointment analytics
+- Emergency support
+- Priority listing
+
+========================
+APP FLOW
+
+App Open
+↓
+Language Selection
+↓
+Role Selection
+↓
+Login/Register
+↓
+Dashboard
+↓
+Subscription Suggestion
+↓
+Upgrade Plan
+↓
+Unlock Premium Features
+
+========================
+NOTIFICATION SYSTEM
+
+Subscription Notifications:
+
+- Plan Expiry Reminder
+- Payment Success
+- Renewal Reminder
+- Upgrade Offers
+
+========================
+PERFORMANCE OPTIMIZATION
+
+Optimize:
+
+- Subscription checks
+- Firebase reads
+- Payment validation
+- Premium feature loading
+
+========================
+FINAL GOAL
+
+Build a COMPLETE advanced subscription system for NIKAT app with:
+
+- Separate USER subscriptions
+- Separate PROVIDER subscriptions
+- Premium membership system
+- Payment-ready architecture
+- Firebase integration
+- Feature unlock system
+- Role-based access
+- Premium UI
+- Subscription validation
+- Billing history
+- Plan management
+
+The system must be:
+
+- Secure
+- Fast
+- Scalable
+- Production-ready
+- Optimized
+- Responsive
+- Firebase integrated
+
+Generate COMPLETE WORKING CODE with full Flutter + Dart implementation.
