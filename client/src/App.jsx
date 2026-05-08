@@ -6,6 +6,7 @@ import { LocationProvider } from './context/LocationContext';
 import { LanguageProvider } from './context/LanguageContext';
 import Splash from './pages/Splash';
 import LanguageSelect from './pages/LanguageSelect';
+import RoleSelect from './pages/RoleSelect';
 import Login from './pages/Login';
 import Home from './pages/Home';
 import Search from './pages/Search';
@@ -38,6 +39,7 @@ export default function App() {
             <Routes>
               <Route path="/splash" element={<Splash />} />
               <Route path="/language" element={<LanguageSelect />} />
+              <Route path="/role" element={<RoleSelect />} />
               <Route path="/login" element={<Login />} />
               <Route path="/" element={<ProtectedRoute><Layout /></ProtectedRoute>}>
                 <Route index element={<Home />} />

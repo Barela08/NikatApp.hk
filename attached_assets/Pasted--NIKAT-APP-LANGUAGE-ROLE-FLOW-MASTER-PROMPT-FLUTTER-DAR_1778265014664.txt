@@ -1,0 +1,384 @@
+========================
+NIKAT APP – LANGUAGE + ROLE FLOW MASTER PROMPT
+(FLUTTER + DART + FIREBASE)
+
+Create a COMPLETE modern onboarding and authentication flow for the “NIKAT” Flutter application using Flutter + Dart.
+
+IMPORTANT:
+
+- Generate FULL WORKING CODE.
+- Use Flutter + Dart only.
+- Use Firebase backend.
+- Support Android and iOS.
+- Create smooth premium UI.
+- Use responsive layouts.
+- Use animations and modern design.
+- Generate production-ready implementation.
+
+========================
+APP START FLOW
+
+APP OPEN
+↓
+Language Selection Screen
+↓
+Role Selection Screen
+↓
+User OR Provider
+↓
+Login / Register
+↓
+Dashboard
+
+========================
+
+1. LANGUAGE SELECTION SCREEN
+   ========================
+
+IMPORTANT:
+When app starts for NEW USER, show BIG LARGE language cards/buttons.
+
+The language options should:
+
+- Cover large area
+- Be clearly visible
+- Have icons/flags
+- Use modern gradients
+- Have animations
+- Be easy to click
+
+========================
+SUPPORTED LANGUAGES
+
+Show multiple Indian languages:
+
+- English
+- Hindi
+- Marathi
+- Gujarati
+- Punjabi
+- Bengali
+- Tamil
+- Telugu
+- Kannada
+- Malayalam
+- Urdu
+- Odia
+- Assamese
+- Sanskrit
+- Konkani
+- Nepali
+- Kashmiri
+- Sindhi
+- Dogri
+- Maithili
+- Santali
+
+========================
+LANGUAGE SELECTION BEHAVIOR
+
+IMPORTANT:
+
+When user clicks ANY language:
+
+- That language should instantly auto select
+- App should instantly change language
+- Save selected language in local storage
+- Redirect automatically to Role Selection Screen
+
+Use:
+
+- SharedPreferences
+- flutter_localizations
+- intl
+
+========================
+LANGUAGE UI DESIGN
+
+Design:
+
+- Fullscreen modern layout
+- Large language buttons
+- Rounded cards
+- Gradient backgrounds
+- Smooth animations
+- Search language option
+- Responsive UI
+
+========================
+2. ROLE SELECTION SCREEN
+
+After language selection show:
+
+1. USER
+2. PROVIDER
+
+IMPORTANT:
+Both options should be:
+
+- Large cards
+- Beautiful design
+- Animated
+- Easy to click
+- Full responsive
+
+========================
+ROLE SCREEN DESIGN
+
+USER CARD:
+
+- User icon
+- Gradient background
+- Description text
+
+PROVIDER CARD:
+
+- Business icon
+- Premium gradient
+- Description text
+
+========================
+ROLE SELECTION BEHAVIOR
+
+If user clicks:
+USER
+↓
+Open User Authentication Page
+
+If user clicks:
+PROVIDER
+↓
+Open Provider Authentication Page
+
+========================
+3. USER AUTHENTICATION SCREEN
+
+Show ONLY for USER role.
+
+Options:
+
+1. Login
+2. Register
+
+========================
+USER LOGIN FEATURES
+
+- Google Login
+- Email Login
+- Password Login
+- Forgot Password
+
+========================
+USER REGISTER FIELDS
+
+- Full Name
+- Mobile Number
+- Email
+- Password
+- Confirm Password
+- City
+- State
+- Profile Image
+
+========================
+4. PROVIDER AUTHENTICATION SCREEN
+
+Show ONLY for PROVIDER role.
+
+Options:
+
+1. Login
+2. Register
+
+========================
+PROVIDER REGISTER FIELDS
+
+- Owner Name
+- Business Name
+- Business Category
+- Mobile Number
+- Email
+- Password
+- Business Address
+- City
+- State
+- GST Number
+- Description
+- Logo Upload
+
+========================
+5. SUBSCRIPTION VISIBILITY RULE
+
+IMPORTANT:
+
+USER subscriptions should ONLY be visible to USER accounts.
+
+PROVIDER subscriptions should ONLY be visible to PROVIDER accounts.
+
+========================
+USER SUBSCRIPTION RULE
+
+If logged account type:
+USER
+
+Show:
+
+- User Premium Plans
+- VIP Plans
+- User Benefits
+
+Hide:
+
+- Provider Plans
+- Business Plans
+
+========================
+PROVIDER SUBSCRIPTION RULE
+
+If logged account type:
+PROVIDER
+
+Show:
+
+- Provider Plans
+- Business Plans
+- Enterprise Plans
+- Khata Features
+
+Hide:
+
+- User Premium Plans
+
+========================
+ROLE-BASED DASHBOARD
+
+USER DASHBOARD:
+
+- Nearby services
+- Restaurants
+- Stores
+- Favorites
+- Notifications
+
+PROVIDER DASHBOARD:
+
+- Business analytics
+- Orders
+- Customers
+- Khata Book
+- Revenue
+- Subscription status
+
+========================
+FIREBASE DATABASE STRUCTURE
+
+Collections:
+
+users/
+providers/
+subscriptions/
+user_subscriptions/
+provider_subscriptions/
+
+========================
+ROLE FIELD
+
+Each account should store:
+
+{
+role: "user"
+}
+
+OR
+
+{
+role: "provider"
+}
+
+========================
+ROLE-BASED NAVIGATION
+
+If role == user:
+Open User Dashboard
+
+If role == provider:
+Open Provider Dashboard
+
+========================
+PROVIDER SYSTEM
+
+Providers should manage:
+
+- Restaurant
+- Store
+- Hospital
+- Pharmacy
+- Multi-service business
+
+========================
+MULTI LANGUAGE STORAGE
+
+Save selected language:
+
+- SharedPreferences
+- Firestore user profile
+
+========================
+UI/UX REQUIREMENTS
+
+Design:
+
+- Premium UI
+- Material 3
+- Glassmorphism
+- Gradient backgrounds
+- Smooth animations
+- Large buttons
+- Responsive design
+
+Fonts:
+
+- Poppins
+- Inter
+
+========================
+ANIMATIONS
+
+Use:
+
+- Fade transitions
+- Hero animations
+- Smooth page navigation
+- Lottie animations
+
+========================
+STATE MANAGEMENT
+
+Use Riverpod Providers for:
+
+- Language
+- Authentication
+- Role Selection
+- Theme
+- User Data
+- Provider Data
+- Subscription State
+
+========================
+FINAL GOAL
+
+Build a COMPLETE onboarding and authentication system for NIKAT app where:
+
+- App starts with LARGE language selection
+- Clicking language auto-selects it
+- User automatically moves to role selection
+- Role selection shows USER and PROVIDER
+- Both have separate Login/Register
+- USER sees only USER subscriptions
+- PROVIDER sees only PROVIDER subscriptions
+- Dashboard changes according to role
+- Entire app supports multiple Indian languages
+- UI is premium and responsive
+- Flutter + Dart + Firebase architecture is fully optimized
+
+Generate COMPLETE WORKING CODE with full implementation.

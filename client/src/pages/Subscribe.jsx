@@ -127,7 +127,10 @@ export default function Subscribe() {
   const [promoData, setPromoData] = useState(null);
   const [promoLoading, setPromoLoading] = useState(false);
   const [subLoading, setSubLoading] = useState(false);
-  const [tab, setTab] = useState(user?.role === 'provider' ? 'provider' : 'user');
+  const isAdmin = user?.role === 'admin';
+  const isProvider = user?.role === 'provider';
+  const defaultTab = (isProvider || isAdmin && false) ? 'provider' : 'user';
+  const [tab, setTab] = useState(isProvider ? 'provider' : 'user');
   const [showPaymentModal, setShowPaymentModal] = useState(false);
   const [mySubscription, setMySubscription] = useState(null);
 
@@ -144,7 +147,7 @@ export default function Subscribe() {
 
   const userPlans = plans.filter(p => p.type?.startsWith('user'));
   const providerPlans = plans.filter(p => p.type?.startsWith('provider'));
-  const filteredPlans = tab === 'provider' ? providerPlans : userPlans;
+  const filteredPlans = isProvider ? providerPlans : isAdmin ? (tab === 'provider' ? providerPlans : userPlans) : userPlans;
 
   const applyPromo = async () => {
     if (!promoCode.trim()) return toast.error('Enter a promo code');
@@ -217,22 +220,28 @@ export default function Subscribe() {
         )}
 
         <div style={{ textAlign: 'center', marginBottom: 24 }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 64, height: 64, background: 'radial-gradient(circle,rgba(0,255,136,0.15),rgba(0,255,136,0.03))', borderRadius: '50%', marginBottom: 12, border: '1px solid rgba(0,255,136,0.2)' }}>
-            <Crown size={28} color="#00FF88" />
+          <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 64, height: 64, background: isProvider ? 'radial-gradient(circle,rgba(123,97,255,0.15),rgba(123,97,255,0.03))' : 'radial-gradient(circle,rgba(0,255,136,0.15),rgba(0,255,136,0.03))', borderRadius: '50%', marginBottom: 12, border: `1px solid ${isProvider ? 'rgba(123,97,255,0.2)' : 'rgba(0,255,136,0.2)'}` }}>
+            <Crown size={28} color={isProvider ? '#7B61FF' : '#00FF88'} />
+          </div>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: isProvider ? 'rgba(123,97,255,0.1)' : 'rgba(0,255,136,0.08)', border: `1px solid ${isProvider ? 'rgba(123,97,255,0.3)' : 'rgba(0,255,136,0.2)'}`, borderRadius: 20, padding: '4px 12px', marginBottom: 10 }}>
+            <span style={{ fontSize: 14 }}>{isProvider ? '🏪' : '👤'}</span>
+            <span style={{ color: isProvider ? '#7B61FF' : '#00FF88', fontSize: 12, fontWeight: 700 }}>
+              {isProvider ? 'Provider Plans' : 'Member Plans'}
+            </span>
           </div>
           <h2 style={{ fontSize: 24, fontWeight: 900, marginBottom: 6, letterSpacing: -0.5 }}>
-            {tab === 'provider' ? 'Grow Your Business' : 'Unlock Full Access'}
+            {isProvider ? 'Grow Your Business' : 'Unlock Full Access'}
           </h2>
           <p style={{ color: '#888', fontSize: 14, lineHeight: 1.5 }}>
-            {tab === 'provider' ? 'Get featured, manage orders & grow faster' : 'Connect with unlimited nearby services'}
+            {isProvider ? 'Get featured, manage orders & grow faster' : 'Connect with unlimited nearby services'}
           </p>
         </div>
 
-        {user?.role !== 'provider' && (
+        {isAdmin && (
           <div style={{ display: 'flex', gap: 0, marginBottom: 24, background: '#111', borderRadius: 14, padding: 4, border: '1px solid #222' }}>
             {[
-              { key: 'user', label: '👤 For Users' },
-              { key: 'provider', label: '🏪 For Providers' },
+              { key: 'user', label: '👤 User Plans' },
+              { key: 'provider', label: '🏪 Provider Plans' },
             ].map(t => (
               <button key={t.key} onClick={() => { setTab(t.key); setSelectedPlan(null); setPromoData(null); setPromoCode(''); }} style={{ flex: 1, padding: '10px', borderRadius: 11, background: tab === t.key ? '#00FF88' : 'transparent', color: tab === t.key ? '#000' : '#666', fontWeight: 700, fontSize: 13, cursor: 'pointer', border: 'none', transition: '200ms' }}>
                 {t.label}
