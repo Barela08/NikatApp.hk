@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { Home, Search, BookOpen, User, LayoutDashboard, ShieldCheck } from 'lucide-react';
+import { Home, Search, BookOpen, User, LayoutDashboard, ShieldCheck, Heart } from 'lucide-react';
 
 export default function Layout() {
   const { pathname } = useLocation();
@@ -11,6 +11,7 @@ export default function Layout() {
   const navItems = [
     { icon: Home, label: 'Home', path: '/' },
     { icon: Search, label: 'Search', path: '/search' },
+    { icon: Heart, label: 'Saved', path: '/favorites' },
     { icon: BookOpen, label: 'Bookings', path: '/bookings' },
     ...(user?.role === 'provider' || user?.role === 'admin' ? [{ icon: LayoutDashboard, label: 'Store', path: '/provider-dashboard' }] : []),
     ...(user?.role === 'admin' ? [{ icon: ShieldCheck, label: 'Admin', path: '/admin' }] : []),

@@ -16,6 +16,7 @@ import ProviderDashboard from './pages/ProviderDashboard';
 import AddStore from './pages/AddStore';
 import AdminPanel from './pages/AdminPanel';
 import Subscribe from './pages/Subscribe';
+import Favorites from './pages/Favorites';
 import Layout from './components/Layout';
 
 function ProtectedRoute({ children, roles }) {
@@ -43,6 +44,7 @@ export default function App() {
                 <Route path="provider/:id" element={<ProviderDetail />} />
                 <Route path="profile" element={<Profile />} />
                 <Route path="bookings" element={<Bookings />} />
+                <Route path="favorites" element={<Favorites />} />
                 <Route path="subscribe" element={<Subscribe />} />
                 <Route path="provider-dashboard" element={<ProtectedRoute roles={['provider','admin']}><ProviderDashboard /></ProtectedRoute>} />
                 <Route path="add-store" element={<ProtectedRoute roles={['provider','admin']}><AddStore /></ProtectedRoute>} />

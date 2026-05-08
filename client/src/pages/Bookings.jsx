@@ -1,18 +1,55 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, Clock, CheckCircle, XCircle, Truck } from 'lucide-react';
+import { ArrowLeft, Clock, CheckCircle, XCircle, Truck, Package, AlertCircle } from 'lucide-react';
 import api from '../utils/api';
 import toast from 'react-hot-toast';
 
+const ORDER_TIMELINE = [
+  { key: 'pending',    label: 'Placed',     icon: Package,       color: '#FFD700' },
+  { key: 'accepted',   label: 'Confirmed',  icon: CheckCircle,   color: '#00FF88' },
+  { key: 'on_the_way', label: 'On the Way', icon: Truck,         color: '#00BBFF' },
+  { key: 'in_progress',label: 'In Progress',icon: Clock,         color: '#FF8800' },
+  { key: 'completed',  label: 'Done',       icon: CheckCircle,   color: '#00FF88' },
+];
+
 const STATUS_CONFIG = {
-  pending: { color: '#FFD700', icon: Clock, label: 'Pending' },
-  accepted: { color: '#00FF88', icon: CheckCircle, label: 'Accepted' },
-  rejected: { color: '#FF4444', icon: XCircle, label: 'Rejected' },
-  on_the_way: { color: '#00BBFF', icon: Truck, label: 'On the Way' },
-  in_progress: { color: '#FF8800', icon: Clock, label: 'In Progress' },
-  completed: { color: '#00FF88', icon: CheckCircle, label: 'Completed' },
-  cancelled: { color: '#888', icon: XCircle, label: 'Cancelled' },
+  pending:     { color: '#FFD700', icon: Package,       label: 'Placed' },
+  accepted:    { color: '#00FF88', icon: CheckCircle,   label: 'Confirmed' },
+  rejected:    { color: '#FF4444', icon: XCircle,       label: 'Rejected' },
+  on_the_way:  { color: '#00BBFF', icon: Truck,         label: 'On the Way' },
+  in_progress: { color: '#FF8800', icon: Clock,         label: 'In Progress' },
+  completed:   { color: '#00FF88', icon: CheckCircle,   label: 'Completed' },
+  cancelled:   { color: '#888',    icon: XCircle,       label: 'Cancelled' },
 };
+
+function StatusTimeline({ status }) {
+  if (['rejected', 'cancelled'].includes(status)) return null;
+
+  const activeIndex = ORDER_TIMELINE.findIndex(s => s.key === status);
+  const effectiveIndex = activeIndex === -1 ? 0 : activeIndex;
+
+  return (
+    <div style={{ marginTop: 14, paddingTop: 14, borderTop: '1px solid #1a1a1a' }}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'relative' }}>
+        <div style={{ position: 'absolute', top: 14, left: '10%', right: '10%', height: 2, background: '#222', zIndex: 0 }} />
+        <div style={{ position: 'absolute', top: 14, left: '10%', width: `${Math.min(effectiveIndex / (ORDER_TIMELINE.length - 1), 1) * 80}%`, height: 2, background: '#00FF88', zIndex: 1, transition: 'width 600ms ease' }} />
+        {ORDER_TIMELINE.map((step, i) => {
+          const done = i <= effectiveIndex;
+          const active = i === effectiveIndex;
+          const Icon = step.icon;
+          return (
+            <div key={step.key} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6, zIndex: 2, flex: 1 }}>
+              <div style={{ width: 28, height: 28, borderRadius: '50%', background: done ? step.color : '#1a1a1a', border: `2px solid ${done ? step.color : '#333'}`, display: 'flex', alignItems: 'center', justifyContent: 'center', transition: '300ms', boxShadow: active ? `0 0 10px ${step.color}66` : 'none' }}>
+                <Icon size={13} color={done ? '#000' : '#444'} />
+              </div>
+              <span style={{ fontSize: 9, color: done ? step.color : '#555', fontWeight: done ? 700 : 400, textAlign: 'center', lineHeight: 1.2, maxWidth: 44 }}>{step.label}</span>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
 
 export default function Bookings() {
   const [bookings, setBookings] = useState([]);
@@ -34,6 +71,7 @@ export default function Bookings() {
     <div style={{ paddingBottom: 80 }}>
       <div className="topbar">
         <h2 style={{ fontWeight: 700, fontSize: 18 }}>My Bookings</h2>
+        <span style={{ marginLeft: 'auto', color: '#888', fontSize: 12 }}>{bookings.length} total</span>
       </div>
       <div style={{ display: 'flex', padding: '12px 16px', gap: 8, borderBottom: '1px solid #222' }}>
         {['active','completed','cancelled'].map(t => (
@@ -43,12 +81,13 @@ export default function Bookings() {
       <div style={{ padding: 16 }}>
         {loading ? (
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-            {[1,2,3].map(i => <div key={i} className="skeleton" style={{ height: 100, borderRadius: 16 }} />)}
+            {[1,2,3].map(i => <div key={i} className="skeleton" style={{ height: 140, borderRadius: 16 }} />)}
           </div>
         ) : filtered.length === 0 ? (
           <div style={{ textAlign: 'center', padding: '60px 20px', color: '#888' }}>
             <div style={{ fontSize: 48, marginBottom: 12 }}>📋</div>
-            <p style={{ fontWeight: 600 }}>No {tab} bookings</p>
+            <p style={{ fontWeight: 600, marginBottom: 6 }}>No {tab} bookings</p>
+            <p style={{ fontSize: 13 }}>Your bookings will appear here</p>
           </div>
         ) : (
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -66,13 +105,14 @@ export default function Bookings() {
                       <Icon size={11} /> {cfg.label}
                     </span>
                   </div>
-                  <div style={{ display: 'flex', gap: 16, color: '#888', fontSize: 12 }}>
+                  <div style={{ display: 'flex', gap: 16, color: '#888', fontSize: 12, flexWrap: 'wrap' }}>
                     {b.price && <span style={{ color: '#00FF88', fontWeight: 600 }}>₹{parseFloat(b.price).toFixed(0)}</span>}
                     {b.scheduled_at && <span>📅 {new Date(b.scheduled_at).toLocaleDateString()}</span>}
-                    <span>#{b.id}</span>
+                    <span style={{ color: '#444' }}>#{b.id}</span>
                     <span style={{ marginLeft: 'auto' }}>{new Date(b.created_at).toLocaleDateString()}</span>
                   </div>
                   {b.address && <p style={{ color: '#555', fontSize: 12, marginTop: 8 }}>📍 {b.address}</p>}
+                  <StatusTimeline status={b.status} />
                 </div>
               );
             })}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Star, MapPin, Phone, MessageCircle, Lock, CheckCircle, Navigation } from 'lucide-react';
+import { ArrowLeft, Star, MapPin, Phone, MessageCircle, Lock, CheckCircle, Navigation, Heart } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import api from '../utils/api';
 import toast from 'react-hot-toast';
@@ -17,10 +17,13 @@ export default function ProviderDetail() {
   const [selectedService, setSelectedService] = useState(null);
   const [booking, setBooking] = useState({ address: '', scheduled_at: '', notes: '' });
   const [bookingLoading, setBookingLoading] = useState(false);
+  const [favorited, setFavorited] = useState(false);
+  const [favLoading, setFavLoading] = useState(false);
 
   useEffect(() => {
     fetchProvider();
     trackView();
+    checkFavorite();
   }, [id]);
 
   const fetchProvider = async () => {
@@ -28,6 +31,13 @@ export default function ProviderDetail() {
       const data = await api.get(`/providers/${id}`);
       setProvider(data.provider);
     } catch {} finally { setLoading(false); }
+  };
+
+  const checkFavorite = async () => {
+    try {
+      const data = await api.get(`/favorites/check/${id}`);
+      setFavorited(data.favorited);
+    } catch {}
   };
 
   const trackView = async () => {
@@ -41,6 +51,23 @@ export default function ProviderDetail() {
     } catch (err) {
       if (err.requires_subscription) setViewError(err);
     }
+  };
+
+  const toggleFavorite = async () => {
+    if (favLoading) return;
+    setFavLoading(true);
+    try {
+      if (favorited) {
+        await api.delete(`/favorites/${id}`);
+        setFavorited(false);
+        toast('Removed from saved', { icon: '🗑️' });
+      } else {
+        await api.post(`/favorites/${id}`);
+        setFavorited(true);
+        toast.success('Saved to favorites ❤️');
+      }
+    } catch { toast.error('Failed to update favorites'); }
+    finally { setFavLoading(false); }
   };
 
   const submitBooking = async () => {
@@ -78,6 +105,9 @@ export default function ProviderDetail() {
 
   const contactUnlocked = viewData?.success && !viewError;
   const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${provider.latitude},${provider.longitude}`;
+  const waNumber = (provider.whatsapp || provider.phone || '').replace(/\D/g, '');
+  const waMessage = encodeURIComponent(`Hi! I found your shop "${provider.shop_name}" on NIKAT app. I'm interested in your services. Can you please help me?`);
+  const waUrl = `https://wa.me/${waNumber}?text=${waMessage}`;
 
   return (
     <div style={{ paddingBottom: 80 }}>
@@ -85,8 +115,13 @@ export default function ProviderDetail() {
         <button onClick={() => navigate(-1)} style={{ background: '#111', border: '1px solid #222', borderRadius: 10, width: 38, height: 38, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', flexShrink: 0 }}>
           <ArrowLeft size={18} />
         </button>
-        <h2 style={{ fontWeight: 700, fontSize: 16, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{provider.shop_name}</h2>
-        {provider.is_premium && <span className="badge-premium" style={{ marginLeft: 'auto', flexShrink: 0 }}>PRO</span>}
+        <h2 style={{ fontWeight: 700, fontSize: 16, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', flex: 1 }}>{provider.shop_name}</h2>
+        <div style={{ display: 'flex', gap: 8, marginLeft: 'auto', flexShrink: 0 }}>
+          {provider.is_premium && <span className="badge-premium">PRO</span>}
+          <button onClick={toggleFavorite} style={{ background: favorited ? 'rgba(255,68,68,0.1)' : '#111', border: `1px solid ${favorited ? 'rgba(255,68,68,0.4)' : '#222'}`, borderRadius: 10, width: 38, height: 38, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', transition: '150ms' }}>
+            <Heart size={18} fill={favorited ? '#FF4444' : 'none'} color={favorited ? '#FF4444' : '#888'} />
+          </button>
+        </div>
       </div>
 
       <div style={{ padding: 16 }}>
@@ -125,25 +160,21 @@ export default function ProviderDetail() {
             {contactUnlocked ? (
               <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                 <p style={{ color: '#888', fontSize: 12, marginBottom: 2 }}>Contact</p>
+                <div style={{ padding: '10px 14px', background: 'rgba(0,255,136,0.05)', borderRadius: 10, border: '1px solid rgba(0,255,136,0.15)', display: 'flex', alignItems: 'center', gap: 10 }}>
+                  <Phone size={14} color="#00FF88" />
+                  <span style={{ fontWeight: 700, fontSize: 16, letterSpacing: 1 }}>{provider.phone}</span>
+                </div>
                 <div style={{ display: 'flex', gap: 8 }}>
                   <a href={`tel:${provider.phone}`} style={{ flex: 1 }}>
                     <button className="btn-secondary btn-sm" style={{ width: '100%', gap: 6, height: 44 }}>
                       <Phone size={15} color="#00FF88" /> Call
                     </button>
                   </a>
-                  {provider.whatsapp ? (
-                    <a href={`https://wa.me/${provider.whatsapp?.replace(/\D/g, '')}`} target="_blank" rel="noreferrer" style={{ flex: 1 }}>
-                      <button className="btn-secondary btn-sm" style={{ width: '100%', gap: 6, height: 44, borderColor: '#25D36666' }}>
-                        <MessageCircle size={15} color="#25D366" /> WhatsApp
-                      </button>
-                    </a>
-                  ) : (
-                    <a href={`https://wa.me/${provider.phone?.replace(/\D/g, '')}`} target="_blank" rel="noreferrer" style={{ flex: 1 }}>
-                      <button className="btn-secondary btn-sm" style={{ width: '100%', gap: 6, height: 44, borderColor: '#25D36666' }}>
-                        <MessageCircle size={15} color="#25D366" /> WhatsApp
-                      </button>
-                    </a>
-                  )}
+                  <a href={waUrl} target="_blank" rel="noreferrer" style={{ flex: 1 }}>
+                    <button className="btn-secondary btn-sm" style={{ width: '100%', gap: 6, height: 44, borderColor: '#25D36666' }}>
+                      <MessageCircle size={15} color="#25D366" /> WhatsApp
+                    </button>
+                  </a>
                   <a href={mapsUrl} target="_blank" rel="noreferrer">
                     <button className="btn-secondary btn-sm" style={{ gap: 6, height: 44, padding: '0 14px' }}>
                       <Navigation size={15} color="#4A90E2" />

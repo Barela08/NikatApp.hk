@@ -8,6 +8,7 @@ import adminRoutes from './routes/admin.js';
 import categoryRoutes from './routes/categories.js';
 import bookingRoutes from './routes/bookings.js';
 import serviceRoutes from './routes/services.js';
+import favoriteRoutes from './routes/favorites.js';
 
 dotenv.config();
 
@@ -24,6 +25,7 @@ app.use('/api/admin', adminRoutes);
 app.use('/api/categories', categoryRoutes);
 app.use('/api/bookings', bookingRoutes);
 app.use('/api/providers', serviceRoutes);
+app.use('/api/favorites', favoriteRoutes);
 
 app.get('/api/health', (req, res) => res.json({ success: true, message: 'NIKAT API running' }));
 

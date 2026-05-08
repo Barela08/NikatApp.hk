@@ -1,9 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Star, MapPin } from 'lucide-react';
+import { Star, MapPin, Heart } from 'lucide-react';
+import api from '../utils/api';
+import toast from 'react-hot-toast';
 
-export default function ProviderCard({ provider }) {
+export default function ProviderCard({ provider, initialFavorited = false }) {
   const navigate = useNavigate();
+  const [favorited, setFavorited] = useState(initialFavorited);
+  const [favLoading, setFavLoading] = useState(false);
+
+  const toggleFavorite = async (e) => {
+    e.stopPropagation();
+    if (favLoading) return;
+    setFavLoading(true);
+    try {
+      if (favorited) {
+        await api.delete(`/favorites/${provider.id}`);
+        setFavorited(false);
+        toast('Removed from saved', { icon: '🗑️' });
+      } else {
+        await api.post(`/favorites/${provider.id}`);
+        setFavorited(true);
+        toast.success('Saved to favorites');
+      }
+    } catch { toast.error('Sign in to save shops'); }
+    finally { setFavLoading(false); }
+  };
+
   return (
     <div className="card fade-in" style={{ cursor: 'pointer', transition: 'transform 100ms' }}
       onClick={() => navigate(`/provider/${provider.id}`)}
@@ -17,7 +40,7 @@ export default function ProviderCard({ provider }) {
         </div>
         <div style={{ flex: 1, minWidth: 0 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 3 }}>
-            <h4 style={{ fontWeight: 700, fontSize: 15, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{provider.shop_name}</h4>
+            <h4 style={{ fontWeight: 700, fontSize: 15, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', flex: 1 }}>{provider.shop_name}</h4>
             {provider.is_premium && <span className="badge-premium">PRO</span>}
             {provider.is_verified && <span className="badge-verified">✓</span>}
           </div>
@@ -37,6 +60,9 @@ export default function ProviderCard({ provider }) {
             </div>
           </div>
         </div>
+        <button onClick={toggleFavorite} style={{ background: favorited ? 'rgba(255,68,68,0.1)' : 'transparent', border: `1px solid ${favorited ? 'rgba(255,68,68,0.3)' : '#222'}`, borderRadius: 10, width: 34, height: 34, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, cursor: 'pointer', alignSelf: 'flex-start', marginTop: 2, transition: '150ms' }}>
+          <Heart size={15} fill={favorited ? '#FF4444' : 'none'} color={favorited ? '#FF4444' : '#555'} />
+        </button>
       </div>
     </div>
   );
