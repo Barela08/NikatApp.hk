@@ -1,0 +1,160 @@
+NIKAT Application (Flutter + Dart)
+Introduction
+NIKAT ek modern mobile application hai jo Flutter Framework aur Dart Programming Language ka use karke develop ki gayi hai. Yeh application dono platforms — Android aur iOS — ke liye banayi gayi hai. App ka main purpose users aur providers ko ek single platform par connect karna hai jahan dono easily services ka use kar sake.
+Application ka UI simple, responsive aur user-friendly hoga jisse har user easily use kar sake.
+App Open Hone Par Kya Hoga
+Jab user app ko first time open karega tab:
+Splash Screen show hogi
+Uske baad Language Selection Screen open hogi
+User apni preferred language select karega
+English
+Hindi
+Marathi
+Other languages
+Language select hone ke baad app usi language me work karega.
+User Side Features
+1. User Registration & Login
+User:
+Mobile number se signup/login karega
+OTP verification hoga
+Secure authentication system rahega
+2. Profile Management
+User:
+Name
+Address
+Profile Photo
+Contact Details
+Language Preference
+manage kar sakega.
+3. Service Search
+User:
+Nearby providers search kar sakega
+Category wise services dekh sakega
+Location based results milenge
+4. Booking System
+User:
+Service book kar sakega
+Date aur time select karega
+Booking confirmation receive karega
+5. Live Tracking
+User provider ki live location track kar sakega.
+6. Chat & Call
+User:
+In-app chat
+Calling feature
+Notifications
+ka use kar sakega.
+7. Payment System
+User:
+Online payment
+Cash payment
+Wallet integration
+use kar sakega.
+8. Ratings & Reviews
+User provider ko:
+Rating
+Feedback
+Review
+de sakega.
+Provider Side Features
+1. Provider Registration
+Provider:
+Mobile number
+Documents upload
+Service category selection
+ke through register karega.
+2. Provider Dashboard
+Provider ko dashboard me:
+Total bookings
+Earnings
+Pending requests
+Completed work
+show hoga.
+3. Accept / Reject Requests
+Provider incoming booking requests:
+Accept
+Reject
+kar sakega.
+4. Live Location Sharing
+Provider apni live location user ke sath share karega.
+5. Earnings Management
+Provider:
+Daily earnings
+Weekly reports
+Transaction history
+dekh sakega.
+6. Availability Status
+Provider:
+Online
+Offline
+status change kar sakega.
+7. Notifications
+Provider ko:
+New booking alerts
+Payment alerts
+User messages
+receive honge.
+Admin Panel Features
+Admin:
+Users manage karega
+Providers verify karega
+Reports monitor karega
+Payments control karega
+App analytics dekh sakega
+Technical Implementation
+Frontend
+Flutter Framework use hoga:
+Responsive UI
+Fast animations
+Smooth performance
+Backend
+Backend:
+API handling
+Authentication
+Booking logic
+Payment processing
+manage karega.
+Database
+Secure database me:
+User data
+Provider data
+Booking history
+Payments
+store honge.
+Flutter & Dart Technology
+Application completely:
+Flutter Framework
+Dart Language
+me develop ki jayegi.
+Benefits:
+Single codebase
+Android + iOS support
+Fast performance
+Modern UI
+Easy maintenance
+Supported Platforms
+Android
+Android 7.0+
+APK support
+iOS
+iPhone support
+iPad support
+Security Features
+OTP Authentication
+Secure API
+Encrypted Data
+User Privacy Protection
+Secure Payment Gateway
+Application Flow
+App Open
+Language Selection
+Login/Register
+Dashboard Open
+Service Search
+Booking
+Provider Accept
+Live Tracking
+Payment
+Review & Rating
+Conclusion
+NIKAT application ek complete Flutter-based mobile solution hai jo users aur providers dono ke liye easy aur efficient platform provide karta hai. Application Dart language me develop ki jayegi aur Android aur iOS dono devices par smoothly run karegi. Language selection feature se users apni preferred language me app use kar sakenge.
