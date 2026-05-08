@@ -1,0 +1,347 @@
+SERVICE PROVIDER FULL SYSTEM (COMPLETE - ONLY PROVIDER SIDE)
+
+==================================================
+1. MAIN DASHBOARD (HOME SCREEN)
+==================================================
+
+SHOW:
+- today_earnings
+- weekly_earnings
+- monthly_earnings
+- total_earnings
+- wallet_balance
+
+- total_jobs
+- active_jobs
+- completed_jobs
+- pending_requests
+
+- total_views
+- unique_views
+- total_bookings
+- conversion_rate
+
+- rating
+- total_reviews
+
+FORMULA:
+conversion_rate = (total_bookings / total_views) * 100
+
+==================================================
+2. EARNINGS SYSTEM (DETAILED)
+==================================================
+
+EARNINGS TABLE:
+- earning_id
+- provider_id
+- order_id
+- service_price
+- platform_commission
+- net_amount
+- payment_status (pending/paid)
+- created_at
+
+CALCULATION:
+net_amount = service_price - platform_commission
+
+SHOW:
+- daily_earnings
+- weekly_earnings
+- monthly_earnings
+- total_commission_deducted
+- net_total
+
+==================================================
+3. WALLET SYSTEM
+==================================================
+
+WALLET TABLE:
+- provider_id
+- balance
+
+TRANSACTIONS TABLE:
+- transaction_id
+- provider_id
+- type (earning / withdrawal / ad_spend / refund)
+- amount
+- status (pending/success/failed)
+- created_at
+
+FEATURES:
+- withdraw_request(amount)
+- min_withdraw_limit
+- payment_history
+
+==================================================
+4. ORDER / JOB MANAGEMENT
+==================================================
+
+ORDERS TABLE:
+- order_id
+- provider_id
+- user_id
+- service_id
+- price
+- address
+- status
+- created_at
+
+STATUS FLOW:
+REQUESTED
+ACCEPTED
+REJECTED
+ON_THE_WAY
+IN_PROGRESS
+COMPLETED
+CANCELLED
+
+FEATURES:
+- accept_order()
+- reject_order()
+- update_status()
+- view_order_details()
+- order_history()
+
+==================================================
+5. LIVE ORDER TRACKING
+==================================================
+
+TRACK:
+- current_status
+- start_time
+- end_time
+- duration
+
+OPTIONAL:
+- live_location_lat
+- live_location_lng
+
+SHOW:
+- status timeline
+- estimated_time
+
+==================================================
+6. STORE / PROFILE ANALYTICS
+==================================================
+
+STORE_VIEWS TABLE:
+- view_id
+- provider_id
+- user_id
+- timestamp
+
+TRACK:
+- total_views
+- unique_views
+- daily_views
+- bookings
+- conversion_rate
+
+SHOW:
+- views_graph
+- booking_graph
+
+==================================================
+7. PERFORMANCE METRICS
+==================================================
+
+- response_rate
+- completion_rate
+- cancellation_rate
+- repeat_customer_percentage
+
+FORMULAS:
+
+response_rate = (accepted_requests / total_requests) * 100
+
+completion_rate = (completed_jobs / accepted_jobs) * 100
+
+cancellation_rate = (cancelled_jobs / accepted_jobs) * 100
+
+==================================================
+8. SERVICES MANAGEMENT
+==================================================
+
+SERVICES TABLE:
+- service_id
+- provider_id
+- name
+- description
+- price
+- duration
+
+FEATURES:
+- add_service()
+- edit_service()
+- delete_service()
+
+==================================================
+9. SERVICE PACKAGES
+==================================================
+
+PACKAGES TABLE:
+- package_id
+- provider_id
+- name (basic/standard/premium)
+- price
+- features[]
+
+==================================================
+10. GALLERY SYSTEM
+==================================================
+
+GALLERY TABLE:
+- image_id
+- provider_id
+- image_url
+- uploaded_at
+
+FEATURE:
+- upload_image()
+- delete_image()
+
+==================================================
+11. AVAILABILITY SYSTEM
+==================================================
+
+- is_online (true/false)
+- working_days[]
+- time_slots[]
+
+FEATURES:
+- toggle_online()
+- set_schedule()
+
+==================================================
+12. ADS SYSTEM (APPROVAL + PAYMENT BASED)
+==================================================
+
+ADS TABLE:
+- ad_id
+- provider_id
+- title
+- description
+- image_url
+- budget
+- duration_days
+- status
+- created_at
+
+STATUS FLOW:
+DRAFT
+PENDING_APPROVAL
+APPROVED_PENDING_PAYMENT
+ACTIVE
+PAUSED
+EXPIRED
+REJECTED
+
+AD_STATS TABLE:
+- ad_id
+- impressions
+- clicks
+- bookings
+- spend
+
+METRICS:
+CTR = clicks / impressions
+conversion = bookings / clicks
+
+FLOW:
+1. create_ad() → DRAFT
+2. submit_ad() → PENDING_APPROVAL
+3. admin_approve() → APPROVED_PENDING_PAYMENT
+4. make_payment() → ACTIVE
+
+==================================================
+13. ACCOUNTING (HISAAB KITAB)
+==================================================
+
+EXPENSES TABLE:
+- expense_id
+- provider_id
+- title
+- amount
+- category
+- date
+
+TRACK:
+- total_expenses
+- total_income
+- net_profit
+
+FORMULA:
+net_profit = total_income - total_expenses
+
+==================================================
+14. OFFERS SYSTEM
+==================================================
+
+OFFERS TABLE:
+- offer_id
+- provider_id
+- title
+- discount_percent
+- valid_till
+
+==================================================
+15. NOTIFICATION SYSTEM
+==================================================
+
+- new_order_alert
+- order_update
+- payment_received
+- ad_approved
+- ad_rejected
+- ad_expired
+- bonus_notification
+
+==================================================
+16. PROFILE CONTROL
+==================================================
+
+- update_profile()
+- change_pricing()
+- upload_gallery()
+- manage_services()
+- manage_packages()
+
+==================================================
+17. PROFILE SCORE SYSTEM
+==================================================
+
+- profile_score (0–100)
+
+CALCULATION:
++20 profile_photo
++20 services_added
++20 pricing_added
++20 gallery_added
++20 verification_done
+
+==================================================
+18. SECURITY & VERIFICATION
+==================================================
+
+- phone_verified
+- id_verified
+- profile_status (active/inactive/suspended)
+
+==================================================
+FINAL STRUCTURE
+
+DASHBOARD
+EARNINGS
+WALLET
+ORDERS
+TRACKING
+ANALYTICS
+SERVICES
+ADS
+ACCOUNTING
+PROFILE
+SETTINGS
+
+==================================================
+END OF PROVIDER SYSTEM
+==================================================

@@ -1,0 +1,300 @@
+# NIKAT – Product Requirement Document (PRD)
+
+## 1. Product Overview
+
+Nikat is a hyperlocal discovery and interaction platform that enables users to connect with nearby people, services, and opportunities in real time.
+
+It combines location intelligence, intent-based matching, and trust mechanisms to solve inefficiencies in local discovery.
+
+---
+
+## 2. Problem Statement
+
+Current local discovery methods are broken:
+
+* Information is scattered (WhatsApp, Google Maps, word-of-mouth)
+* No real-time intent matching
+* Low trust in unknown providers
+* Poor visibility of nearby opportunities
+
+---
+
+## 3. Solution
+
+Nikat enables:
+
+* Real-time discovery of nearby users and services
+* Intent-based posts (what you need right now)
+* Smart matching based on proximity + relevance
+* Built-in trust layer (profiles, ratings, verification)
+
+---
+
+## 4. Objectives
+
+### Primary Objectives
+
+* Build dense hyperlocal networks (≤5 km radius)
+* Enable instant matching (<10 seconds)
+* Drive repeat daily usage
+
+### Success Metrics
+
+* DAU / MAU ratio > 30%
+* Average session time
+* Matches per user per day
+* Retention (D1, D7, D30)
+
+---
+
+## 5. Target Users
+
+### 5.1 Gen Z / Young Adults
+
+* Looking for nearby people, hangouts, activities
+
+### 5.2 Service Seekers
+
+* Need quick local help (tutors, repair, fitness, etc.)
+
+### 5.3 Service Providers
+
+* Freelancers, small businesses, gig workers
+
+---
+
+## 6. Core Features
+
+### 6.1 Location-Based Feed
+
+* Displays nearby users, posts, and services
+* Adjustable radius (1 km – 10 km)
+* Real-time refresh
+
+---
+
+### 6.2 Intent Posting
+
+Users can create posts such as:
+
+* “Need a gym partner”
+* “Looking for a graphic designer”
+
+Fields:
+
+* Category
+* Description
+* Urgency level
+* Budget (optional)
+* Location auto-tag
+
+---
+
+### 6.3 Smart Matching Engine
+
+Matches users based on:
+
+* Distance
+* Intent similarity
+* Profile relevance
+* Activity level
+
+---
+
+### 6.4 Chat System
+
+* 1:1 messaging
+* Media sharing
+* Request → Accept flow (anti-spam)
+* Block/report options
+
+---
+
+### 6.5 Profile System
+
+* Name, bio, interests
+* Profile picture
+* Verification badge
+* Ratings & reviews
+* Activity history
+
+---
+
+### 6.6 Trust Layer (Critical)
+
+* User verification (phone / optional ID)
+* Ratings after interaction
+* Report system
+* Reputation score
+
+---
+
+### 6.7 Notifications
+
+* New matches
+* Nearby posts
+* Messages
+* Engagement alerts
+
+---
+
+## 7. User Flow
+
+### New User Flow
+
+1. Install app
+2. Sign up (phone OTP)
+3. Enable location
+4. Set profile
+5. Enter interests
+6. Land on feed
+
+---
+
+### Intent Flow
+
+1. User creates post
+2. System matches nearby users
+3. Users receive notification
+4. Interested users send request
+5. Chat begins after acceptance
+
+---
+
+### Service Flow
+
+1. Provider creates profile
+2. Lists services
+3. Appears in search/feed
+4. Gets contacted via chat
+
+---
+
+## 8. Monetization Strategy
+
+### Phase 1 (Free Growth)
+
+* No monetization
+* Focus on network density
+
+### Phase 2
+
+* Boost posts (visibility increase)
+* Premium profiles
+* Featured listings
+
+### Phase 3
+
+* Commission on transactions
+* Subscription for service providers
+
+---
+
+## 9. Technical Requirements
+
+### Frontend
+
+* React Native / Flutter
+* Real-time UI updates
+
+### Backend
+
+* Node.js / Firebase
+* Real-time database
+* Geo-location indexing
+
+### APIs
+
+* Maps integration
+* Notification service
+* Authentication (OTP)
+
+---
+
+## 10. Data & Matching Logic
+
+### Inputs
+
+* User location
+* Post intent
+* Profile data
+* Interaction history
+
+### Output
+
+* Ranked nearby matches
+
+### Priority Logic
+
+1. Distance
+2. Intent relevance
+3. Trust score
+4. Activity level
+
+---
+
+## 11. Risks & Weak Points (Important)
+
+* Cold start problem (no users nearby)
+* Fake/spam profiles
+* Low trust in early stage
+* Matching accuracy issues
+* Overcrowded feed in dense areas
+
+---
+
+## 12. Edge Cases
+
+* No nearby users → expand radius automatically
+* Too many matches → ranking filter
+* Spam posts → moderation system
+* Ghosting → interaction scoring
+
+---
+
+## 13. Future Enhancements
+
+* AI-based recommendations
+* Group interactions
+* Events system
+* In-app payments
+* Voice/video calls
+* Local marketplace
+
+---
+
+## 14. Launch Strategy
+
+### Phase 1
+
+* Single city launch
+* Dense campus / locality targeting
+
+### Phase 2
+
+* Referral loops
+* Micro-influencers
+
+### Phase 3
+
+* Multi-city expansion
+
+---
+
+## 15. Key Insight
+
+The product will fail if:
+
+* Density is low
+* Matching is slow
+* Trust is weak
+
+The product will win if:
+
+* Matches feel instant
+* Users see value in first session
+* Local network becomes habit
+
+---
+
+END OF DOCUMENT

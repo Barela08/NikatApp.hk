@@ -1,0 +1,209 @@
+NIKAT ANIMATION SYSTEM (FINAL – PERFORMANCE SAFE)
+
+---
+
+ANIMATION PRINCIPLE:
+
+* Animation ka purpose: guide user, not impress
+* Fast > Fancy
+* Subtle > Loud
+
+Rule:
+Agar animation UX improve nahi karta → REMOVE
+
+---
+
+GLOBAL SETTINGS:
+
+Duration:
+
+* Fast: 150ms
+* Normal: 200–250ms
+* Slow: max 300ms
+
+Easing:
+
+* ease-out (default)
+* no bounce, no overshoot
+
+---
+
+BUTTON ANIMATION:
+
+On Tap:
+
+* Scale: 1 → 0.96
+* Duration: 100ms
+
+On Release:
+
+* Back to normal (smooth)
+
+Optional:
+
+* Soft glow pulse (primary button only)
+
+---
+
+CARD ANIMATION:
+
+On Load:
+
+* Fade + slight slide up
+
+Values:
+
+* Opacity: 0 → 1
+* TranslateY: 20px → 0
+* Duration: 200ms
+
+Delay:
+
+* Stagger (50ms per card)
+
+---
+
+NAVIGATION TRANSITION:
+
+Screen Change:
+
+* Slide from right
+* Duration: 200ms
+
+Back Action:
+
+* Slide from left
+
+NO:
+
+* Zoom transitions
+* Flip animations
+
+---
+
+SEARCH INTERACTION:
+
+On Focus:
+
+* Border glow (#00FF88)
+* Slight expand (scale 1.00 → 1.02)
+
+Mic Tap:
+
+* Pulse animation
+* Waveform while listening
+
+After Voice Input:
+
+* Smooth text fill (typing effect optional)
+
+---
+
+LOADING STATE:
+
+Use Skeleton Loader ONLY
+
+Skeleton Animation:
+
+* Shimmer left → right
+* Duration: 1.2s loop
+
+NO:
+
+* Spinner as primary loader
+
+---
+
+ICON MICRO-ANIMATIONS:
+
+Allowed:
+
+* Tap → slight scale (0.95)
+* Active → color change
+
+NOT allowed:
+
+* Continuous spinning
+* Random motion
+
+---
+
+FEEDBACK ANIMATIONS:
+
+Success:
+
+* Quick fade-in + small scale pop
+
+Error:
+
+* Subtle shake (horizontal)
+* Duration: 150ms
+
+---
+
+LIST SCROLL:
+
+* Smooth scroll
+* No heavy parallax
+
+Optional:
+
+* Lazy load fade-in items
+
+---
+
+BOTTOM NAVBAR:
+
+Active Tab:
+
+* Color change (#00FF88)
+* Slight scale (1 → 1.1)
+
+---
+
+EMPTY STATE:
+
+* Icon fade-in
+* Text fade-in (delay 100ms)
+
+---
+
+PERFORMANCE RULES (CRITICAL):
+
+* Use hardware acceleration
+* Avoid heavy Lottie files
+* Keep animations under 60fps
+* Disable animation on low-end devices
+
+---
+
+WHAT TO NEVER DO:
+
+❌ Long animations (>300ms)
+❌ Multiple animations at once
+❌ Random motion (distracting)
+❌ Heavy graphics-based animation
+❌ Laggy transitions
+
+---
+
+ADVANCED FEEL COMES FROM:
+
+* Instant response
+* Smooth transitions
+* Clean UI
+* Zero lag
+
+NOT from:
+
+* Fancy animation
+* Over effects
+
+---
+
+FINAL RULE:
+
+User ko animation notice nahi hona chahiye
+Sirf experience smooth lagna chahiye
+
+---

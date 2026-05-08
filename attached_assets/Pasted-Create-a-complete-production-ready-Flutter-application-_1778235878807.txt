@@ -1,0 +1,212 @@
+Create a complete production-ready Flutter application named “NIKAT”.
+
+The application must be modern, premium, scalable, smooth, responsive, and optimized for Android devices.
+
+========================
+MAIN REQUIREMENTS
+========================
+
+1. Use Flutter latest stable version.
+2. Use Clean Architecture.
+3. Use Material 3 Design.
+4. Use Firebase backend.
+5. Add Google Sign-In authentication.
+6. Add Email/Password login.
+7. Add Splash Screen.
+8. Add Onboarding Screens.
+9. Add Dashboard/Home Screen.
+10. Add Profile Screen.
+11. Add Settings Screen.
+12. Add Dark/Light Theme.
+13. Add Multi-language Support:
+   - English
+   - Hindi
+   - Marathi
+
+14. Use responsive UI for all screen sizes.
+15. Use smooth animations.
+16. Add offline caching.
+17. Add secure local storage.
+18. Add API service layer.
+19. Add notification system using Firebase Cloud Messaging.
+20. Add logout functionality.
+21. Add Firestore database integration.
+22. Add reusable widgets.
+23. Add proper error handling.
+24. Add loading animations.
+25. Add null safety.
+26. Add production-ready scalable code.
+
+========================
+UI/UX DESIGN
+========================
+
+Design a premium modern UI with:
+- Gradient backgrounds
+- Rounded cards
+- Glassmorphism effect
+- Smooth page transitions
+- Modern dashboard
+- Beautiful buttons
+- Animated splash screen
+- Clean typography
+- Responsive layout
+
+Use:
+- Poppins Font
+- Material 3
+- Smooth animations
+- Bottom Navigation Bar
+
+========================
+AUTHENTICATION FLOW
+========================
+
+1. Splash Screen
+2. Onboarding
+3. Login/Register
+4. Google Login
+5. Firebase Authentication
+6. Save user data in Firestore
+7. Redirect to Dashboard
+
+========================
+FOLDER STRUCTURE
+========================
+
+lib/
+ ├── core/
+ ├── features/
+ ├── services/
+ ├── providers/
+ ├── widgets/
+ ├── models/
+ ├── localization/
+ ├── screens/
+ ├── utils/
+ └── main.dart
+
+========================
+FIREBASE FEATURES
+========================
+
+Use:
+- Firebase Core
+- Firebase Auth
+- Cloud Firestore
+- Firebase Storage
+- Firebase Messaging
+- Firebase Crashlytics
+
+========================
+DATABASE STRUCTURE
+========================
+
+users/
+- uid
+- name
+- email
+- profileImage
+- language
+- theme
+- createdAt
+- lastLogin
+
+========================
+REQUIRED PACKAGES
+========================
+
+Add all required dependencies:
+- firebase_core
+- firebase_auth
+- cloud_firestore
+- firebase_storage
+- google_sign_in
+- flutter_riverpod
+- go_router
+- dio
+- hive
+- shared_preferences
+- cached_network_image
+- flutter_localizations
+- intl
+- lottie
+- flutter_animate
+
+========================
+HOME DASHBOARD
+========================
+
+Create a modern dashboard with:
+- User greeting
+- Statistics cards
+- Quick action buttons
+- Notifications section
+- Recent activity
+- Bottom navigation
+
+========================
+PROFILE SCREEN
+========================
+
+Features:
+- Edit profile
+- Upload profile image
+- Change language
+- Theme switch
+- Logout button
+
+========================
+SETTINGS SCREEN
+========================
+
+Features:
+- Notification toggle
+- Theme switch
+- Language selector
+- Privacy settings
+- About app
+
+========================
+PERFORMANCE OPTIMIZATION
+========================
+
+Optimize the app:
+- Fast loading
+- Smooth animations
+- Memory optimization
+- Lazy loading
+- Efficient caching
+- Avoid crashes
+- Production-ready optimization
+
+========================
+GENERATE COMPLETE PROJECT
+========================
+
+Generate:
+- Full Flutter source code
+- All screens
+- Full folder structure
+- Firebase setup
+- AndroidManifest setup
+- Google Sign-In setup
+- Complete authentication flow
+- Reusable widgets
+- Theme files
+- Localization files
+- Providers
+- Services
+- Models
+- API layer
+- Navigation system
+- Error handling system
+- Loading system
+
+========================
+FINAL GOAL
+========================
+
+Create a beautiful, modern, scalable, secure, responsive, production-ready Flutter Android application named “NIKAT” with Google Login, Firebase backend, premium UI/UX, multi-language support, and complete app architecture.
+
+The app should be Play Store ready and fully optimized.

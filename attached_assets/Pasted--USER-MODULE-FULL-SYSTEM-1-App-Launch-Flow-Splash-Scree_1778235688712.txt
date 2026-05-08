@@ -1,0 +1,292 @@
+# 👤 USER MODULE (FULL SYSTEM)
+
+## 1. App Launch Flow
+
+* Splash Screen (App Logo)
+* Language Selection
+
+  * Hindi, English, Marathi, Tamil, Telugu, Bengali, Kannada, Gujarati, Punjabi, Malayalam
+* Role Selection
+
+  * User (Customer)
+  * Service Provider
+
+---
+
+## 2. Authentication
+
+* Registration
+
+  * Name
+  * Mobile Number
+  * OTP Verification
+  * Location (Auto/Manual)
+* Login (OTP Based)
+* Logout
+
+---
+
+## 3. Home Dashboard
+
+* Search Bar (“Search services…”)
+* Current Location (GPS)
+* Categories (Grid View)
+* Top / Popular Services
+* Emergency Services Highlight
+
+---
+
+## 4. Service Categories
+
+### Home Services
+
+Electrician, Plumber, Carpenter, Painter, AC Repair, Appliance Repair
+
+### Domestic Help
+
+Maid, Cook, Babysitter, Cleaning
+
+### Food & Kitchen
+
+Restaurants, Tiffin, Catering, Bakery
+
+### Daily Needs
+
+Grocery, Dairy, Fruits, Meat
+
+### Personal Care
+
+Salon, Spa, Makeup
+
+### Medical
+
+Pharmacy, Clinics, Hospitals, Ambulance
+
+### Vehicle
+
+Mechanic, Car Wash, Tyre
+
+### Retail
+
+Clothing, Electronics, Furniture
+
+### Utility
+
+Courier, Laundry, Recharge
+
+### Education
+
+Tuition, Coaching, Classes
+
+### Pet Services
+
+Grooming, Vet, Boarding
+
+### Events
+
+Wedding, DJ, Photographer
+
+### Professional
+
+CA, Lawyer, Property Dealer
+
+### Construction
+
+Interior, Mason, Tiles
+
+### Security
+
+Guards, CCTV
+
+### Outdoor
+
+Gardening, Pest Control
+
+### Emergency
+
+Locksmith, Electrician 24/7
+
+### Travel
+
+Agent, Ticket, Movers
+
+### Rental
+
+Bike, Car, Furniture
+
+### Daily Work
+
+Labour, Helpers
+
+---
+
+## 5. Service Listing
+
+* Nearby Providers
+* Filters (Rating, Distance, Price)
+* Availability Status
+
+---
+
+## 6. Provider Profile
+
+* Name & Details
+* Experience
+* Ratings & Reviews
+* Pricing
+* Call / Chat
+* Book Now
+
+---
+
+## 7. Booking System
+
+* Select Service
+* Choose Date & Time
+* Enter Address
+* Confirm Booking
+
+---
+
+## 8. Orders / Bookings
+
+* Active Orders
+* Upcoming
+* Completed
+* Cancelled
+* Full Details (Service, Provider, Time, Address, Status)
+
+---
+
+## 9. Payment System
+
+* Cash on Service
+* UPI / Card
+* Payment History
+* Invoice Download
+
+---
+
+## 10. Communication
+
+* Call Provider
+* In-App Chat
+
+---
+
+## 11. Ratings & Reviews
+
+* Give Rating (1–5 Star)
+* Write Review
+* Edit/Delete Review
+
+---
+
+# 👤 USER PROFILE
+
+## A. Personal Details
+
+* Profile Photo
+* Full Name
+* Mobile Number
+* Email ID
+* Gender (Optional)
+* Date of Birth (Optional)
+
+---
+
+## B. Contact Info
+
+* Primary Number
+* Alternate Number
+* Email
+
+---
+
+## C. Address
+
+* Home / Work / Other
+* Add / Edit / Delete
+* Default Address
+* GPS Location
+
+---
+
+## D. My Orders
+
+* All Bookings
+* Order Tracking
+* Order Details
+
+---
+
+## E. Payments
+
+* Saved Payment Methods
+* Payment History
+* Bills / Invoices
+
+---
+
+## F. Saved Section
+
+* Favorite Providers
+* Saved Services
+* Recently Viewed
+
+---
+
+## G. Reviews
+
+* My Ratings
+* My Reviews
+
+---
+
+## H. Notifications
+
+* Push Notifications
+* SMS / Email Alerts
+
+---
+
+## I. Settings
+
+* Change Language
+* Privacy Settings
+* App Settings
+
+---
+
+## J. Security
+
+* OTP Login
+* Change Number
+* Change Email
+* Logout
+* Delete Account
+
+---
+
+## K. Help & Support
+
+* Customer Support
+* FAQs
+* Report Issue
+
+---
+
+## L. Legal
+
+* Terms & Conditions
+* Privacy Policy
+* Refund Policy
+
+---
+
+## M. Extra Features
+
+* Wallet (Optional)
+* Coupons & Offers
+* Referral System
+* Subscription Status

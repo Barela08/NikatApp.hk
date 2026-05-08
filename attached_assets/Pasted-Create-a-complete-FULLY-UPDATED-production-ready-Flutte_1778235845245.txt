@@ -1,0 +1,264 @@
+Create a complete FULLY UPDATED production-ready Flutter application named “NIKAT” using Flutter + Firebase.
+
+IMPORTANT:
+
+* Remove all duplicate code.
+* Remove all unwanted files.
+* Remove unnecessary widgets.
+* Remove unused packages.
+* Remove repeated screens.
+* Optimize complete project structure.
+* Clean all architecture properly.
+* Start project from scratch with proper scalable structure.
+
+========================
+TECH STACK
+==========
+
+Frontend:
+
+* Flutter Latest Stable
+* Dart
+* Material 3
+
+Backend:
+
+* Firebase
+* Firestore
+* Firebase Auth
+* Firebase Storage
+* Firebase Cloud Messaging
+
+State Management:
+
+* Riverpod
+
+Architecture:
+
+* Clean Architecture
+
+========================
+PROJECT GOAL
+============
+
+Build a smooth, modern, premium, fast, scalable Android application with:
+
+* Google Login
+* Firebase Backend
+* Multi-language support
+* Responsive UI
+* Clean Code
+* High Performance
+* Offline Support
+* Production-ready architecture
+
+========================
+REMOVE ALL UNWANTED ITEMS
+=========================
+
+1. Remove duplicate widgets.
+2. Remove duplicate screens.
+3. Remove duplicate APIs.
+4. Remove extra folders.
+5. Remove unused imports.
+6. Remove dead code.
+7. Remove repeated navigation routes.
+8. Remove unnecessary dependencies.
+9. Remove extra animations causing lag.
+10. Remove memory leaks.
+11. Remove unnecessary rebuilds.
+
+========================
+OPTIMIZATION REQUIREMENTS
+=========================
+
+1. Optimize startup speed.
+2. Optimize image loading.
+3. Optimize state management.
+4. Use lazy loading.
+5. Use reusable widgets.
+6. Use caching system.
+7. Avoid unnecessary API calls.
+8. Avoid widget rebuilds.
+9. Optimize Firebase reads/writes.
+10. Make app lightweight and smooth.
+
+========================
+UI/UX REQUIREMENTS
+==================
+
+Design:
+
+* Premium UI
+* Modern Dashboard
+* Glassmorphism
+* Gradient colors
+* Rounded cards
+* Smooth animations
+* Responsive layouts
+
+Screens:
+
+* Splash Screen
+* Onboarding
+* Login
+* Register
+* Dashboard
+* Profile
+* Settings
+
+========================
+AUTHENTICATION
+==============
+
+Add:
+
+* Google Sign-In
+* Email Login
+* Logout
+* Session Persistence
+
+Flow:
+Splash
+→ Login
+→ Google Authentication
+→ Save User in Firestore
+→ Dashboard
+
+========================
+MULTI LANGUAGE
+==============
+
+Support:
+
+* English
+* Hindi
+* Marathi
+
+Use:
+
+* flutter_localizations
+* intl
+
+========================
+FOLDER STRUCTURE
+================
+
+lib/
+├── core/
+├── config/
+├── services/
+├── models/
+├── repositories/
+├── providers/
+├── localization/
+├── widgets/
+├── screens/
+├── routes/
+├── utils/
+└── main.dart
+
+========================
+REQUIRED FEATURES
+=================
+
+* Firebase Integration
+* Google Login
+* Firestore Database
+* Push Notifications
+* Offline Support
+* Secure Local Storage
+* Theme System
+* Dark/Light Mode
+* Settings Module
+* Profile Management
+* Error Handling
+* Loading System
+* App Update Checker
+
+========================
+PERFORMANCE MODE
+================
+
+Make application:
+
+* Lightweight
+* Fast
+* Smooth
+* Optimized
+* Scalable
+* Crash-free
+
+Use:
+
+* const widgets
+* proper dispose methods
+* optimized providers
+* caching
+* compressed images
+* reusable components
+
+========================
+DEPENDENCIES
+============
+
+Use only necessary packages:
+
+* firebase_core
+* firebase_auth
+* cloud_firestore
+* firebase_storage
+* firebase_messaging
+* google_sign_in
+* flutter_riverpod
+* shared_preferences
+* hive
+* dio
+* intl
+* flutter_localizations
+* cached_network_image
+* lottie
+
+========================
+GENERATE COMPLETE PROJECT
+=========================
+
+Generate:
+
+* Full source code
+* Complete Flutter structure
+* Firebase setup
+* AndroidManifest setup
+* Google Sign-In setup
+* Authentication flow
+* Reusable widgets
+* Theme system
+* Localization files
+* API layer
+* Providers
+* Models
+* Services
+* Optimized dashboard
+* Settings module
+* Profile module
+* Notification system
+* Error handling system
+
+========================
+FINAL RESULT
+============
+
+The final app should:
+
+* Look premium
+* Be fully optimized
+* Have no duplicate code
+* Have no unnecessary files
+* Be smooth and fast
+* Be scalable
+* Be production-ready
+* Be Play Store ready
+* Use Flutter + Firebase properly
+* Have complete clean architecture
+* Include Google Login
+* Include complete backend integration

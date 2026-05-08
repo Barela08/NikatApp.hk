@@ -1,0 +1,613 @@
+# NIKAT APP – FULL PRODUCT REQUIREMENTS DOCUMENT (PRD)
+
+## 1. Project Overview
+
+### Project Name
+
+NIKAT – Smart Multi-Language Mobile Application
+
+### Platform
+
+Android Application (Flutter Based)
+
+### Goal
+
+Ek modern, fast, secure aur scalable mobile application banana jisme:
+
+* Multi-language support ho
+* Google Login ho
+* Smooth UI/UX ho
+* Fast performance ho
+* Modern dashboard ho
+* User-friendly navigation ho
+* Secure backend integration ho
+* Real-time data handling ho
+* Responsive design ho
+* Future scalability ho
+
+---
+
+# 2. Main Objectives
+
+Application ka main purpose:
+
+* Users ko easy aur clean experience dena
+* Sabhi modules ko ek hi app mein integrate karna
+* Non-technical users ke liye bhi easy interface provide karna
+* High performance aur crash-free architecture maintain karna
+* Production-ready app create karna
+
+---
+
+# 3. Technology Stack
+
+## Frontend
+
+* Flutter (Latest Stable Version)
+* Dart
+* Material 3 UI
+* Responsive Layout System
+
+## Backend
+
+* Firebase
+* Firebase Authentication
+* Cloud Firestore
+* Firebase Storage
+* Firebase Cloud Messaging (FCM)
+
+## State Management
+
+* Riverpod / Provider
+
+## Local Storage
+
+* SharedPreferences
+* Hive Database
+
+## APIs
+
+* REST APIs
+* Dio HTTP Client
+
+## Authentication
+
+* Google Sign-In
+* Email Login
+* Phone Authentication (Future Ready)
+
+---
+
+# 4. App Features
+
+## 4.1 Splash Screen
+
+Features:
+
+* Animated logo
+* App initialization
+* Theme loading
+* User session check
+
+Flow:
+
+1. App Open
+2. Splash Screen
+3. Check Login
+4. Redirect to Home/Login
+
+---
+
+# 4.2 Onboarding Screens
+
+### Purpose
+
+New users ko app explain karna.
+
+### Screens
+
+* Welcome Screen
+* Features Introduction
+* Security Information
+* Get Started Button
+
+### UI Requirements
+
+* Smooth animation
+* Lottie animations
+* Gradient background
+* Responsive cards
+
+---
+
+# 4.3 Authentication Module
+
+## Login Methods
+
+* Google Login
+* Email Login
+* Password Login
+* Guest Mode
+
+## Google Login Requirements
+
+* Firebase Google Authentication
+* Secure token handling
+* Auto-login support
+* Logout support
+* Session persistence
+
+## Security
+
+* Firebase Auth
+* JWT Token
+* Encrypted storage
+
+### Login Flow
+
+1. User taps Google Login
+2. Google account picker opens
+3. Authentication successful
+4. User profile saved in Firestore
+5. Redirect to Home
+
+---
+
+# 4.4 Home Dashboard
+
+## Dashboard Components
+
+* User greeting
+* Profile section
+* Feature cards
+* Quick actions
+* Notifications
+* Recent activity
+
+## UI Design
+
+* Modern cards
+* Rounded corners
+* Glassmorphism style
+* Smooth shadows
+* Dark/Light mode
+
+---
+
+# 4.5 Profile Module
+
+Features:
+
+* Edit profile
+* Upload profile image
+* Language selection
+* App settings
+* Logout
+
+---
+
+# 4.6 Multi Language Support
+
+## Supported Languages
+
+* English
+* Hindi
+* Marathi
+* Future languages support
+
+## Requirements
+
+* Dynamic language switching
+* RTL ready architecture
+* Localization support
+
+Packages:
+
+* flutter_localizations
+* intl
+
+---
+
+# 4.7 Notification System
+
+## Features
+
+* Push notifications
+* In-app notifications
+* Firebase Cloud Messaging
+
+Notification Types:
+
+* Alerts
+* Updates
+* Reminders
+* Promotions
+
+---
+
+# 4.8 Search System
+
+Features:
+
+* Real-time search
+* Filter system
+* Smart suggestions
+* Recent searches
+
+---
+
+# 4.9 Settings Module
+
+Features:
+
+* Theme switch
+* Language switch
+* Privacy settings
+* Notification settings
+* About app
+
+---
+
+# 4.10 Admin Panel Ready Architecture
+
+Future scalable structure:
+
+* User management
+* Analytics
+* Content management
+* Notifications control
+
+---
+
+# 5. UI/UX REQUIREMENTS
+
+## Design Language
+
+* Material 3
+* Clean interface
+* Smooth navigation
+* Premium feel
+
+## Color Palette
+
+Primary:
+
+* Deep Blue
+* Purple Gradient
+
+Accent:
+
+* Cyan
+* White
+
+## Typography
+
+* Google Fonts
+* Poppins
+* Inter
+
+## Animations
+
+* Hero animation
+* Fade transitions
+* Page transitions
+* Lottie support
+
+---
+
+# 6. APP ARCHITECTURE
+
+## Recommended Architecture
+
+Clean Architecture
+
+Layers:
+
+1. Presentation Layer
+2. Domain Layer
+3. Data Layer
+
+Folder Structure:
+
+lib/
+├── core/
+├── features/
+├── services/
+├── models/
+├── widgets/
+├── screens/
+├── providers/
+├── utils/
+├── localization/
+└── main.dart
+
+---
+
+# 7. FIREBASE INTEGRATION
+
+## Firebase Services
+
+* Firebase Auth
+* Firestore
+* Analytics
+* Crashlytics
+* Messaging
+* Storage
+
+## Firestore Collections
+
+users/
+settings/
+notifications/
+activity/
+
+---
+
+# 8. DATABASE STRUCTURE
+
+## Users Collection
+
+Fields:
+
+* uid
+* name
+* email
+* photoUrl
+* createdAt
+* language
+* theme
+* lastLogin
+
+---
+
+# 9. PERFORMANCE REQUIREMENTS
+
+## App Speed
+
+* Startup under 3 seconds
+* Smooth 60 FPS animations
+* Optimized image loading
+* Lazy loading
+
+## Memory Optimization
+
+* Efficient caching
+* Compressed images
+* Minimized API calls
+
+---
+
+# 10. SECURITY REQUIREMENTS
+
+## Security Features
+
+* Secure Firebase rules
+* Token authentication
+* SSL APIs
+* Encrypted storage
+* Input validation
+
+---
+
+# 11. ERROR HANDLING
+
+## Requirements
+
+* Global exception handling
+* Friendly error messages
+* Offline handling
+* Retry mechanism
+
+---
+
+# 12. OFFLINE SUPPORT
+
+Features:
+
+* Cached data
+* Offline mode
+* Auto sync
+
+---
+
+# 13. TESTING REQUIREMENTS
+
+## Testing Types
+
+* Unit Testing
+* Widget Testing
+* Integration Testing
+* Performance Testing
+
+---
+
+# 14. DEPLOYMENT REQUIREMENTS
+
+## Android Build
+
+* APK Build
+* Play Store Ready AAB
+* Release optimization
+
+---
+
+# 15. FUTURE FEATURES
+
+Future scalable modules:
+
+* AI Chat Assistant
+* Voice Commands
+* Video Calling
+* Real-time Chat
+* Payment Integration
+* OTP Login
+* Social Login
+
+---
+
+# 16. APP FLOW
+
+Splash Screen
+↓
+Onboarding
+↓
+Login/Register
+↓
+Dashboard
+↓
+Features
+↓
+Profile & Settings
+
+---
+
+# 17. COMPLETE FLUTTER DEVELOPMENT MASTER PROMPT
+
+## MASTER AI PROMPT
+
+Create a complete production-ready Flutter Android application named “NIKAT”.
+
+Requirements:
+
+1. Use latest Flutter stable version.
+2. Use Clean Architecture.
+3. Use Material 3 design.
+4. Use responsive UI for all screen sizes.
+5. Use Firebase backend integration.
+6. Add Google Login using Firebase Authentication.
+7. Add Email Authentication.
+8. Create modern premium UI with smooth animations.
+9. Add dark mode and light mode.
+10. Add multi-language support (English, Hindi, Marathi).
+11. Use Riverpod or Provider for state management.
+12. Create reusable widgets.
+13. Use proper folder structure.
+14. Add loading animations.
+15. Add proper error handling.
+16. Add offline caching.
+17. Add secure local storage.
+18. Add splash screen.
+19. Add onboarding screens.
+20. Add profile management.
+21. Add settings screen.
+22. Add Firebase Cloud Messaging notifications.
+23. Optimize app performance.
+24. Generate clean and scalable code.
+25. Use null safety.
+26. Add comments in code.
+27. Avoid crashes and memory leaks.
+28. Add API service layer.
+29. Add custom theme system.
+30. Create production-ready architecture.
+31. Build beautiful dashboard UI.
+32. Add navigation transitions.
+33. Add app icons and launcher setup.
+34. Generate complete Flutter project structure.
+35. Generate all required dependencies.
+36. Add Firebase configuration setup.
+37. Add complete authentication flow.
+38. Add logout flow.
+39. Add Firestore user storage.
+40. Add responsive cards and modern UI components.
+
+Generate:
+
+* Full Flutter source code
+* Folder structure
+* Dependencies list
+* Firebase setup guide
+* AndroidManifest configuration
+* Google Sign-In setup
+* Reusable widgets
+* Theme files
+* Localization files
+* Models
+* Services
+* Providers
+* Screens
+* Navigation system
+* API services
+* Error handling system
+* Loading system
+* Complete app preview structure
+
+The application should look modern, smooth, premium, scalable, and fully production-ready.
+
+---
+
+# 18. UI PREVIEW IDEA
+
+## Splash Screen
+
+* Animated logo center
+* Gradient background
+* Loading indicator
+
+## Login Screen
+
+* Google Login button
+* Email login form
+* Modern rounded design
+* Social auth cards
+
+## Dashboard
+
+* Top greeting section
+* Statistics cards
+* Quick action buttons
+* Bottom navigation bar
+
+## Profile Screen
+
+* Circular profile image
+* User info cards
+* Edit profile button
+* Theme switch
+
+## Settings Screen
+
+* Language dropdown
+* Notification toggle
+* Dark mode switch
+
+---
+
+# 19. RECOMMENDED FLUTTER PACKAGES
+
+Dependencies:
+
+* firebase_core
+* firebase_auth
+* cloud_firestore
+* firebase_storage
+* google_sign_in
+* flutter_riverpod
+* go_router
+* dio
+* cached_network_image
+* lottie
+* shared_preferences
+* flutter_localizations
+* intl
+* hive
+* flutter_animate
+
+---
+
+# 20. FINAL DEVELOPMENT GOAL
+
+Develop a fully scalable, beautiful, secure, modern, production-ready Flutter application named NIKAT with:
+
+* Google Login
+* Firebase Backend
+* Multi Language Support
+* Modern UI/UX
+* Clean Architecture
+* Responsive Design
+* High Performance
+* Secure Authentication
+* Smooth Animations
+* Offline Support
+* Production Level Code Quality
+
+This application should be Play Store ready and future scalable.
