@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -17,7 +18,7 @@ final currentUserProvider = FutureProvider<UserModel?>((ref) async {
 });
 
 final userProfileProvider = StreamProvider.family<UserModel?, String>((ref, uid) {
-  return FirebaseAuth.instance.app.firestore
+  return FirebaseFirestore.instance
       .collection('users')
       .doc(uid)
       .snapshots()

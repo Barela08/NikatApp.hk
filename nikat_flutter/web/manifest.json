@@ -1,0 +1,76 @@
+{
+  "name": "NIKAT – Nearest Services",
+  "short_name": "NIKAT",
+  "description": "Har Dukaan, Har Service – Ek Jagah. Find nearby shops and services instantly.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#00FF88",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "categories": ["utilities", "lifestyle", "shopping"],
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "icons/Icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/Icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/Icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/Icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Find Services",
+      "short_name": "Find",
+      "description": "Search for nearby services",
+      "url": "/search",
+      "icons": [{"src": "icons/Icon-192.png", "sizes": "192x192"}]
+    },
+    {
+      "name": "My Orders",
+      "short_name": "Orders",
+      "description": "View your orders",
+      "url": "/orders",
+      "icons": [{"src": "icons/Icon-192.png", "sizes": "192x192"}]
+    },
+    {
+      "name": "List My Shop",
+      "short_name": "My Shop",
+      "description": "List your business on NIKAT",
+      "url": "/add-store",
+      "icons": [{"src": "icons/Icon-192.png", "sizes": "192x192"}]
+    }
+  ],
+  "screenshots": [],
+  "related_applications": [
+    {
+      "platform": "play",
+      "url": "https://play.google.com/store/apps/details?id=com.nikat.app",
+      "id": "com.nikat.app"
+    },
+    {
+      "platform": "itunes",
+      "url": "https://apps.apple.com/app/nikat/id0000000000"
+    }
+  ],
+  "prefer_related_applications": false
+}

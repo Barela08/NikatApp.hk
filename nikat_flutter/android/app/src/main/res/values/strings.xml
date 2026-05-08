@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">NIKAT</string>
+    <string name="title_activity_main">NIKAT</string>
+    <string name="notification_channel_name">NIKAT Notifications</string>
+    <string name="notification_channel_description">Order updates, service alerts, and more</string>
+</resources>

@@ -61,7 +61,7 @@ dependencies:
   image_picker: ^1.1.2
   permission_handler: ^11.3.1
 
-  # Chat
+  # Chat & Real-time
   intl: ^0.19.0
 
   # Utils
@@ -78,6 +78,10 @@ dependencies:
   local_auth: ^2.2.0
   package_info_plus: ^8.0.2
   device_info_plus: ^10.1.2
+
+  # Web PWA
+  flutter_web_plugins:
+    sdk: flutter
 
 dev_dependencies:
   flutter_test:

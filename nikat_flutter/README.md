@@ -1,8 +1,32 @@
-# NIKAT Flutter App 🇮🇳
+# NIKAT – Flutter App
+### Har Dukaan, Har Service – Ek Jagah
 
-**Har Dukaan, Har Service – Ek Jagah**
+Production-ready cross-platform Flutter app — **Android**, **iOS**, and **Web (PWA)**.
 
-A hyperlocal platform connecting users with nearby shops and services across India. Available for both Android and iOS.
+---
+
+## Quick Start
+
+```bash
+flutter pub get
+flutterfire configure --project=YOUR_FIREBASE_PROJECT_ID
+flutter run                   # any device
+flutter run -d chrome         # Flutter Web / PWA
+```
+
+---
+
+## Platform Summary
+
+| Platform | Status | Output |
+|----------|--------|--------|
+| Android  | ✅ Full | APK / AAB |
+| iOS      | ✅ Full | IPA (Xcode Archive) |
+| Web/PWA  | ✅ Full | Hosted build |
+
+---
+
+## What's Inside
 
 ---
 

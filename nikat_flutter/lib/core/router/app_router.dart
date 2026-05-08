@@ -23,6 +23,9 @@ import '../../screens/profile/profile_screen.dart';
 import '../../screens/provider_dashboard/provider_dashboard_screen.dart';
 import '../../screens/provider_dashboard/add_store_screen.dart';
 import '../../screens/admin/admin_screen.dart';
+import '../../screens/kyc/aadhaar_screen.dart';
+import '../../screens/tracking/tracking_screen.dart';
+import '../../screens/analytics/analytics_screen.dart';
 
 final appRouterProvider = Provider<GoRouter>((ref) {
   final authState = ref.watch(authStateProvider);
@@ -83,6 +86,12 @@ final appRouterProvider = Provider<GoRouter>((ref) {
           GoRoute(path: '/provider-dashboard', builder: (c, s) => const ProviderDashboardScreen()),
           GoRoute(path: '/add-store', builder: (c, s) => const AddStoreScreen()),
           GoRoute(path: '/admin', builder: (c, s) => const AdminScreen()),
+          GoRoute(path: '/kyc', builder: (c, s) => const AadhaarScreen()),
+          GoRoute(
+            path: '/track/:orderId',
+            builder: (c, s) => TrackingScreen(orderId: s.pathParameters['orderId'] ?? ''),
+          ),
+          GoRoute(path: '/analytics', builder: (c, s) => const AnalyticsScreen()),
         ],
       ),
     ],

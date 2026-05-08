@@ -139,9 +139,22 @@ class ProviderModel {
       );
 
   String get ratingDisplay => rating.toStringAsFixed(1);
+
   String get distanceDisplay => distance != null
       ? distance! < 1 ? '${(distance! * 1000).toInt()}m' : '${distance!.toStringAsFixed(1)}km'
       : '';
+
+  // Alias getters used across widgets
+  String get category => categoryId;
+  String get categoryLabel => categoryName ?? categoryId;
+  double? get distanceKm => distance;
+  String? get imageUrl => profileImage;
+  String? get coverImageUrl => images.isNotEmpty ? images.first : null;
+
+  // Open/closed based on isOnline flag (can be enhanced with hours)
+  bool get isOpen => isOnline && status == 'active';
+
+  bool get isActive => status == 'active';
 }
 
 class ServiceItem {
