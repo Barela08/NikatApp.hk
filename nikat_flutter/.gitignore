@@ -1,0 +1,32 @@
+# Flutter/Dart
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+build/
+*.iml
+
+# Android
+android/local.properties
+android/.gradle
+android/captures/
+android/key.properties
+
+# iOS
+ios/.symlinks/
+ios/Flutter/Generated.xcconfig
+ios/Flutter/flutter_export_environment.sh
+ios/Pods/
+ios/Runner.xcworkspace/xcuserdata/
+
+# Firebase (real credentials — DO NOT COMMIT)
+# Uncomment these if you want to exclude real firebase configs:
+# android/app/google-services.json
+# ios/Runner/GoogleService-Info.plist
+# lib/firebase_options.dart
+
+# Misc
+.DS_Store
+*.log
+pubspec.lock
+coverage/

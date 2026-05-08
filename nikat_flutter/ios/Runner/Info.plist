@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleDevelopmentRegion</key>
+    <string>$(DEVELOPMENT_LANGUAGE)</string>
+    <key>CFBundleDisplayName</key>
+    <string>NIKAT</string>
+    <key>CFBundleExecutable</key>
+    <string>$(EXECUTABLE_NAME)</string>
+    <key>CFBundleIdentifier</key>
+    <string>com.nikat.app</string>
+    <key>CFBundleInfoDictionaryVersion</key>
+    <string>6.0</string>
+    <key>CFBundleName</key>
+    <string>nikat</string>
+    <key>CFBundlePackageType</key>
+    <string>APPL</string>
+    <key>CFBundleShortVersionString</key>
+    <string>$(FLUTTER_BUILD_NAME)</string>
+    <key>CFBundleSignature</key>
+    <string>????</string>
+    <key>CFBundleVersion</key>
+    <string>$(FLUTTER_BUILD_NUMBER)</string>
+    <key>LSRequiresIPhoneOS</key>
+    <true/>
+    <key>UILaunchStoryboardName</key>
+    <string>LaunchScreen</string>
+    <key>UIMainStoryboardFile</key>
+    <string>Main</string>
+    <key>UISupportedInterfaceOrientations</key>
+    <array>
+        <string>UIInterfaceOrientationPortrait</string>
+    </array>
+    <key>UISupportedInterfaceOrientations~ipad</key>
+    <array>
+        <string>UIInterfaceOrientationPortrait</string>
+        <string>UIInterfaceOrientationPortraitUpsideDown</string>
+        <string>UIInterfaceOrientationLandscapeLeft</string>
+        <string>UIInterfaceOrientationLandscapeRight</string>
+    </array>
+    <key>UIViewControllerBasedStatusBarAppearance</key>
+    <false/>
+    <key>CADisableMinimumFrameDurationOnPhone</key>
+    <true/>
+    <key>UIApplicationSupportsIndirectInputEvents</key>
+    <true/>
+    <!-- Location permissions -->
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>NIKAT needs your location to find nearby shops and services.</string>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>NIKAT uses your location to show nearby services and for order tracking.</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>NIKAT uses your location in the background for live order tracking.</string>
+    <!-- Camera and photo library -->
+    <key>NSCameraUsageDescription</key>
+    <string>NIKAT needs camera access to upload shop and profile photos.</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>NIKAT needs photo library access to upload images.</string>
+    <key>NSPhotoLibraryAddUsageDescription</key>
+    <string>NIKAT would like to save photos to your library.</string>
+    <!-- Contacts (for autofill) -->
+    <key>NSContactsUsageDescription</key>
+    <string>NIKAT uses contacts for easier phone number entry.</string>
+    <!-- Face ID / Touch ID -->
+    <key>NSFaceIDUsageDescription</key>
+    <string>NIKAT uses Face ID for secure and fast login.</string>
+    <!-- Deep link scheme -->
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleURLName</key>
+            <string>com.nikat.app</string>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>nikat</string>
+            </array>
+        </dict>
+    </array>
+    <!-- Google Maps API Key -->
+    <key>GMSApiKey</key>
+    <string>YOUR_GOOGLE_MAPS_IOS_API_KEY</string>
+    <key>FirebaseAppDelegateProxyEnabled</key>
+    <false/>
+</dict>
+</plist>

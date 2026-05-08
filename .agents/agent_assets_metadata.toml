@@ -1,0 +1,8 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "LMjM772d4ux2Ctnllv8or"
+uri = "file://nikat_flutter_project.zip"
+type = "unspecified"
+title = "NIKAT Flutter Project (Android + iOS)"

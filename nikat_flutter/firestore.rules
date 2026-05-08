@@ -1,0 +1,100 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Users: read own, write own, admin reads all
+    match /users/{userId} {
+      allow read: if request.auth != null && (request.auth.uid == userId || isAdmin());
+      allow write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Providers: anyone can read active/verified, only owner writes
+    match /providers/{providerId} {
+      allow read: if true;
+      allow create: if request.auth != null && request.resource.data.userId == request.auth.uid;
+      allow update: if request.auth != null && (
+        resource.data.userId == request.auth.uid ||
+        isAdmin()
+      );
+      allow delete: if isAdmin();
+    }
+
+    // Orders: owner and provider can read/write
+    match /orders/{orderId} {
+      allow read: if request.auth != null && (
+        resource.data.userId == request.auth.uid ||
+        isProvider(resource.data.providerId) ||
+        isAdmin()
+      );
+      allow create: if request.auth != null;
+      allow update: if request.auth != null && (
+        resource.data.userId == request.auth.uid ||
+        isProvider(resource.data.providerId) ||
+        isAdmin()
+      );
+    }
+
+    // Reviews: anyone reads, authenticated writes own
+    match /reviews/{reviewId} {
+      allow read: if true;
+      allow create: if request.auth != null && request.resource.data.userId == request.auth.uid;
+      allow update, delete: if isAdmin();
+    }
+
+    // Subscriptions: own user reads/writes, admin all
+    match /subscriptions/{subId} {
+      allow read: if request.auth != null && (
+        resource.data.userId == request.auth.uid || isAdmin()
+      );
+      allow write: if request.auth != null && (
+        request.resource.data.userId == request.auth.uid || isAdmin()
+      );
+    }
+
+    // Notifications: own user reads, backend writes
+    match /notifications/{notifId} {
+      allow read: if request.auth != null && resource.data.userId == request.auth.uid;
+      allow write: if isAdmin();
+    }
+
+    // Chats: participants can read/write
+    match /chats/{chatId} {
+      allow read, write: if request.auth != null && request.auth.uid in resource.data.participants;
+
+      match /messages/{messageId} {
+        allow read, write: if request.auth != null;
+      }
+    }
+
+    // KYC: only owner and admin
+    match /kyc/{kycId} {
+      allow read: if request.auth != null && (
+        resource.data.userId == request.auth.uid || isAdmin()
+      );
+      allow write: if request.auth != null && request.resource.data.userId == request.auth.uid;
+    }
+
+    // Categories: public read, admin write
+    match /categories/{catId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Payments: own read, backend write
+    match /payments/{paymentId} {
+      allow read: if request.auth != null && resource.data.userId == request.auth.uid;
+      allow write: if isAdmin();
+    }
+
+    // Helper functions
+    function isAdmin() {
+      return request.auth != null &&
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+
+    function isProvider(providerId) {
+      let provider = get(/databases/$(database)/documents/providers/$(providerId));
+      return provider.data.userId == request.auth.uid;
+    }
+  }
+}

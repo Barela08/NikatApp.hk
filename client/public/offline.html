@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NIKAT – Offline</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #000;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
+    }
+    .logo {
+      font-size: 72px;
+      font-weight: 800;
+      color: #00FF88;
+      letter-spacing: 6px;
+      margin-bottom: 8px;
+    }
+    .icon {
+      font-size: 80px;
+      margin-bottom: 24px;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.7; transform: scale(0.95); }
+    }
+    h1 { font-size: 24px; font-weight: 700; margin-bottom: 12px; }
+    p { color: #888; font-size: 15px; line-height: 1.6; max-width: 300px; margin-bottom: 32px; }
+    button {
+      background: #00FF88;
+      color: #000;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 14px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+    button:hover { transform: scale(1.03); opacity: 0.9; }
+    .footer { margin-top: 48px; color: #333; font-size: 12px; }
+  </style>
+</head>
+<body>
+  <div class="icon">📡</div>
+  <div class="logo">NIKAT</div>
+  <h1>You're Offline</h1>
+  <p>No internet connection detected. Please check your network and try again.</p>
+  <button onclick="window.location.reload()">Try Again</button>
+  <div class="footer">NIKAT – Har Dukaan, Har Service</div>
+</body>
+</html>
