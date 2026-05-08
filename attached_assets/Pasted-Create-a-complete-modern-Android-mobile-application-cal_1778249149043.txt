@@ -1,0 +1,476 @@
+Create a complete modern Android mobile application called “NIKAT” based on the provided PDF/project documentation. 0
+
+IMPORTANT:
+App must be fully functional, professional, scalable, bug-free, responsive, and production-ready.
+All buttons, pages, APIs, authentication systems, database systems, dashboards, and flows must work properly.
+Use clean architecture and optimized performance.
+
+==================================================
+APP START FLOW
+==================================================
+
+When the app starts:
+
+1. Show Splash Screen with NIKAT logo animation
+2. Then open Language Selection Screen FIRST
+3. User must choose preferred language before entering app
+4. After selecting language:
+   - Save language locally
+   - Translate complete app dynamically
+   - Open onboarding / welcome screen
+
+Supported Languages:
+- Hindi
+- English
+- Gujarati
+- Marathi
+- Tamil
+- Telugu
+- Bengali
+- Punjabi
+- Kannada
+- Malayalam
+- Odia
+- Assamese
+
+App must support:
+- Multi-language dynamic translation
+- Voice/icon-based navigation
+- Illiterate-friendly UI
+- Big buttons
+- Minimal text
+- Simple layout
+
+==================================================
+APP THEME & UI DESIGN
+==================================================
+
+Design Style:
+- Black + Neon Green Premium UI
+- Futuristic modern design
+- Smooth animations
+- Rounded cards
+- Soft shadows
+- Glassmorphism effects
+- Responsive on all screen sizes
+
+UI Requirements:
+- Easy for old age & illiterate users
+- Large icons
+- Category image buttons
+- Fast navigation
+- Minimal loading time
+- Dark mode optimized
+- Professional spacing and typography
+
+==================================================
+AUTHENTICATION SYSTEM
+==================================================
+
+Implement complete OTP Login System using Firebase Authentication.
+
+Features:
+- Mobile number login
+- OTP verification
+- Auto OTP detection
+- Session persistence
+- Secure login
+- Logout system
+- Error handling
+- Loading animations
+
+Screens:
+- Login Screen
+- OTP Verification Screen
+- Register Screen
+
+==================================================
+USER ROLE SYSTEM
+==================================================
+
+After language selection user chooses role:
+
+1. Customer/User
+2. Service Provider/Shop Owner
+3. Admin
+
+Each role must have separate dashboard and permissions.
+
+==================================================
+USER REGISTRATION SYSTEM
+==================================================
+
+Customer Registration:
+- Full Name
+- City
+- Phone Number
+- Profile Image
+- Save to Firestore
+
+Provider Registration:
+STEP 1:
+- Shop Name
+- Owner Name
+- Category
+- Mobile Number
+- Address
+- City
+- Shop Description
+
+STEP 2:
+- Aadhaar Verification (KYC)
+- Secure API Integration
+- Store encrypted reference only
+- Never store raw Aadhaar number
+
+STEP 3:
+- Subscription Payment
+- Activate shop after successful payment
+
+==================================================
+HOME SCREEN
+==================================================
+
+Create advanced home screen with:
+
+- Search bar
+- Nearby services
+- Category grid
+- Top providers
+- Emergency services
+- Popular services
+- Recommended shops
+- Real-time offers
+- Banner slider
+- Voice search
+- Quick action buttons
+
+Categories:
+- Electrician
+- Plumber
+- Carpenter
+- AC Repair
+- Medical
+- Salon
+- Home Services
+- Rentals
+- Vehicle Services
+- Packers & Movers
+- Electronics
+- Education
+- Agriculture
+- Jobs
+- Events
+- Cleaning
+- More
+
+==================================================
+SHOP LISTING SYSTEM
+==================================================
+
+Create dynamic provider listing.
+
+Each card must show:
+- Shop image
+- Shop name
+- Rating
+- Distance
+- Premium badge
+- Open/Closed status
+- Call button
+- WhatsApp button
+
+Filters:
+- Distance
+- Rating
+- Premium
+- Category
+- Nearby
+
+==================================================
+SHOP DETAIL PAGE
+==================================================
+
+Include:
+- Shop gallery
+- Description
+- Services
+- Ratings & reviews
+- Call option
+- WhatsApp option
+- Google Maps direction
+- Live location
+- Order button
+- Save/favorite option
+
+==================================================
+CALL & WHATSAPP SYSTEM
+==================================================
+
+Implement:
+- One tap calling
+- WhatsApp direct messaging
+- Auto pre-filled message
+- Permission handling
+- Open native dialer
+- Real-time communication
+
+==================================================
+GOOGLE MAP & LOCATION SYSTEM
+==================================================
+
+Features:
+- Live user location
+- Nearby providers
+- Distance calculation
+- Open in Google Maps
+- Navigation support
+- Delivery tracking
+- Location permissions
+- Real-time coordinates
+
+==================================================
+SUBSCRIPTION SYSTEM
+==================================================
+
+Create subscription plans:
+
+FREE PLAN
+- Limited access
+
+PREMIUM PLANS
+- ₹49
+- ₹99
+- ₹199
+- ₹399
+
+Premium Features:
+- Unlock phone numbers
+- Unlimited contact access
+- Priority listing
+- Premium badge
+- Exclusive offers
+
+Integrate:
+- Razorpay / UPI Payment Gateway
+- Payment verification
+- Subscription activation
+- Expiry system
+
+==================================================
+LOCK SYSTEM
+==================================================
+
+If user is not subscribed:
+- Hide provider phone number
+- Disable WhatsApp
+- Disable direct contact
+- Show Unlock Premium popup
+
+==================================================
+ORDER SYSTEM
+==================================================
+
+Create complete order flow:
+
+User:
+- Place order
+- Select address
+- Payment method
+- Track order
+- View order history
+
+Provider:
+- Accept order
+- Reject order
+- Update status
+- Complete order
+
+Order Status:
+- Placed
+- Confirmed
+- On The Way
+- Delivered
+- Cancelled
+
+==================================================
+LIVE ORDER TRACKING
+==================================================
+
+Implement:
+- Real-time Firebase tracking
+- Rider/provider live location
+- ETA calculation
+- Real-time updates
+- Tracking map
+
+==================================================
+NOTIFICATION SYSTEM
+==================================================
+
+Use Firebase Cloud Messaging.
+
+Notifications:
+- Order updates
+- Promotions
+- Offers
+- Subscription expiry
+- Admin alerts
+- Chat alerts
+
+==================================================
+PROVIDER DASHBOARD
+==================================================
+
+Provider can:
+- Add/Edit shop
+- Upload images
+- Manage services
+- View earnings
+- Manage orders
+- Update profile
+- View analytics
+- Create offers
+
+==================================================
+ADMIN PANEL
+==================================================
+
+Create complete Admin Dashboard.
+
+Admin Controls:
+- Manage users
+- Manage providers
+- Verify KYC
+- Manage payments
+- Manage subscriptions
+- Approve/reject shops
+- View analytics
+- Send notifications
+- Ban/report users
+- Manage categories
+- Revenue dashboard
+
+==================================================
+ANALYTICS SYSTEM
+==================================================
+
+Analytics Features:
+- User growth
+- Revenue stats
+- Most searched categories
+- Active providers
+- Order analytics
+- Monthly reports
+- Graphs & charts
+
+==================================================
+OFFLINE SUPPORT
+==================================================
+
+Implement:
+- Offline caching
+- Local storage
+- Auto sync when internet returns
+- Fast loading
+
+==================================================
+BACKEND & DATABASE
+==================================================
+
+Backend:
+- Firebase Auth
+- Firestore Database
+- Firebase Storage
+- Cloud Functions
+- FCM Notifications
+
+Database Collections:
+- users
+- providers
+- orders
+- subscriptions
+- reviews
+- notifications
+- payments
+- kyc
+- analytics
+
+==================================================
+SECURITY
+==================================================
+
+Implement:
+- Role-based access
+- Firebase security rules
+- Encrypted data
+- Secure APIs
+- Token validation
+- Crash protection
+- Anti-spam
+- Fraud prevention
+
+==================================================
+PERFORMANCE OPTIMIZATION
+==================================================
+
+Optimize:
+- Lazy loading
+- Image compression
+- Smooth scrolling
+- Fast startup
+- API caching
+- Error handling
+- Crash reporting
+
+==================================================
+TECH STACK
+==================================================
+
+Frontend:
+- Flutter
+
+Backend:
+- Firebase
+
+Admin Panel:
+- Flutter Web / Next.js
+
+State Management:
+- Provider / Riverpod / Bloc
+
+==================================================
+FINAL REQUIREMENTS
+==================================================
+
+The app must:
+- Work smoothly on Android
+- Be scalable
+- Have clean code structure
+- Use reusable components
+- Follow modern architecture
+- Include loading states
+- Include empty states
+- Include proper validations
+- Handle all errors gracefully
+- Be deployment-ready
+
+Generate:
+- Full source code
+- Folder structure
+- Firebase integration
+- UI screens
+- APIs
+- Database models
+- Working backend logic
+- Admin panel
+- APK-ready project
+
+App Name:
+NIKAT
+
+Tagline:
+“Har Dukaan, Har Service – Ek Jagah”
+
+Goal:
+Build a trusted hyperlocal ecosystem for India with multi-language support, simple UI, secure onboarding, real-time services, and easy access for every Indian user.

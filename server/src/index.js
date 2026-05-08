@@ -29,6 +29,6 @@ app.use('/api/favorites', favoriteRoutes);
 
 app.get('/api/health', (req, res) => res.json({ success: true, message: 'NIKAT API running' }));
 
-app.listen(PORT, 'localhost', () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`NIKAT API server running on port ${PORT}`);
 });

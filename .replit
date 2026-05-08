@@ -1,4 +1,4 @@
-modules = ["nodejs-20", "postgresql-16"]
+modules = ["nodejs-20", "web", "postgresql-16"]
 [agent]
 expertMode = true
 stack = "BEST_EFFORT_FALLBACK"
@@ -22,13 +22,13 @@ args = "Start application"
 name = "Start application"
 author = "agent"
 
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "npx concurrently \"node server/src/index.js\" \"npx vite client --port 5000 --host 0.0.0.0\""
-waitForPort = 5000
-
 [workflows.workflow.metadata]
 outputType = "webview"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "node server/src/index.js & cd client && npx vite --port 5000 --host 0.0.0.0"
+waitForPort = 5000
 
 [[ports]]
 localPort = 3001
@@ -42,3 +42,8 @@ externalPort = 80
 deploymentTarget = "autoscale"
 run = ["bash", "-c", "node server/src/index.js & npx serve dist/public -l 5000 -s"]
 build = ["bash", "-c", "cd client && npx vite build --outDir ../dist/public"]
+
+[userenv]
+
+[userenv.shared]
+JWT_SECRET = "nikat_jwt_secret_replit_2024"
